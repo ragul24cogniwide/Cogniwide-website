@@ -96,8 +96,8 @@ const CogniXcellerate = () => {
           {/* Left Content */}
           <div className="space-y-8">
             {/* Badge */}
-            <div className="inline-flex items-center space-x-2 bg-cyan-50 text-cyan-700 px-4 py-2 rounded-full text-sm font-medium">
-              <div className="w-2 h-2 bg-cyan-500 rounded-full"></div>
+            <div className="inline-flex items-center space-x-2 bg-cyan-50 text-cyan-700 px-4 py-2 rounded-full text-sm font-medium animate-bounce-slow">
+              <div className="w-2 h-2 bg-cyan-500 rounded-full "></div>
               <span>Flagship AI Orchestration Platform</span>
             </div>
 

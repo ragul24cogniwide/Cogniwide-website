@@ -1,1 +1,21 @@
 @import "tailwindcss";
+
+@theme {
+  --color-brandblue: #1E40AF;
+  --color-brandpink: #EC4899;
+
+  /* Custom animation tokens */
+  --animate-bounce-slow: bounce 3s infinite;
+  --animate-fade-in: fade-in 1s ease-in-out;
+}
+
+@keyframes fade-in {
+  0% { opacity: 0 }
+  100% { opacity: 1 }
+}
+
+
+
+.animate-spin-slow {
+    animation: spin 4s linear infinite;
+  }
