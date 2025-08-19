@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import logo from '../assets/CogniwideNewLogo.png'; // Adjust path if your file structure differs
 
 // Enhanced Chevron Icon with better styling
 const ChevronDownIcon = ({ className }) => (
@@ -99,11 +100,16 @@ const Header = () => {
     <header className="fixed w-full top-0 z-40 bg-purple-400/8 backdrop-blur-xl shadow-lg border-b border-purple-200/25">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-18">
-          {/* Sleek and clean logo */}
-          <div className="flex-shrink-0">
-            <h1 className="text-xl font-medium text-gray-900 cursor-pointer hover:text-purple-700 transition-colors duration-300 tracking-wide font-sans">
-              Cogniwide
-            </h1>
+          {/* Logo image (replaces text title) */}
+          <div className="flex-shrink-0 mt-2">
+            <a href="#" className="inline-flex items-center">
+              <img
+                src={logo}
+                alt="Cogniwide Logo"
+                className="h-8 w-auto object-contain select-none"
+                draggable="false"
+              />
+            </a>
           </div>
           
           {/* Desktop Navigation with highly visible hover effects */}
