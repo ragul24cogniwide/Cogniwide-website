@@ -444,7 +444,7 @@ actions: ['validate', 'process', 'notify']
       </div>
       <div className="mt-8 text-center">
         <h3 className="text-2xl font-bold text-gray-900 mb-2">
-          Customer Success Stories
+          Customer Success Stor
         </h3>
         <p className="text-gray-700">
           Real implementations, measurable results, and transformative outcomes
