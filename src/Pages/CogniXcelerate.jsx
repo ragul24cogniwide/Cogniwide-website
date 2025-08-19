@@ -104,7 +104,7 @@ const CogniXcellerate = () => {
     <div className="max-w-7xl mx-auto px-6 py-12">
       <div className="grid lg:grid-cols-2 gap-12 items-center">
         {/* Left Content */}
-        <div className="space-y-8">
+        <div className="space-y-2">
           {/* Badge */}
           <div className="inline-flex items-center space-x-2 bg-cyan-50 text-cyan-700 px-4 py-2 rounded-full text-sm font-medium animate-bounce-slow">
             <div className="w-2 h-2 bg-cyan-500 rounded-full"></div>
@@ -214,83 +214,84 @@ const CogniXcellerate = () => {
     </div>
 
     {/* Technical Architecture Section */}
-    <section className="bg-background py-16">
-      <div className="max-w-7xl mx-auto px-6">
-        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-10 text-center">
-          Technical Architecture
-        </h2>
+    <section className="bg-background py-12 sm:py-16">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-8 sm:mb-10 text-center">
+      Technical Architecture
+    </h2>
 
-        <div className="grid md:grid-cols-2 gap-8">
-          {/* API Integration Card */}
-          <div className="bg-gray-900 rounded-2xl p-6 shadow-2xl border border-gray-800">
-            <h3 className="text-xl font-semibold text-cyan-300 mb-4">API Integration</h3>
-            <pre className="bg-gray-950 text-gray-100 rounded-xl p-4 overflow-auto text-sm font-mono">{`// Initialize CogniXcellerate SDK
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+      {/* API Integration Card */}
+      <div className="bg-gray-900 rounded-2xl p-4 sm:p-6 shadow-2xl border border-gray-800">
+        <h3 className="text-lg sm:text-xl font-semibold text-cyan-300 mb-3 sm:mb-4">
+          API Integration
+        </h3>
+        <pre className="bg-gray-950 text-gray-100 rounded-xl p-3 sm:p-4 overflow-auto text-xs sm:text-sm font-mono">{`// Initialize CogniXcellerate SDK
 const cogni = new CogniXcellerate({
-apiKey: 'your-api-key',
-environment: 'production'
+  apiKey: 'your-api-key',
+  environment: 'production'
 });
 
 // Create workflow
 const workflow = await cogni.workflows.create({
-name: 'Customer Onboarding',
-triggers: ['form_submission'],
-actions: ['validate', 'process', 'notify']
+  name: 'Customer Onboarding',
+  triggers: ['form_submission'],
+  actions: ['validate', 'process', 'notify']
 });`}</pre>
-            <ul className="mt-6 space-y-3">
-              <li className="flex items-start gap-3">
-                <span className="mt-1 w-2 h-2 rounded-full bg-cyan-400"></span>
-                <span className="text-gray-300">RESTful API with GraphQL support</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="mt-1 w-2 h-2 rounded-full bg-cyan-400"></span>
-                <span className="text-gray-300">Real-time WebSocket connections</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="mt-1 w-2 h-2 rounded-full bg-cyan-400"></span>
-                <span className="text-gray-300">OAuth 2.0 and SAML authentication</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="mt-1 w-2 h-2 rounded-full bg-cyan-400"></span>
-                <span className="text-gray-300">Enterprise-grade security</span>
-              </li>
-            </ul>
+        <ul className="mt-4 sm:mt-6 space-y-2 sm:space-y-3">
+          <li className="flex items-start gap-2 sm:gap-3">
+            <span className="mt-1 w-2 h-2 rounded-full bg-cyan-400"></span>
+            <span className="text-gray-300 text-sm sm:text-base">RESTful API with GraphQL support</span>
+          </li>
+          <li className="flex items-start gap-2 sm:gap-3">
+            <span className="mt-1 w-2 h-2 rounded-full bg-cyan-400"></span>
+            <span className="text-gray-300 text-sm sm:text-base">Real-time WebSocket connections</span>
+          </li>
+          <li className="flex items-start gap-2 sm:gap-3">
+            <span className="mt-1 w-2 h-2 rounded-full bg-cyan-400"></span>
+            <span className="text-gray-300 text-sm sm:text-base">OAuth 2.0 and SAML authentication</span>
+          </li>
+          <li className="flex items-start gap-2 sm:gap-3">
+            <span className="mt-1 w-2 h-2 rounded-full bg-cyan-400"></span>
+            <span className="text-gray-300 text-sm sm:text-base">Enterprise-grade security</span>
+          </li>
+        </ul>
+      </div>
+
+      {/* System Architecture */}
+      <div className="bg-gray-900 rounded-2xl p-4 sm:p-6 shadow-2xl border border-gray-800">
+        <h3 className="text-lg sm:text-xl font-semibold text-cyan-300 mb-3 sm:mb-4">
+          System Architecture
+        </h3>
+        <div className="space-y-4 sm:space-y-6">
+          <div>
+            <div className="text-gray-400 text-xs sm:text-sm mb-1 sm:mb-2">Presentation Layer</div>
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-3">
+              <div className="bg-gray-800 px-3 py-2 sm:px-4 sm:py-3 rounded-lg text-center text-gray-200 text-sm">Web UI</div>
+              <div className="bg-gray-800 px-3 py-2 sm:px-4 sm:py-3 rounded-lg text-center text-gray-200 text-sm">Mobile</div>
+              <div className="bg-gray-800 px-3 py-2 sm:px-4 sm:py-3 rounded-lg text-center text-gray-200 text-sm">API</div>
+            </div>
           </div>
-
-          
-
-          {/* System Architecture */}
-          <div className="bg-gray-900 rounded-2xl p-6 shadow-2xl border border-gray-800">
-            <h3 className="text-xl font-semibold text-cyan-300 mb-4">System Architecture</h3>
-            <div className="space-y-6">
-              <div>
-                <div className="text-gray-400 text-sm mb-2">Presentation Layer</div>
-                <div className="grid grid-cols-3 gap-3">
-                  <div className="bg-gray-800 px-4 py-3 rounded-lg text-center text-gray-200">Web UI</div>
-                  <div className="bg-gray-800 px-4 py-3 rounded-lg text-center text-gray-200">Mobile</div>
-                  <div className="bg-gray-800 px-4 py-3 rounded-lg text-center text-gray-200">API</div>
-                </div>
-              </div>
-              <div>
-                <div className="text-gray-400 text-sm mb-2">Business Logic</div>
-                <div className="grid grid-cols-2 gap-3">
-                  <div className="bg-gray-800 px-4 py-3 rounded-lg text-center text-gray-200">Workflow Engine</div>
-                  <div className="bg-gray-800 px-4 py-3 rounded-lg text-center text-gray-200">AI Orchestrator</div>
-                </div>
-              </div>
-              <div>
-                <div className="text-gray-400 text-sm mb-2">Data Layer</div>
-                <div className="grid grid-cols-3 gap-3">
-                  <div className="bg-gray-800 px-4 py-3 rounded-lg text-center text-gray-200">PostgreSQL</div>
-                  <div className="bg-gray-800 px-4 py-3 rounded-lg text-center text-gray-200">Redis</div>
-                  <div className="bg-gray-800 px-4 py-3 rounded-lg text-center text-gray-200">MongoDB</div>
-                </div>
-              </div>
+          <div>
+            <div className="text-gray-400 text-xs sm:text-sm mb-1 sm:mb-2">Business Logic</div>
+            <div className="grid grid-cols-2 gap-2 sm:gap-3">
+              <div className="bg-gray-800 px-3 py-2 sm:px-4 sm:py-3 rounded-lg text-center text-gray-200 text-sm">Workflow Engine</div>
+              <div className="bg-gray-800 px-3 py-2 sm:px-4 sm:py-3 rounded-lg text-center text-gray-200 text-sm">AI Orchestrator</div>
+            </div>
+          </div>
+          <div>
+            <div className="text-gray-400 text-xs sm:text-sm mb-1 sm:mb-2">Data Layer</div>
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-3">
+              <div className="bg-gray-800 px-3 py-2 sm:px-4 sm:py-3 rounded-lg text-center text-gray-200 text-sm">PostgreSQL</div>
+              <div className="bg-gray-800 px-3 py-2 sm:px-4 sm:py-3 rounded-lg text-center text-gray-200 text-sm">Redis</div>
+              <div className="bg-gray-800 px-3 py-2 sm:px-4 sm:py-3 rounded-lg text-center text-gray-200 text-sm">MongoDB</div>
             </div>
           </div>
         </div>
       </div>
-    </section>
-
+    </div>
+  </div>
+</section>
 
     {/* Core Capabilities Section */}
 <section className="bg-background py-16">
