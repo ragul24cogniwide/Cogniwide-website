@@ -99,7 +99,7 @@ const CogniXcellerate = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-amber-50">
+    <div className="min-h-screen bg-background">
     {/* Main Content */}
     <div className="max-w-7xl mx-auto px-6 py-12">
       <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -214,7 +214,7 @@ const CogniXcellerate = () => {
     </div>
 
     {/* Technical Architecture Section */}
-    <section className="bg-amber-50 py-16">
+    <section className="bg-background py-16">
       <div className="max-w-7xl mx-auto px-6">
         <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-10 text-center">
           Technical Architecture
@@ -293,7 +293,7 @@ actions: ['validate', 'process', 'notify']
 
 
     {/* Core Capabilities Section */}
-<section className="bg-amber-50 py-16">
+<section className="bg-background py-16">
   <div className="max-w-7xl mx-auto px-6">
     <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8 text-center">
       Core Capabilities
@@ -405,7 +405,7 @@ actions: ['validate', 'process', 'notify']
 
 
 {/* Implemenation roadmap */}
-<section className="bg-amber-50 py-16 px-4 flex flex-col items-center">
+<section className="bg-background py-16 px-4 flex flex-col items-center">
       <h2 className="text-3xl font-bold text-gray-900 mb-1 text-center">
         Implementation Roadmap
       </h2>
@@ -444,7 +444,7 @@ actions: ['validate', 'process', 'notify']
       </div>
       <div className="mt-8 text-center">
         <h3 className="text-2xl font-bold text-gray-900 mb-2">
-          Customer Success Stor
+          Customer Success Stores
         </h3>
         <p className="text-gray-700">
           Real implementations, measurable results, and transformative outcomes
@@ -454,7 +454,7 @@ actions: ['validate', 'process', 'notify']
 
 
     {/* why we choose us */}
-    <section className="bg-amber-50 py-12 px-4 flex flex-col items-center">
+    <section className="bg-background py-12 px-4 flex flex-col items-center">
       <h2 className="text-3xl text-gray-900 font-bold text-center mb-3">
         Why Choose CogniXcellerate
       </h2>
