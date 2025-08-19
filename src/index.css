@@ -1,1 +1,39 @@
 @import "tailwindcss";
+
+@theme {
+  /* Brand colors */
+  --color-brandblue: #1E40AF;
+  --color-brandpink: #EC4899;
+
+  /* Fonts */
+  --font-sans: 'Inter', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  --font-heading: 'Poppins', 'Inter', sans-serif;
+  --font-mono: 'Fira Code', monospace;
+
+  /* Gradient colors */
+  --color-purple: #8B5CF6;
+  --color-orange: #F97316;
+  --color-gradient-purple-orange: linear-gradient(to right, #8B5CF6, #F97316);
+
+  /* Custom animation tokens */
+  --animate-bounce-slow: bounce 3s infinite;
+  --animate-fade-in: fade-in 4s ease-in-out;
+  --animate-pulse-slow: pulse 4s infinite;
+  --animate-slide-in: slide-in 0.8s ease-out forwards;
+  --animate-zoom-in: zoom-in 0.5s ease-in-out forwards;
+}
+
+@keyframes fade-in {
+  0%   { opacity: 0 }
+  100% { opacity: 1 }
+}
+
+@keyframes slide-in {
+  0%   { transform: translateY(40px); opacity: 0 }
+  100% { transform: translateY(0); opacity: 1 }
+}
+
+@keyframes zoom-in {
+  0%   { transform: scale(0.8); opacity: 0 }
+  100% { transform: scale(1); opacity: 1 }
+}
