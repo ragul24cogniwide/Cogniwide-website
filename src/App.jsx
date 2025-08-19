@@ -1,8 +1,10 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./Pages/Home";
+import CogniXcelerate from "./Pages/CogniXcelerate";
+import './App.css'
 import Header from './Components/Header';
-import './App.css';
+
 
 function App() {
   return (
@@ -12,6 +14,7 @@ function App() {
         <Router>
           <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/cognixcelerate" element={<CogniXcelerate />} />
       </Routes>
     </Router>
       </div>
