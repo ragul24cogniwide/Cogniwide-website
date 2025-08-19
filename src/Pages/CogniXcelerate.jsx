@@ -188,7 +188,7 @@ const CogniXcellerate = () => {
         {/* Technical Architecture Section */}
         <section className="bg-amber-50 py-16">
           <div className="max-w-7xl mx-auto px-6">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-10 text-center">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-10 text-center">
               Technical Architecture
             </h2>
   
@@ -260,6 +260,119 @@ const CogniXcellerate = () => {
             </div>
           </div>
         </section>
+
+        {/* {core cabalities} */}
+        {/* Core Capabilities Section */}
+<section className="bg-amber-50 py-16">
+  <div className="max-w-7xl mx-auto px-6">
+    <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-12 text-center">
+      Core Capabilities
+    </h2>
+
+    <p className="text-center text-gray-600 mb-16 max-w-3xl mx-auto">
+      Discover the powerful features that make CogniXcellerate the leading AI orchestration platform
+    </p>
+
+    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {/* Card 1 */}
+      <div className="bg-gray-900 rounded-2xl p-6 shadow-xl border border-gray-800 hover:shadow-2xl transition">
+        <div className="w-12 h-12 bg-cyan-500 rounded-lg flex items-center justify-center mb-4">
+          <span className="text-white text-xl">⚙️</span>
+        </div>
+        <h3 className="text-xl font-semibold text-white mb-3">Intelligent Orchestration</h3>
+        <p className="text-gray-400 mb-4">
+          Automatically coordinate complex workflows across multiple systems with AI-driven decision making and adaptive routing.
+        </p>
+        <ul className="space-y-2 text-sm text-gray-400">
+          <li>• Dynamic workflow adaptation</li>
+          <li>• Multi-system integration</li>
+          <li>• Real-time monitoring</li>
+        </ul>
+      </div>
+
+      {/* Card 2 */}
+      <div className="bg-gray-900 rounded-2xl p-6 shadow-xl border border-gray-800 hover:shadow-2xl transition">
+        <div className="w-12 h-12 bg-cyan-500 rounded-lg flex items-center justify-center mb-4">
+          <span className="text-white text-xl">📊</span>
+        </div>
+        <h3 className="text-xl font-semibold text-white mb-3">Predictive Analytics</h3>
+        <p className="text-gray-400 mb-4">
+          Leverage machine learning algorithms to predict workflow bottlenecks and optimize resource allocation proactively.
+        </p>
+        <ul className="space-y-2 text-sm text-gray-400">
+          <li>• Bottleneck prediction</li>
+          <li>• Resource optimization</li>
+          <li>• Performance forecasting</li>
+        </ul>
+      </div>
+
+      {/* Card 3 */}
+      <div className="bg-gray-900 rounded-2xl p-6 shadow-xl border border-gray-800 hover:shadow-2xl transition">
+        <div className="w-12 h-12 bg-cyan-500 rounded-lg flex items-center justify-center mb-4">
+          <span className="text-white text-xl">🤖</span>
+        </div>
+        <h3 className="text-xl font-semibold text-white mb-3">Adaptive Learning</h3>
+        <p className="text-gray-400 mb-4">
+          Continuously improve workflow efficiency through machine learning that adapts to changing business patterns and requirements.
+        </p>
+        <ul className="space-y-2 text-sm text-gray-400">
+          <li>• Pattern recognition</li>
+          <li>• Continuous optimization</li>
+          <li>• Self-improving algorithms</li>
+        </ul>
+      </div>
+
+      {/* Card 4 */}
+      <div className="bg-gray-900 rounded-2xl p-6 shadow-xl border border-gray-800 hover:shadow-2xl transition">
+        <div className="w-12 h-12 bg-cyan-500 rounded-lg flex items-center justify-center mb-4">
+          <span className="text-white text-xl">🔒</span>
+        </div>
+        <h3 className="text-xl font-semibold text-white mb-3">Enterprise Security</h3>
+        <p className="text-gray-400 mb-4">
+          Built-in security framework with end-to-end encryption, audit trails, and compliance management for enterprise requirements.
+        </p>
+        <ul className="space-y-2 text-sm text-gray-400">
+          <li>• End-to-end encryption</li>
+          <li>• Comprehensive audit trails</li>
+          <li>• Compliance automation</li>
+        </ul>
+      </div>
+
+      {/* Card 5 */}
+      <div className="bg-gray-900 rounded-2xl p-6 shadow-xl border border-gray-800 hover:shadow-2xl transition">
+        <div className="w-12 h-12 bg-cyan-500 rounded-lg flex items-center justify-center mb-4">
+          <span className="text-white text-xl">📡</span>
+        </div>
+        <h3 className="text-xl font-semibold text-white mb-3">Real-time Monitoring</h3>
+        <p className="text-gray-400 mb-4">
+          Comprehensive monitoring dashboard with real-time alerts, performance metrics, and detailed analytics for complete visibility.
+        </p>
+        <ul className="space-y-2 text-sm text-gray-400">
+          <li>• Live performance metrics</li>
+          <li>• Intelligent alerting</li>
+          <li>• Custom dashboards</li>
+        </ul>
+      </div>
+
+      {/* Card 6 */}
+      <div className="bg-gray-900 rounded-2xl p-6 shadow-xl border border-gray-800 hover:shadow-2xl transition">
+        <div className="w-12 h-12 bg-cyan-500 rounded-lg flex items-center justify-center mb-4">
+          <span className="text-white text-xl">☁️</span>
+        </div>
+        <h3 className="text-xl font-semibold text-white mb-3">Scalable Infrastructure</h3>
+        <p className="text-gray-400 mb-4">
+          Cloud-native architecture that automatically scales to handle increasing workloads while maintaining optimal performance.
+        </p>
+        <ul className="space-y-2 text-sm text-gray-400">
+          <li>• Auto-scaling capabilities</li>
+          <li>• Load balancing</li>
+          <li>• High availability</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
       </div>
     );
   };
