@@ -98,13 +98,50 @@ const CogniXcellerate = () => {
     },
   ];
 
+  const caseStudies = [
+    {
+      icon: "TC",
+      name: "Global Telecom Corp",
+      subtitle: "Fortune 500 Telecommunications",
+      challenge:
+        "Manual customer onboarding process taking 14 days with 23% error rate across multiple legacy systems.",
+      solution:
+        "Implemented CogniXcellerate to orchestrate end-to-end customer onboarding with intelligent validation and routing.",
+      metrics: [
+        { label: "Onboarding Time", value: "2 Days" },
+        { label: "Error Rate", value: "1.2%" },
+        { label: "Annual Savings", value: "$3.2M" }
+      ],
+      quote:
+        "\"CogniXcellerate transformed our customer onboarding from a 14-day manual nightmare to a 2-day automated experience. The ROI was evident within the first quarter.\"",
+      person: "Sarah Chen – CTO, Global Telecom Corp"
+    },
+    {
+      icon: "PF",
+      name: "Premier Financial Services",
+      subtitle: "Regional Banking Institution",
+      challenge:
+        "Loan approval process involving 8 departments with average 21-day processing time and compliance bottlenecks.",
+      solution:
+        "Deployed CogniXcellerate for intelligent loan processing with automated compliance checks and risk assessment.",
+      metrics: [
+        { label: "Processing Time", value: "5 Days" },
+        { label: "Compliance Rate", value: "94%" },
+        { label: "Annual Savings", value: "$1.8M" }
+      ],
+      quote:
+        "\"The intelligent orchestration capabilities reduced our loan processing time by 76% while improving compliance accuracy. Our customers are delighted with the faster service.\"",
+      person: "Michael Rodriguez – VP Operations, Premier Financial"
+    }
+  ];
+
   return (
     <div className="min-h-screen bg-background">
     {/* Main Content */}
     <div className="max-w-7xl mx-auto px-6 py-12">
       <div className="grid lg:grid-cols-2 gap-12 items-center">
         {/* Left Content */}
-        <div className="space-y-8">
+        <div className="space-y-2">
           {/* Badge */}
           <div className="inline-flex items-center space-x-2 bg-cyan-50 text-cyan-700 px-4 py-2 rounded-full text-sm font-medium animate-bounce-slow">
             <div className="w-2 h-2 bg-cyan-500 rounded-full"></div>
@@ -116,7 +153,9 @@ const CogniXcellerate = () => {
             <h1 className="text-5xl lg:text-6xl font-bold leading-tight">
               <span
                 className="bg-clip-text text-transparent animate-fade-in"
-                style={{ backgroundImage: "var(--color-gradient-purple-orange)" }}
+                style={{
+                  backgroundImage: "linear-gradient(var(--color-purpletext), var(--color-purpletext))"
+                }}
               >
                 CogniXcellerate
               </span>
@@ -138,7 +177,9 @@ const CogniXcellerate = () => {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4">
-            <button className="text-white px-8 py-4 rounded-full font-semibold text-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 hover:from-cyan-600 hover:to-blue-700"  style={{ backgroundImage: "var(--color-gradient-purple-orange)" }}>
+            <button className="text-white px-8 py-4 rounded-full font-semibold text-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 hover:from-cyan-600 hover:to-blue-700"  style={{
+    backgroundImage: "linear-gradient(var(--color-purpletext), var(--color-purpletext))"
+  }}>
               Initiate Innovation → Start POC
             </button>
             <button className="border-2 border-gray-300 text-gray-700 px-8 py-4 rounded-full font-semibold text-lg hover:border-gray-400 hover:bg-gray-50 transition-all duration-300">
@@ -214,83 +255,84 @@ const CogniXcellerate = () => {
     </div>
 
     {/* Technical Architecture Section */}
-    <section className="bg-background py-16">
-      <div className="max-w-7xl mx-auto px-6">
-        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-10 text-center">
-          Technical Architecture
-        </h2>
+    <section className="bg-background py-12 sm:py-16">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-8 sm:mb-10 text-center">
+      Technical Architecture
+    </h2>
 
-        <div className="grid md:grid-cols-2 gap-8">
-          {/* API Integration Card */}
-          <div className="bg-gray-900 rounded-2xl p-6 shadow-2xl border border-gray-800">
-            <h3 className="text-xl font-semibold text-cyan-300 mb-4">API Integration</h3>
-            <pre className="bg-gray-950 text-gray-100 rounded-xl p-4 overflow-auto text-sm font-mono">{`// Initialize CogniXcellerate SDK
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+      {/* API Integration Card */}
+      <div className="bg-gray-900 rounded-2xl p-4 sm:p-6 shadow-2xl border border-gray-800">
+        <h3 className="text-lg sm:text-xl font-semibold text-cyan-300 mb-3 sm:mb-4">
+          API Integration
+        </h3>
+        <pre className="bg-gray-950 text-gray-100 rounded-xl p-3 sm:p-4 overflow-auto text-xs sm:text-sm font-mono">{`// Initialize CogniXcellerate SDK
 const cogni = new CogniXcellerate({
-apiKey: 'your-api-key',
-environment: 'production'
+  apiKey: 'your-api-key',
+  environment: 'production'
 });
 
 // Create workflow
 const workflow = await cogni.workflows.create({
-name: 'Customer Onboarding',
-triggers: ['form_submission'],
-actions: ['validate', 'process', 'notify']
+  name: 'Customer Onboarding',
+  triggers: ['form_submission'],
+  actions: ['validate', 'process', 'notify']
 });`}</pre>
-            <ul className="mt-6 space-y-3">
-              <li className="flex items-start gap-3">
-                <span className="mt-1 w-2 h-2 rounded-full bg-cyan-400"></span>
-                <span className="text-gray-300">RESTful API with GraphQL support</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="mt-1 w-2 h-2 rounded-full bg-cyan-400"></span>
-                <span className="text-gray-300">Real-time WebSocket connections</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="mt-1 w-2 h-2 rounded-full bg-cyan-400"></span>
-                <span className="text-gray-300">OAuth 2.0 and SAML authentication</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="mt-1 w-2 h-2 rounded-full bg-cyan-400"></span>
-                <span className="text-gray-300">Enterprise-grade security</span>
-              </li>
-            </ul>
+        <ul className="mt-4 sm:mt-6 space-y-2 sm:space-y-3">
+          <li className="flex items-start gap-2 sm:gap-3">
+            <span className="mt-1 w-2 h-2 rounded-full bg-cyan-400"></span>
+            <span className="text-gray-300 text-sm sm:text-base">RESTful API with GraphQL support</span>
+          </li>
+          <li className="flex items-start gap-2 sm:gap-3">
+            <span className="mt-1 w-2 h-2 rounded-full bg-cyan-400"></span>
+            <span className="text-gray-300 text-sm sm:text-base">Real-time WebSocket connections</span>
+          </li>
+          <li className="flex items-start gap-2 sm:gap-3">
+            <span className="mt-1 w-2 h-2 rounded-full bg-cyan-400"></span>
+            <span className="text-gray-300 text-sm sm:text-base">OAuth 2.0 and SAML authentication</span>
+          </li>
+          <li className="flex items-start gap-2 sm:gap-3">
+            <span className="mt-1 w-2 h-2 rounded-full bg-cyan-400"></span>
+            <span className="text-gray-300 text-sm sm:text-base">Enterprise-grade security</span>
+          </li>
+        </ul>
+      </div>
+
+      {/* System Architecture */}
+      <div className="bg-gray-900 rounded-2xl p-4 sm:p-6 shadow-2xl border border-gray-800">
+        <h3 className="text-lg sm:text-xl font-semibold text-cyan-300 mb-3 sm:mb-4">
+          System Architecture
+        </h3>
+        <div className="space-y-4 sm:space-y-6">
+          <div>
+            <div className="text-gray-400 text-xs sm:text-sm mb-1 sm:mb-2">Presentation Layer</div>
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-3">
+              <div className="bg-gray-800 px-3 py-2 sm:px-4 sm:py-3 rounded-lg text-center text-gray-200 text-sm">Web UI</div>
+              <div className="bg-gray-800 px-3 py-2 sm:px-4 sm:py-3 rounded-lg text-center text-gray-200 text-sm">Mobile</div>
+              <div className="bg-gray-800 px-3 py-2 sm:px-4 sm:py-3 rounded-lg text-center text-gray-200 text-sm">API</div>
+            </div>
           </div>
-
-          
-
-          {/* System Architecture */}
-          <div className="bg-gray-900 rounded-2xl p-6 shadow-2xl border border-gray-800">
-            <h3 className="text-xl font-semibold text-cyan-300 mb-4">System Architecture</h3>
-            <div className="space-y-6">
-              <div>
-                <div className="text-gray-400 text-sm mb-2">Presentation Layer</div>
-                <div className="grid grid-cols-3 gap-3">
-                  <div className="bg-gray-800 px-4 py-3 rounded-lg text-center text-gray-200">Web UI</div>
-                  <div className="bg-gray-800 px-4 py-3 rounded-lg text-center text-gray-200">Mobile</div>
-                  <div className="bg-gray-800 px-4 py-3 rounded-lg text-center text-gray-200">API</div>
-                </div>
-              </div>
-              <div>
-                <div className="text-gray-400 text-sm mb-2">Business Logic</div>
-                <div className="grid grid-cols-2 gap-3">
-                  <div className="bg-gray-800 px-4 py-3 rounded-lg text-center text-gray-200">Workflow Engine</div>
-                  <div className="bg-gray-800 px-4 py-3 rounded-lg text-center text-gray-200">AI Orchestrator</div>
-                </div>
-              </div>
-              <div>
-                <div className="text-gray-400 text-sm mb-2">Data Layer</div>
-                <div className="grid grid-cols-3 gap-3">
-                  <div className="bg-gray-800 px-4 py-3 rounded-lg text-center text-gray-200">PostgreSQL</div>
-                  <div className="bg-gray-800 px-4 py-3 rounded-lg text-center text-gray-200">Redis</div>
-                  <div className="bg-gray-800 px-4 py-3 rounded-lg text-center text-gray-200">MongoDB</div>
-                </div>
-              </div>
+          <div>
+            <div className="text-gray-400 text-xs sm:text-sm mb-1 sm:mb-2">Business Logic</div>
+            <div className="grid grid-cols-2 gap-2 sm:gap-3">
+              <div className="bg-gray-800 px-3 py-2 sm:px-4 sm:py-3 rounded-lg text-center text-gray-200 text-sm">Workflow Engine</div>
+              <div className="bg-gray-800 px-3 py-2 sm:px-4 sm:py-3 rounded-lg text-center text-gray-200 text-sm">AI Orchestrator</div>
+            </div>
+          </div>
+          <div>
+            <div className="text-gray-400 text-xs sm:text-sm mb-1 sm:mb-2">Data Layer</div>
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-3">
+              <div className="bg-gray-800 px-3 py-2 sm:px-4 sm:py-3 rounded-lg text-center text-gray-200 text-sm">PostgreSQL</div>
+              <div className="bg-gray-800 px-3 py-2 sm:px-4 sm:py-3 rounded-lg text-center text-gray-200 text-sm">Redis</div>
+              <div className="bg-gray-800 px-3 py-2 sm:px-4 sm:py-3 rounded-lg text-center text-gray-200 text-sm">MongoDB</div>
             </div>
           </div>
         </div>
       </div>
-    </section>
-
+    </div>
+  </div>
+</section>
 
     {/* Core Capabilities Section */}
 <section className="bg-background py-16">
@@ -415,7 +457,7 @@ actions: ['validate', 'process', 'notify']
       {/* Timeline */}
       <div className="relative flex flex-col items-center w-full max-w-4xl mx-auto">
         {/* Vertical line */}
-        <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-blue-200 z-0" style={{minHeight: "420px"}}/>
+        <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-purple z-0" style={{minHeight: "420px"}}/>
         {/* Steps */}
         {roadmapSteps.map((step, idx) => (
           <div
@@ -431,27 +473,185 @@ actions: ['validate', 'process', 'notify']
             >
               <h3 className="font-bold text-lg text-gray-900 mb-2">{step.title}</h3>
               <p className="text-gray-700 mb-2">{step.desc}</p>
-              <span className="block text-blue-700 font-semibold">{step.duration}</span>
+              <span className="block text-purple font-semibold">{step.duration}</span>
             </div>
             {/* Circle Marker & step number */}
             <div className="absolute left-1/2 transform -translate-x-1/2 flex flex-col items-center">
-              <div className="rounded-full bg-blue-700 text-white font-bold flex justify-center items-center w-8 h-8 border-4 border-white shadow-lg">
+              <div className="rounded-full bg-purple text-white font-bold flex justify-center items-center w-8 h-8 border-4 border-white shadow-lg">
                 {idx + 1}
               </div>
             </div>
           </div>
         ))}
       </div>
-      <div className="mt-8 text-center">
-        <h3 className="text-2xl font-bold text-gray-900 mb-2">
-          Customer Success Stores
-        </h3>
-        <p className="text-gray-700">
-          Real implementations, measurable results, and transformative outcomes
-        </p>
+    </section>
+
+    {/* Customer Success Stories */}
+    <section className="px-4 py-12 bg-background  flex flex-col items-center">
+      <h2 className="text-3xl md:text-4xl font-bold  mb-2 text-center" >
+        Customer Success Stories
+      </h2>
+      <p className="text-gray-500 max-w-xl mb-10 text-center">
+        Real implementations, measurable results, and transformative outcomes
+      </p>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-5xl">
+        {caseStudies.map((c, i) => (
+          <div
+            key={c.name}
+            className="bg-white rounded-2xl shadow-lg p-8 flex flex-col"
+          >
+            <div className="flex items-center gap-4 mb-6">
+              <div className=" rounded-lg w-16 h-16 flex items-center justify-center text-2xl font-bold text-white" style={{
+    backgroundImage: "linear-gradient(var(--color-purpletext), var(--color-purpletext))"
+  }}>
+                {c.icon}
+              </div>
+              <div>
+                <div className="font-bold text-lg text-gray-900">{c.name}</div>
+                <div className="text-gray-500 text-sm">{c.subtitle}</div>
+              </div>
+            </div>
+            <div className="mb-4">
+              <p className="font-semibold text-gray-700 mb-1">Challenge</p>
+              <p className="text-gray-600 text-sm">{c.challenge}</p>
+            </div>
+            <div className="mb-4">
+              <p className="font-semibold text-gray-700 mb-1">Solution</p>
+              <p className="text-gray-600 text-sm">{c.solution}</p>
+            </div>
+            <div className="flex flex-wrap gap-6 mb-4">
+              {c.metrics.map((m) => (
+                <div key={m.label} className="flex flex-col text-center">
+                  <span className="font-bold text-purpletext text-xl">
+                    {m.value}
+                  </span>
+                  <span className="text-xs text-gray-500">{m.label}</span>
+                </div>
+              ))}
+            </div>
+            <blockquote className="text-gray-700 italic text-sm border-l-4 border-purpletext pl-4 mb-2">
+              {c.quote}
+            </blockquote>
+            <span className="text-xs text-gray-400">{c.person}</span>
+          </div>
+        ))}
       </div>
     </section>
 
+    {/* Portal Integration */}
+    <section className="px-4 py-16 bg-background text-gray-900 flex flex-col items-center">
+    {/* Headings */}
+    <h2 className="text-3xl md:text-4xl font-bold text-center mb-2">
+      Portal Integration
+    </h2>
+    <p className="text-gray-500 text-center mb-12 max-w-2xl">
+      Experience CogniXcellerate through our interactive demonstration portal
+    </p>
+    <div className="max-w-6xl w-full grid md:grid-cols-2 gap-12">
+      {/* Portal - Live Demo */}
+      <div className="flex flex-col gap-6">
+        {/* Section Title */}
+        <div className="flex items-center gap-2">
+          <span className="font-semibold text-lg">Portal - Live Demo</span>
+          <span className="text-purple flex items-center gap-1 ml-4">
+            <span className="inline-block w-2 h-2 rounded-full bg-purple"></span>
+            <span className="text-sm font-medium">Interactive</span>
+          </span>
+        </div>
+        {/* Workflow Designer */}
+        <div className="bg-gray-900 rounded-xl p-6 flex flex-col gap-4">
+          <div className="flex items-center justify-between mb-2">
+            <span className="text-white font-medium">Workflow Designer</span>
+            <button className="text-purple rounded-full w-7 h-7 flex items-center justify-center bg-gray-800">
+              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-4 h-4">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7"/>
+              </svg>
+            </button>
+          </div>
+          <div className="flex flex-col md:flex-row gap-2">
+            {["Start", "Process", "Validate", "End"].map(b => (
+              <button
+                key={b}
+                className="flex-1 py-2 bg-purple hover:bg-sky-500 rounded-md font-semibold text-white transition text-sm"
+              >
+                {b}
+              </button>
+            ))}
+          </div>
+        </div>
+        {/* Performance Analytics */}
+        <div className="bg-gray-900 rounded-xl px-6 py-4 flex flex-col gap-1">
+          <div className="flex items-center justify-between text-sm pb-1">
+            <span className="text-white font-medium">Performance Analytics</span>
+            <span className="text-white font-bold">+23% this month</span>
+          </div>
+          <div className="w-full bg-gray-700 rounded-full h-2">
+            <div className="bg-purple h-2 rounded-full w-3/4"></div>
+          </div>
+        </div>
+        {/* API Integrations */}
+        <div className="bg-gray-900 rounded-xl px-6 py-4 flex justify-between items-center text-sm">
+          <span className="text-white font-medium">API Integrations</span>
+          <span className="text-white font-bold">12 Active</span>
+        </div>
+      </div>
+      {/* Interactive Experience */}
+      <div>
+        <div className="mb-6">
+          <span className="text-2xl font-bold">Interactive Experience</span>
+          <p className="text-gray-500 mt-2">
+            Explore CogniXcellerate's capabilities through our comprehensive demonstration portal with real-time simulations and guided tutorials.
+          </p>
+        </div>
+        <div className="flex flex-col gap-4 mb-8">
+          {/* Item */}
+          <div className="flex items-start gap-4">
+            <div className="bg-purple p-2 rounded-lg">
+              <svg className="w-6 h-6 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path d="M4 4h16v4H4zM4 10h16v4H4zM4 16h16v4H4z" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </div>
+            <div>
+              <div className="font-semibold">Workflow Designer</div>
+              <div className="text-gray-400 text-sm">Drag-and-drop interface for creating complex workflows</div>
+            </div>
+          </div>
+          <div className="flex items-start gap-4">
+            <div className="bg-purple p-2 rounded-lg">
+              <svg className="w-6 h-6 text-black" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M4 13h4v3H4v-3zm6 0h6v3h-6v-3zM3 9h14v2H3V9zm1-4h12v2H4V5z"/>
+              </svg>
+            </div>
+            <div>
+              <div className="font-semibold">Real-time Analytics</div>
+              <div className="text-gray-400 text-sm">Live performance metrics and optimization insights</div>
+            </div>
+          </div>
+          <div className="flex items-start gap-4">
+            <div className="bg-purple p-2 rounded-lg">
+              <svg className="w-6 h-6 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <rect x="3" y="3" width="18" height="18" rx="3" strokeWidth="2"/>
+                <path d="M8 9h8M8 15h8M8 12h8" strokeWidth="2"/>
+              </svg>
+            </div>
+            <div>
+              <div className="font-semibold">API Playground</div>
+              <div className="text-gray-400 text-sm">Test integrations with interactive API documentation</div>
+            </div>
+          </div>
+        </div>
+        {/* Action Buttons */}
+        <div className="flex gap-4">
+          <button className="px-5 py-2 rounded-md bg-purple text-black font-bold shadow-purple shadow-md hover:bg-sky-500 focus:outline-none transition focus:ring-2 focus:ring-sky-300">
+            Access Xcellerate Portal
+          </button>
+          <button className="px-5 py-2 rounded-md bg-transparent border border-gray-400 text-black font-bold hover:border-sky-400 focus:outline-none transition">
+            Schedule Guided Demo
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
 
     {/* why we choose us */}
     <section className="bg-background py-12 px-4 flex flex-col items-center">
@@ -467,7 +667,7 @@ actions: ['validate', 'process', 'notify']
           <thead className="bg-amber-100">
             <tr>
               <th className="px-6 py-3 text-start font-semibold text-gray-800">Feature</th>
-              <th className="px-6 py-3 text-start font-semibold text-blue-700">CogniXcellerate</th>
+              <th className="px-6 py-3 text-start font-semibold text-purple">CogniXcellerate</th>
               <th className="px-6 py-3 text-start font-semibold text-gray-800">Traditional RPA</th>
               <th className="px-6 py-3 text-start font-semibold text-gray-800">Legacy BPM</th>
             </tr>
@@ -493,7 +693,7 @@ actions: ['validate', 'process', 'notify']
             </tr>
             <tr className="border-b">
               <td className="px-6 py-4">Implementation Time</td>
-              <td className="px-6 py-4 text-blue-700 font-semibold">6-12 weeks</td>
+              <td className="px-6 py-4 text-purple font-semibold">6-12 weeks</td>
               <td className="px-6 py-4">3-6 months</td>
               <td className="px-6 py-4">6-18 months</td>
             </tr>
@@ -509,14 +709,14 @@ actions: ['validate', 'process', 'notify']
 
       <div className="text-center">
         <h3 className="text-2xl font-bold text-gray-900 mb-2">
-          Ready to <span className="text-blue-700">Transform Your Workflows??</span>
+          Ready to <span className="text-purple">Transform Your Workflows??</span>
         </h3>
         <p className="text-gray-700 mb-6 max-w-xl mx-auto">
           Join hundreds of enterprises already benefiting from CogniXcellerate's intelligent orchestration platform.
           Start your transformation today.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <button className="bg-blue-700 text-white font-semibold py-2 px-6 rounded shadow hover:bg-blue-800 transition"  style={{ backgroundImage: "var(--color-gradient-purple-orange)" }}>
+          <button className=" text-white font-semibold py-2 px-6 rounded shadow hover:bg-blue-800 transition bg-purple">
             Initiate Innovation → Start POC
           </button>
           <button className="bg-white border border-blue-700 text-blue-700 font-semibold py-2 px-6 rounded shadow hover:bg-blue-100 transition">
