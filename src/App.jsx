@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./Pages/Home";
-import CogniXcelerate from "./Pages/CogniXcelerate";
+import CogniXcelerate from "./Pages/Products/CogniXcelerate";
 import './App.css'
 import Header from './Components/Header';
 
