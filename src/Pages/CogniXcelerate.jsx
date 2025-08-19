@@ -153,7 +153,9 @@ const CogniXcellerate = () => {
             <h1 className="text-5xl lg:text-6xl font-bold leading-tight">
               <span
                 className="bg-clip-text text-transparent animate-fade-in"
-                style={{ backgroundImage: "var(--color-gradient-purple-orange)" }}
+                style={{
+                  backgroundImage: "linear-gradient(var(--color-purpletext), var(--color-purpletext))"
+                }}
               >
                 CogniXcellerate
               </span>
@@ -175,7 +177,9 @@ const CogniXcellerate = () => {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4">
-            <button className="text-white px-8 py-4 rounded-full font-semibold text-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 hover:from-cyan-600 hover:to-blue-700"  style={{ backgroundImage: "var(--color-gradient-purple-orange)" }}>
+            <button className="text-white px-8 py-4 rounded-full font-semibold text-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 hover:from-cyan-600 hover:to-blue-700"  style={{
+    backgroundImage: "linear-gradient(var(--color-purpletext), var(--color-purpletext))"
+  }}>
               Initiate Innovation → Start POC
             </button>
             <button className="border-2 border-gray-300 text-gray-700 px-8 py-4 rounded-full font-semibold text-lg hover:border-gray-400 hover:bg-gray-50 transition-all duration-300">
@@ -453,7 +457,7 @@ const workflow = await cogni.workflows.create({
       {/* Timeline */}
       <div className="relative flex flex-col items-center w-full max-w-4xl mx-auto">
         {/* Vertical line */}
-        <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-blue-200 z-0" style={{minHeight: "420px"}}/>
+        <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-purple z-0" style={{minHeight: "420px"}}/>
         {/* Steps */}
         {roadmapSteps.map((step, idx) => (
           <div
@@ -469,11 +473,11 @@ const workflow = await cogni.workflows.create({
             >
               <h3 className="font-bold text-lg text-gray-900 mb-2">{step.title}</h3>
               <p className="text-gray-700 mb-2">{step.desc}</p>
-              <span className="block text-blue-700 font-semibold">{step.duration}</span>
+              <span className="block text-purple font-semibold">{step.duration}</span>
             </div>
             {/* Circle Marker & step number */}
             <div className="absolute left-1/2 transform -translate-x-1/2 flex flex-col items-center">
-              <div className="rounded-full bg-blue-700 text-white font-bold flex justify-center items-center w-8 h-8 border-4 border-white shadow-lg">
+              <div className="rounded-full bg-purple text-white font-bold flex justify-center items-center w-8 h-8 border-4 border-white shadow-lg">
                 {idx + 1}
               </div>
             </div>
@@ -484,7 +488,7 @@ const workflow = await cogni.workflows.create({
 
     {/* Customer Success Stories */}
     <section className="px-4 py-12 bg-background  flex flex-col items-center">
-      <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2 text-center">
+      <h2 className="text-3xl md:text-4xl font-bold  mb-2 text-center" >
         Customer Success Stories
       </h2>
       <p className="text-gray-500 max-w-xl mb-10 text-center">
@@ -497,7 +501,9 @@ const workflow = await cogni.workflows.create({
             className="bg-white rounded-2xl shadow-lg p-8 flex flex-col"
           >
             <div className="flex items-center gap-4 mb-6">
-              <div className="bg-sky-500 rounded-lg w-16 h-16 flex items-center justify-center text-2xl font-bold text-white">
+              <div className=" rounded-lg w-16 h-16 flex items-center justify-center text-2xl font-bold text-white" style={{
+    backgroundImage: "linear-gradient(var(--color-purpletext), var(--color-purpletext))"
+  }}>
                 {c.icon}
               </div>
               <div>
@@ -516,14 +522,14 @@ const workflow = await cogni.workflows.create({
             <div className="flex flex-wrap gap-6 mb-4">
               {c.metrics.map((m) => (
                 <div key={m.label} className="flex flex-col text-center">
-                  <span className="font-bold text-sky-500 text-xl">
+                  <span className="font-bold text-purpletext text-xl">
                     {m.value}
                   </span>
                   <span className="text-xs text-gray-500">{m.label}</span>
                 </div>
               ))}
             </div>
-            <blockquote className="text-gray-700 italic text-sm border-l-4 border-sky-500 pl-4 mb-2">
+            <blockquote className="text-gray-700 italic text-sm border-l-4 border-purpletext pl-4 mb-2">
               {c.quote}
             </blockquote>
             <span className="text-xs text-gray-400">{c.person}</span>
@@ -547,8 +553,8 @@ const workflow = await cogni.workflows.create({
         {/* Section Title */}
         <div className="flex items-center gap-2">
           <span className="font-semibold text-lg">Portal - Live Demo</span>
-          <span className="text-sky-400 flex items-center gap-1 ml-4">
-            <span className="inline-block w-2 h-2 rounded-full bg-sky-400"></span>
+          <span className="text-purple flex items-center gap-1 ml-4">
+            <span className="inline-block w-2 h-2 rounded-full bg-purple"></span>
             <span className="text-sm font-medium">Interactive</span>
           </span>
         </div>
@@ -556,7 +562,7 @@ const workflow = await cogni.workflows.create({
         <div className="bg-gray-900 rounded-xl p-6 flex flex-col gap-4">
           <div className="flex items-center justify-between mb-2">
             <span className="text-white font-medium">Workflow Designer</span>
-            <button className="text-sky-400 rounded-full w-7 h-7 flex items-center justify-center bg-gray-800">
+            <button className="text-purple rounded-full w-7 h-7 flex items-center justify-center bg-gray-800">
               <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-4 h-4">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7"/>
               </svg>
@@ -566,7 +572,7 @@ const workflow = await cogni.workflows.create({
             {["Start", "Process", "Validate", "End"].map(b => (
               <button
                 key={b}
-                className="flex-1 py-2 bg-sky-400 hover:bg-sky-500 rounded-md font-semibold text-black transition text-sm"
+                className="flex-1 py-2 bg-purple hover:bg-sky-500 rounded-md font-semibold text-white transition text-sm"
               >
                 {b}
               </button>
@@ -577,16 +583,16 @@ const workflow = await cogni.workflows.create({
         <div className="bg-gray-900 rounded-xl px-6 py-4 flex flex-col gap-1">
           <div className="flex items-center justify-between text-sm pb-1">
             <span className="text-white font-medium">Performance Analytics</span>
-            <span className="text-sky-400 font-bold">+23% this month</span>
+            <span className="text-white font-bold">+23% this month</span>
           </div>
           <div className="w-full bg-gray-700 rounded-full h-2">
-            <div className="bg-sky-400 h-2 rounded-full w-3/4"></div>
+            <div className="bg-purple h-2 rounded-full w-3/4"></div>
           </div>
         </div>
         {/* API Integrations */}
         <div className="bg-gray-900 rounded-xl px-6 py-4 flex justify-between items-center text-sm">
           <span className="text-white font-medium">API Integrations</span>
-          <span className="text-sky-400 font-bold">12 Active</span>
+          <span className="text-white font-bold">12 Active</span>
         </div>
       </div>
       {/* Interactive Experience */}
@@ -600,7 +606,7 @@ const workflow = await cogni.workflows.create({
         <div className="flex flex-col gap-4 mb-8">
           {/* Item */}
           <div className="flex items-start gap-4">
-            <div className="bg-sky-400 p-2 rounded-lg">
+            <div className="bg-purple p-2 rounded-lg">
               <svg className="w-6 h-6 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path d="M4 4h16v4H4zM4 10h16v4H4zM4 16h16v4H4z" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
@@ -611,7 +617,7 @@ const workflow = await cogni.workflows.create({
             </div>
           </div>
           <div className="flex items-start gap-4">
-            <div className="bg-sky-400 p-2 rounded-lg">
+            <div className="bg-purple p-2 rounded-lg">
               <svg className="w-6 h-6 text-black" fill="currentColor" viewBox="0 0 20 20">
                 <path d="M4 13h4v3H4v-3zm6 0h6v3h-6v-3zM3 9h14v2H3V9zm1-4h12v2H4V5z"/>
               </svg>
@@ -622,7 +628,7 @@ const workflow = await cogni.workflows.create({
             </div>
           </div>
           <div className="flex items-start gap-4">
-            <div className="bg-sky-400 p-2 rounded-lg">
+            <div className="bg-purple p-2 rounded-lg">
               <svg className="w-6 h-6 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <rect x="3" y="3" width="18" height="18" rx="3" strokeWidth="2"/>
                 <path d="M8 9h8M8 15h8M8 12h8" strokeWidth="2"/>
@@ -636,7 +642,7 @@ const workflow = await cogni.workflows.create({
         </div>
         {/* Action Buttons */}
         <div className="flex gap-4">
-          <button className="px-5 py-2 rounded-md bg-sky-400 text-black font-bold shadow-sky-400 shadow-md hover:bg-sky-500 focus:outline-none transition focus:ring-2 focus:ring-sky-300">
+          <button className="px-5 py-2 rounded-md bg-purple text-black font-bold shadow-purple shadow-md hover:bg-sky-500 focus:outline-none transition focus:ring-2 focus:ring-sky-300">
             Access Xcellerate Portal
           </button>
           <button className="px-5 py-2 rounded-md bg-transparent border border-gray-400 text-black font-bold hover:border-sky-400 focus:outline-none transition">
@@ -661,7 +667,7 @@ const workflow = await cogni.workflows.create({
           <thead className="bg-amber-100">
             <tr>
               <th className="px-6 py-3 text-start font-semibold text-gray-800">Feature</th>
-              <th className="px-6 py-3 text-start font-semibold text-blue-700">CogniXcellerate</th>
+              <th className="px-6 py-3 text-start font-semibold text-purple">CogniXcellerate</th>
               <th className="px-6 py-3 text-start font-semibold text-gray-800">Traditional RPA</th>
               <th className="px-6 py-3 text-start font-semibold text-gray-800">Legacy BPM</th>
             </tr>
@@ -687,7 +693,7 @@ const workflow = await cogni.workflows.create({
             </tr>
             <tr className="border-b">
               <td className="px-6 py-4">Implementation Time</td>
-              <td className="px-6 py-4 text-blue-700 font-semibold">6-12 weeks</td>
+              <td className="px-6 py-4 text-purple font-semibold">6-12 weeks</td>
               <td className="px-6 py-4">3-6 months</td>
               <td className="px-6 py-4">6-18 months</td>
             </tr>
@@ -703,14 +709,14 @@ const workflow = await cogni.workflows.create({
 
       <div className="text-center">
         <h3 className="text-2xl font-bold text-gray-900 mb-2">
-          Ready to <span className="text-blue-700">Transform Your Workflows??</span>
+          Ready to <span className="text-purple">Transform Your Workflows??</span>
         </h3>
         <p className="text-gray-700 mb-6 max-w-xl mx-auto">
           Join hundreds of enterprises already benefiting from CogniXcellerate's intelligent orchestration platform.
           Start your transformation today.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <button className="bg-blue-700 text-white font-semibold py-2 px-6 rounded shadow hover:bg-blue-800 transition"  style={{ backgroundImage: "var(--color-gradient-purple-orange)" }}>
+          <button className=" text-white font-semibold py-2 px-6 rounded shadow hover:bg-blue-800 transition bg-purple">
             Initiate Innovation → Start POC
           </button>
           <button className="bg-white border border-blue-700 text-blue-700 font-semibold py-2 px-6 rounded shadow hover:bg-blue-100 transition">
