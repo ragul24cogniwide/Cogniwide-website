@@ -5,6 +5,11 @@
   --color-brandblue: #1E40AF;
   --color-brandpink: #EC4899;
 
+  /* Fonts */
+  --font-sans: 'Inter', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  --font-heading: 'Poppins', 'Inter', sans-serif;
+  --font-mono: 'Fira Code', monospace;
+
   /* Gradient colors */
   --color-purple: #8B5CF6;
   --color-orange: #F97316;

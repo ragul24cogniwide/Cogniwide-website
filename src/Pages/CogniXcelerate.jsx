@@ -110,7 +110,7 @@ const CogniXcellerate = () => {
   
               {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row gap-4">
-                <button className="bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-8 py-4 rounded-full font-semibold text-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 hover:from-cyan-600 hover:to-blue-700">
+                <button className=" text-white px-8 py-4 rounded-full font-semibold text-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 hover:from-cyan-600 hover:to-blue-700" style={{ backgroundImage: "var(--color-gradient-purple-orange)" }}>
                   Initiate Innovation → Start POC
                 </button>
                 <button className="border-2 border-gray-300 text-gray-700 px-8 py-4 rounded-full font-semibold text-lg hover:border-gray-400 hover:bg-gray-50 transition-all duration-300">
@@ -154,21 +154,21 @@ const CogniXcellerate = () => {
   
           {/* Stats Section */}
           <div className="mt-20 grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center p-6 bg-white rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition-shadow duration-300">
+            <div className="hover:scale-105  transform text-center p-6 bg-white rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition-shadow duration-300">
               <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full mx-auto mb-4 flex items-center justify-center">
                 <BarChart3 className="w-6 h-6 text-white" />
               </div>
               <div className="text-3xl font-bold text-gray-900 mb-2">85%</div>
               <div className="text-gray-600">Workflow Efficiency</div>
             </div>
-            <div className="text-center p-6 bg-white rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition-shadow duration-300">
+            <div className="hover:scale-105 text-center p-6 bg-white rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition-shadow duration-300">
               <div className="w-12 h-12 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full mx-auto mb-4 flex items-center justify-center">
                 <Clock className="w-6 h-6 text-white" />
               </div>
               <div className="text-3xl font-bold text-gray-900 mb-2">70%</div>
               <div className="text-gray-600">Time Reduction</div>
             </div>
-            <div className="text-center p-6 bg-white rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition-shadow duration-300">
+            <div className="hover:scale-105 text-center p-6 bg-white rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition-shadow duration-300">
               <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full mx-auto mb-4 flex items-center justify-center">
                 <CheckCircle className="w-6 h-6 text-white" />
               </div>
@@ -265,17 +265,17 @@ const CogniXcellerate = () => {
         {/* Core Capabilities Section */}
 <section className="bg-amber-50 py-16">
   <div className="max-w-7xl mx-auto px-6">
-    <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-12 text-center">
+    <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8 text-center">
       Core Capabilities
     </h2>
 
-    <p className="text-center text-gray-600 mb-16 max-w-3xl mx-auto">
+    <p className="text-center text-gray-600 mb-8 max-w-3xl mx-auto">
       Discover the powerful features that make CogniXcellerate the leading AI orchestration platform
     </p>
 
     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
       {/* Card 1 */}
-      <div className="bg-gray-900 rounded-2xl p-6 shadow-xl border border-gray-800 hover:shadow-2xl transition">
+      <div className="bg-gray-900 rounded-2xl p-6 shadow-xl border border-gray-800 hover:shadow-2xl transition animate-fade-in hover:">
         <div className="w-12 h-12 bg-cyan-500 rounded-lg flex items-center justify-center mb-4">
           <span className="text-white text-xl">⚙️</span>
         </div>
@@ -372,6 +372,80 @@ const CogniXcellerate = () => {
     </div>
   </div>
 </section>
+
+{/* Why Choose US */}
+
+<section className="bg-amber-50 py-12 px-4 flex flex-col items-center">
+      <h2 className="text-3xl text-gray-900 font-bold text-center mb-3">
+        Why Choose CogniXcellerate
+      </h2>
+      <p className="text-lg text-gray-700 text-center mb-8 max-w-2xl">
+        See how we compare against traditional automation platforms
+      </p>
+
+      <div className="overflow-x-auto mb-10 w-full max-w-4xl">
+        <table className="w-full border rounded-lg overflow-hidden">
+          <thead className="bg-amber-100">
+            <tr>
+              <th className="px-6 py-3 text-start font-semibold text-gray-800">Feature</th>
+              <th className="px-6 py-3 text-start font-semibold text-blue-700">CogniXcellerate</th>
+              <th className="px-6 py-3 text-start font-semibold text-gray-800">Traditional RPA</th>
+              <th className="px-6 py-3 text-start font-semibold text-gray-800">Legacy BPM</th>
+            </tr>
+          </thead>
+          <tbody className="bg-white">
+            <tr className="border-b">
+              <td className="px-6 py-4">AI-Powered Decision Making</td>
+              <td className="px-6 py-4 text-green-600 font-semibold">✓</td>
+              <td className="px-6 py-4 text-red-500 font-bold">✗</td>
+              <td className="px-6 py-4 text-red-500 font-bold">✗</td>
+            </tr>
+            <tr className="border-b">
+              <td className="px-6 py-4">Adaptive Learning</td>
+              <td className="px-6 py-4 text-green-600 font-semibold">✓</td>
+              <td className="px-6 py-4">Limited</td>
+              <td className="px-6 py-4 text-red-500 font-bold">✗</td>
+            </tr>
+            <tr className="border-b">
+              <td className="px-6 py-4">Real-time Orchestration</td>
+              <td className="px-6 py-4 text-green-600 font-semibold">✓</td>
+              <td className="px-6 py-4">Partial</td>
+              <td className="px-6 py-4">Basic</td>
+            </tr>
+            <tr className="border-b">
+              <td className="px-6 py-4">Implementation Time</td>
+              <td className="px-6 py-4 text-blue-700 font-semibold">6-12 weeks</td>
+              <td className="px-6 py-4">3-6 months</td>
+              <td className="px-6 py-4">6-18 months</td>
+            </tr>
+            <tr>
+              <td className="px-6 py-4">Total Cost of Ownership</td>
+              <td className="px-6 py-4 text-green-600 font-semibold">Low</td>
+              <td className="px-6 py-4">Medium</td>
+              <td className="px-6 py-4">High</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div className="text-center">
+        <h3 className="text-2xl font-bold text-gray-900 mb-2" >
+          Ready to <span className="text-blue-700" >Transform Your Workflows??</span>
+        </h3>
+        <p className="text-gray-700 mb-6 max-w-xl mx-auto">
+          Join hundreds of enterprises already benefiting from CogniXcellerate's intelligent orchestration platform.
+          Start your transformation today.
+        </p>
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <button className="bg-blue-700 text-white font-semibold py-2 px-6 rounded shadow hover:bg-blue-800 transition"  style={{ background: "var(--color-gradient-purple-orange)" }}>
+            Initiate Innovation → Start POC
+          </button>
+          <button className="bg-white border border-blue-700 text-blue-700 font-semibold py-2 px-6 rounded shadow hover:bg-blue-100 transition">
+            Schedule Demo
+          </button>
+        </div>
+      </div>
+    </section>
 
       </div>
     );
