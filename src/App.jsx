@@ -1,9 +1,11 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Home from "./Pages/Home";
-import CogniXcelerate from "./Pages/Products/CogniXcelerate";
 import './App.css'
 import Header from './Components/Header';
+
+import Home from "./Pages/Home";
+import CogniXcelerate from "./Pages/Products/CogniXcelerate";
+import CogniLoom from './Pages/Products/CogniLoom';
 
 
 function App() {
@@ -15,6 +17,7 @@ function App() {
           <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/cognixcelerate" element={<CogniXcelerate />} />
+        <Route path='/cogniloom' element={<CogniLoom/>}/>
       </Routes>
     </Router>
       </div>
