@@ -6,6 +6,7 @@ import Header from './Components/Header';
 import Home from "./Pages/Home";
 import CogniXcelerate from "./Pages/Products/CogniXcelerate";
 import CogniLoom from './Pages/Products/CogniLoom';
+import CogniAssist from './Pages/Products/CogniAssist';
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/cognixcelerate" element={<CogniXcelerate />} />
         <Route path='/cogniloom' element={<CogniLoom/>}/>
+        <Route path='/cogniassist' element={<CogniAssist/>}/>
       </Routes>
     </Router>
       </div>
