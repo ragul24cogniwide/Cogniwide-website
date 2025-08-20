@@ -20,7 +20,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/cognixcelerate" element={<CogniXcelerate />} />
         <Route path='/cogniloom' element={<CogniLoom/>}/>
-        <Route path="/solutions" element={<Solutions/>/>}
+        <Route path="/solutions" element={<Solutions/>}/>
       </Routes>
     </Router>
       </div>
