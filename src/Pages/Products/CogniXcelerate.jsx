@@ -217,9 +217,9 @@ const CogniXcellerate = () => {
       </div>
 
       {/* Additional Dashboard Section for Mobile */}
-      <div className="mt-16 lg:hidden">
+      {/* <div className="mt-16 lg:hidden">
         <Dashboard />
-      </div>
+      </div> */}
 
       {/* Stats Section */}
       <div className="mt-20 grid grid-cols-1 md:grid-cols-3 gap-8">
