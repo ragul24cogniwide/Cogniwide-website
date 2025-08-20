@@ -1,18 +1,25 @@
+import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import './App.css'
+import Header from './Components/Header';
+
 import Home from "./Pages/Home";
-import Solutions from "./Pages/Solutions";
 import './App.css'
 
 function App() {
   return (
-    <Router>
-      <Routes>
+    <>
+      <Header />
+      <div style={{ paddingTop: '60px' }}>
+        <Router>
+          <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/solutions" element={<Solutions />} />
       </Routes>
     </Router>
-  )
+      </div>
+    </>
+  );
 }
 
+export default App;
 
-export default App
