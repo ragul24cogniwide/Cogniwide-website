@@ -1,4 +1,10 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 @import "tailwindcss";
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
 
 @theme {
   /* Brand colors */
@@ -6,6 +12,7 @@
   --color-brandpink: #EC4899;
   --color-background:#faf4fa;
   --color-purpletext:#7f00d4;
+
 
   /* Gradient colors */
   --color-purple: #8B5CF6;
