@@ -1,0 +1,31 @@
+@media (prefers-reduced-motion: reduce) {
+	* {
+		animation: none !important;
+		transition: none !important;
+	}
+}
+
+@keyframes fadeInUp {
+	0% { opacity: 0; transform: translateY(8px); }
+	100% { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in-up {
+	animation: fadeInUp 600ms ease-out both;
+}
+
+@keyframes gradientX {
+	0% { background-position: 0% 50%; }
+	100% { background-position: 100% 50%; }
+}
+.animate-gradient-x {
+	animation: gradientX 3000ms ease-in-out infinite alternate;
+}
+
+@keyframes pulseSoft {
+	0%, 100% { opacity: 0.6; }
+	50% { opacity: 1; }
+}
+.animate-pulse-soft {
+	animation: pulseSoft 1800ms ease-in-out infinite;
+}
+
