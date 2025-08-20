@@ -247,6 +247,140 @@ const LockIcon = () => (
       desc: "Tailor the platform to your exact specifications, integrate deeply with internal systems, and manage resources directly.",
     },
   ];
+
+
+  const CostIcon = () => (
+    <svg className="w-10 h-10 text-purpletext" fill="none" viewBox="0 0 24 24">
+      <rect x="5" y="5" width="14" height="14" rx="5" fill="currentColor" opacity="0.25"/>
+      <circle cx="12" cy="12" r="5" stroke="currentColor" strokeWidth="2"/>
+      <line x1="12" y1="9" x2="12" y2="15" stroke="currentColor" strokeWidth="2"/>
+      <line x1="9" y1="12" x2="15" y2="12" stroke="currentColor" strokeWidth="2"/>
+    </svg>
+  );
+  
+  const ExperienceIcon = () => (
+    <svg className="w-10 h-10 text-purpletext" fill="none" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="2"/>
+      <circle cx="9" cy="10" r="1.5" fill="currentColor"/>
+      <circle cx="15" cy="10" r="1.5" fill="currentColor"/>
+      <path d="M9 15c1 1 5 1 6-2" stroke="currentColor" strokeWidth="2"/>
+    </svg>
+  );
+  
+  const ValueIcon = () => (
+    <svg className="w-10 h-10 text-purpletext" fill="none" viewBox="0 0 24 24">
+      <rect x="7" y="7" width="10" height="10" rx="5" stroke="currentColor" strokeWidth="2"/>
+      <path d="M12 8v8M8 12h8" stroke="currentColor" strokeWidth="2"/>
+    </svg>
+  );
+  
+  const outcomes = [
+    {
+      icon: <CostIcon />,
+      title: "Reduced Operational Costs",
+      desc: "Automate repetitive tasks and reduce reliance on human agents for routine queries, significantly cutting operational expenses.",
+      bullets: [
+        "Up to 60% reduction in support costs",
+        "Improved agent efficiency"
+      ]
+    },
+    {
+      icon: <ExperienceIcon />,
+      title: "Enhanced Customer Experience",
+      desc: "Provide instant, 24/7 support and personalized interactions, leading to higher customer satisfaction and loyalty.",
+      bullets: [
+        "24/7 instant support",
+        "Personalized interactions"
+      ]
+    },
+    {
+      icon: <ValueIcon />,
+      title: "Accelerated Time-to-Value",
+      desc: "The low-code approach and pre-built components ensure rapid deployment and faster realization of business value.",
+      bullets: [
+        "Weeks, not months, to deploy",
+        "Quick iterations and improvements"
+      ]
+    }
+  ];
+
+
+  const ChatIcon = () => (
+    <svg className="w-10 h-10 text-purpletext" fill="none" viewBox="0 0 24 24">
+      <rect x="3" y="6" width="18" height="12" rx="2" stroke="currentColor" strokeWidth="2"/>
+      <path d="M8 13h8M8 9h5" stroke="currentColor" strokeWidth="2"/>
+    </svg>
+  );
+  
+  const ArrowUpIcon = () => (
+    <svg className="w-10 h-10 text-purpletext" fill="none" viewBox="0 0 24 24">
+      <rect x="5" y="5" width="14" height="14" rx="5" fill="currentColor" opacity="0.25"/>
+      <path d="M12 17V7M12 7l-5 5M12 7l5 5" stroke="currentColor" strokeWidth="2"/>
+    </svg>
+  );
+  
+  const useCases = [
+    {
+      icon: <ChatIcon />,
+      title: "Customer Service Automation",
+      desc: "Handle routine inquiries, provide instant answers, and escalate complex issues seamlessly to human agents.",
+      bullets: [
+        "24/7 support availability",
+        "Reduced call center volume"
+      ]
+    },
+    {
+      icon: <ChatIcon />,
+      title: "HR & Employee Support",
+      desc: "Automate HR FAQs, benefits inquiries, and internal support requests, freeing up HR teams.",
+      bullets: [
+        "Instant answers to HR queries",
+        "Streamlined internal processes"
+      ]
+    },
+    {
+      icon: <ArrowUpIcon />,
+      title: "Sales & Marketing Engagement",
+      desc: "Qualify leads, provide product information, and guide prospects through the sales funnel 24/7.",
+      bullets: [
+        "Automated lead qualification",
+        "Enhanced customer journey"
+      ]
+    }
+  ];
+
+  const features1 = [
+    {
+      label: "Generative AI Capabilities",
+      cogni: <span className="text-cyan-400 text-2xl font-semibold">✓</span>,
+      chatbot: <span className="text-xl text-gray-400">✗</span>,
+      highcode: "Limited",
+    },
+    {
+      label: "Low-Code Development",
+      cogni: <span className="text-cyan-400 text-2xl font-semibold">✓</span>,
+      chatbot: <span className="text-cyan-400 text-2xl font-semibold">✓</span>,
+      highcode: <span className="text-xl text-gray-400">✗</span>,
+    },
+    {
+      label: "On-Premise Deployment",
+      cogni: <span className="text-cyan-400 text-2xl font-semibold">✓</span>,
+      chatbot: "No / Limited",
+      highcode: "Complex",
+    },
+    {
+      label: "Scalability & Performance",
+      cogni: <span className="text-cyan-400 font-bold">Enterprise-Grade</span>,
+      chatbot: "Basic",
+      highcode: <span>High <span className="text-xs text-gray-500">(Requires Expertise)</span></span>,
+    },
+    {
+      label: "Time-to-Value",
+      cogni: <span className="text-cyan-400 font-bold">Rapid</span>,
+      chatbot: "Moderate",
+      highcode: "Slow",
+    },
+  ];
   
 
 const CogniAssist=()=> {
@@ -255,6 +389,7 @@ const CogniAssist=()=> {
   const [hovered, setHovered] = useState(null);
   const [cardHighlight, setCardHighlight] = useState(null);
   const [rightHighlight, setRightHighlight] = useState(false);
+  const [highlight, setHighlight] = useState(-1);
 
 
   return (
@@ -337,12 +472,9 @@ const CogniAssist=()=> {
       </div>
     </section>
 
-<section className="w-full py-16 bg-background -mt-36 lg:-mt-56">
+<section className="w-full py-16 bg-amber-50 -mt-36 lg:-mt-56">
 <div className="max-w-7xl mx-auto px-4">
-  <h2 className="text-3xl md:text-4xl font-extrabold text-center mb-3 bg-clip-text text-transparent animate-fade-in"  
-                style={{
-                  backgroundImage: "linear-gradient(var(--color-purpletext), var(--color-purpletext))"
-                }}>
+  <h2 className="text-3xl md:text-4xl font-extrabold text-center mb-3 bg-clip-text animate-fade-in text-purpletext"  >   
     Unleash the Power of Conversational AI
   </h2>
   <p className="text-lg text-gray-400 text-center mb-12 max-w-2xl mx-auto">
@@ -522,6 +654,176 @@ Content-Type: application/json
               </div>
             </div>
           ))}
+        </div>
+      </div>
+    </section>
+
+    {/* section4 */}
+    <section className="w-full py-16 bg-background">
+      <div className="max-w-7xl mx-auto px-4">
+        <h2 className="text-3xl md:text-4xl font-extrabold text-center mb-3 text-purpletext">
+          Tangible Business Outcomes
+        </h2>
+        <p className="text-lg text-gray-500 text-center mb-10 max-w-3xl mx-auto">
+          CogniAssist delivers measurable ROI by transforming customer interactions and internal processes.
+        </p>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {outcomes.map((item, idx) => (
+            <div
+              key={item.title}
+              className={`
+                bg-white rounded-2xl shadow-lg p-8 flex flex-col
+                transition-all duration-300 fade-in zoom-in
+                border ${highlighted === idx ? "border-purple text-purple shadow-purple/40" : "border-transparent text-black"}
+                hover:border-purple hover:text-purple hover:shadow-purple/40 hover:scale-105
+                focus:outline-none
+              `}
+              onMouseEnter={() => setHighlighted(idx)}
+              onMouseLeave={() => setHighlighted(null)}
+              onFocus={() => setHighlighted(idx)}
+              onBlur={() => setHighlighted(null)}
+              tabIndex={0}
+            >
+              <div className="mb-4">{item.icon}</div>
+              <div className={`font-bold text-lg mb-2 ${highlighted === idx ? "text-purple" : "text-black"}`}>
+                {item.title}
+              </div>
+              <div className={`text-gray-600 mb-4 ${highlighted === idx ? "text-purple" : ""}`}>
+                {item.desc}
+              </div>
+              <ul className="space-y-1">
+                {item.bullets.map((b, bidx) => (
+                  <li
+                    key={bidx}
+                    className={`pl-4 relative before:absolute before:left-0 before:top-2 before:w-2 before:h-2 before:rounded-full
+                      before:bg-cyan-400 text-sm ${highlighted === idx ? "text-purple" : "text-gray-600"}`}
+                  >
+                    {b}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    {/* section5 */}
+    <section className="w-full py-16 bg-background">
+      <div className="max-w-7xl mx-auto px-4">
+        <h2 className="text-3xl md:text-4xl font-extrabold text-center mb-3 text-purpletext">
+          Transformative Use Cases
+        </h2>
+        <p className="text-lg text-gray-500 text-center mb-10 max-w-3xl mx-auto">
+          CogniAssist empowers diverse industries to automate interactions and streamline operations.
+        </p>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {useCases.map((item, idx) => (
+            <div
+              key={item.title}
+              className={`
+                bg-white rounded-2xl shadow-lg p-8 flex flex-col
+                transition-all duration-300 fade-in zoom-in
+                border ${highlighted === idx ? "border-purple text-purple shadow-purple/40" : "border-transparent text-black"}
+                hover:border-purple hover:text-purple hover:shadow-purple/40 hover:scale-105
+                focus:outline-none
+              `}
+              onMouseEnter={() => setHighlighted(idx)}
+              onMouseLeave={() => setHighlighted(null)}
+              onFocus={() => setHighlighted(idx)}
+              onBlur={() => setHighlighted(null)}
+              tabIndex={0}
+            >
+              <div className="mb-4">{item.icon}</div>
+              <div className={`font-bold text-lg mb-2 ${highlighted === idx ? "text-purple" : "text-black"}`}>
+                {item.title}
+              </div>
+              <div className={`text-gray-600 mb-4 ${highlighted === idx ? "text-purple" : ""}`}>
+                {item.desc}
+              </div>
+              <ul className="space-y-1">
+                {item.bullets.map((b, bidx) => (
+                  <li
+                    key={bidx}
+                    className={`pl-4 relative before:absolute before:left-0 before:top-2 before:w-2 before:h-2 before:rounded-full
+                      before:bg-cyan-400 text-sm ${highlighted === idx ? "text-purple" : "text-gray-600"}`}
+                  >
+                    {b}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    {/* section5 */}
+    <section className="w-full py-16 bg-background">
+      <div className="max-w-7xl mx-auto px-4 flex flex-col items-center">
+        <h2 className="text-3xl md:text-4xl font-extrabold text-center mb-2 text-purpletext">
+          Why CogniAssist Stands Out
+        </h2>
+        <p className="text-lg text-gray-500 text-center mb-10 max-w-3xl">
+          A true enterprise-grade solution for modern conversational AI needs.
+        </p>
+        {/* Comparison Table */}
+        <div className="w-full flex flex-col items-center fade-in zoom-in">
+          <div className="w-full max-w-4xl bg-[#181a1b] rounded-2xl shadow-md overflow-x-auto transition-all mb-12 border border-transparent px-1 py-2 animate-fade-in">
+            <table className="min-w-full w-full text-left text-white rounded-2xl">
+              <thead>
+                <tr className="border-b border-gray-800">
+                  <th className="py-3 px-4 font-medium">Feature</th>
+                  <th className="py-3 px-4 font-medium text-cyan-400">CogniAssist</th>
+                  <th className="py-3 px-4 font-medium">Traditional Chatbots</th>
+                  <th className="py-3 px-4 font-medium">High-Code Platforms</th>
+                </tr>
+              </thead>
+              <tbody>
+                {features1.map((row, idx) => (
+                  <tr key={row.label}
+                    className={`
+                      transition-all cursor-pointer
+                      ${highlight === idx ? "border-l-4 border-purple bg-black bg-opacity-30 text-purple" : "border-l-4 border-transparent"}
+                      hover:bg-black hover:bg-opacity-20 hover:border-purple hover:text-purple
+                    `}
+                    onMouseEnter={() => setHighlight(idx)}
+                    onMouseLeave={() => setHighlight(-1)}
+                    tabIndex={0}
+                    onFocus={() => setHighlight(idx)}
+                    onBlur={() => setHighlight(-1)}
+                  >
+                    <td className="py-4 px-4 font-semibold">{row.label}</td>
+                    <td className="py-4 px-4">{row.cogni}</td>
+                    <td className="py-4 px-4">{row.chatbot}</td>
+                    <td className="py-4 px-4">{row.highcode}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+        {/* CTA Section */}
+        <div className="w-full max-w-3xl mx-auto text-center mt-4 fade-in">
+          <h3 className="text-2xl md:text-3xl font-bold mb-4 text-black">
+            Ready to <span className="text-purpletext">Revolutionize Your Conversations</span>?
+          </h3>
+          <p className="mb-8 text-lg text-gray-500">
+            Experience the future of conversational AI with CogniAssist. Secure, scalable, and simple.
+          </p>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <button
+              className="px-6 py-2 font-semibold text-base rounded-md bg-transparent border-2 border-purpletext text-purpletext shadow-purpletext shadow focus:outline-none transition
+            hover:shadow-purple hover:bg-purpletext hover:text-white"
+            >
+              Get Started with On-Prem Demo
+            </button>
+            <button
+              className="px-6 py-2 font-semibold text-base rounded-md bg-[#23282d] text-white border border-gray-500 transition hover:border-cyan-400 hover:text-purple"
+            >
+              Download Brochure
+            </button>
+          </div>
         </div>
       </div>
     </section>
