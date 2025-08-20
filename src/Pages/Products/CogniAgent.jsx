@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import congiagent from "../../assets/cogniagent.png"; // (update path as needed)
+import bot from "../../assets/bot.png"; // (update path as needed)
 
 const agentStats = {
   deployed: 12,
@@ -11,12 +11,88 @@ const agentStats = {
     "Report Gen. Agent created 1 daily report",
   ],
 };
+const benefits = [
+    {
+      icon: (
+        <div className="w-12 h-12 rounded-xl flex items-center justify-center bg-gradient-to-br from-cyan-400 to-blue-500">
+          <svg className="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24">
+            <path d="M12 2v15m0 5v0m0-5l4.5-4.5M12 17l-4.5-4.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+          </svg>
+        </div>
+      ),
+      title: "Rapid Deployment",
+      desc: "Deploy intelligent automation rapidly with our pre-built agents and intuitive configuration, significantly reducing time-to-value.",
+    },
+    {
+      icon: (
+        <div className="w-12 h-12 rounded-xl flex items-center justify-center bg-gradient-to-br from-green-400 to-cyan-500">
+          <svg className="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="2"/>
+            <path d="M9 12l2 2l4-4" stroke="currentColor" strokeWidth="2"/>
+          </svg>
+        </div>
+      ),
+      title: "Enhanced Accuracy",
+      desc: "Leverage advanced AI and machine learning to minimize human error, ensuring higher data quality and process precision.",
+    },
+    {
+      icon: (
+        <div className="w-12 h-12 rounded-xl flex items-center justify-center bg-gradient-to-br from-pink-400 to-orange-400">
+          <svg className="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24">
+            <rect x="5" y="10" width="14" height="6" rx="3" stroke="currentColor" strokeWidth="2"/>
+            <path d="M9 14h1M14 14h1" stroke="currentColor" strokeWidth="2"/>
+          </svg>
+        </div>
+      ),
+      title: "Significant Cost Reduction",
+      desc: "Automate repetitive tasks, reduce operational overhead, and reallocate human resources to more strategic initiatives.",
+    },
+    {
+      icon: (
+        <div className="w-12 h-12 rounded-xl flex items-center justify-center bg-gradient-to-br from-orange-400 to-yellow-300">
+          <svg className="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24">
+            <path d="M7 17V7m5 10V7m5 10V7" stroke="currentColor" strokeWidth="2"/>
+          </svg>
+        </div>
+      ),
+      title: "Scalability & Flexibility",
+      desc: "Scale your automation efforts seamlessly to meet growing demands and adapt to evolving business requirements.",
+    },
+    {
+      icon: (
+        <div className="w-12 h-12 rounded-xl flex items-center justify-center bg-gradient-to-br from-purple-500 to-pink-400">
+          <svg className="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24">
+            <rect x="6" y="10" width="12" height="9" rx="2" stroke="currentColor" strokeWidth="2"/>
+            <path d="M12 4v6" stroke="currentColor" strokeWidth="2"/>
+            <circle cx="12" cy="15" r="2" fill="currentColor"/>
+          </svg>
+        </div>
+      ),
+      title: "Seamless Integration",
+      desc: "Integrate CogniAgent effortlessly with your existing enterprise systems and data sources.",
+    },
+    {
+      icon: (
+        <div className="w-12 h-12 rounded-xl flex items-center justify-center bg-gradient-to-br from-cyan-600 to-gray-800">
+          <svg className="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24">
+            <rect x="5" y="10" width="14" height="8" rx="2" stroke="currentColor" strokeWidth="2"/>
+            <path d="M12 6v4" stroke="currentColor" strokeWidth="2"/>
+            <circle cx="12" cy="15" r="2" fill="currentColor"/>
+          </svg>
+        </div>
+      ),
+      title: "Enterprise-grade Security",
+      desc: "Ensure data privacy and compliance with robust security features and audit capabilities.",
+    },
+  ];
 
 export default function CogniAgentSection() {
   const [highlightedBtn, setHighlightedBtn] = useState(null);
   const [highlightedMetric, setHighlightedMetric] = useState(null);
+  const [highlighted, setHighlighted] = useState(null);
 
   return (
+    <>
     <section className="w-full min-h-screen bg-background py-16 flex items-center">
       <div className="max-w-7xl w-full mx-auto px-4 flex flex-col lg:flex-row gap-12 items-center">
         {/* LEFT CONTENT */}
@@ -41,7 +117,7 @@ export default function CogniAgentSection() {
                 ${highlightedBtn === "explore" ? "border-purple text-purple bg-purple/10 shadow-purple"
                 : "border-purpletext text-purpletext bg-transparent shadow-purple"
                 } shadow focus:outline-none ring-1 ring-purple transition duration-200
-                hover:text-purple hover:border-purple hover:shadow-purple hover:bg-purpletext hover:text-white`}
+                 hover:border-purple hover:shadow-purple hover:bg-purpletext hover:text-white`}
               onMouseEnter={() => setHighlightedBtn("explore")}
               onMouseLeave={() => setHighlightedBtn(null)}
             >
@@ -110,13 +186,57 @@ export default function CogniAgentSection() {
             </ul>
           </div>
           {/* Overlapping image */}
-          {/* <img
-            src={congiagent}
+          <img
+            src={bot}
             alt="Agent Dashboard"
-            className="w-60 h-auto rounded-xl shadow-lg object-contain absolute top-0 right-[-80px] hidden xl:block"
-          /> */}
+            className="w-50 h-auto rounded-xl bg-transparent object-contain absolute -top-20 right-[-30px] hidden xl:block"
+          />
         </div>
       </div>
     </section>
+
+    {/* // Section2 */}
+    <section className="w-full py-16 bg-background fade-in flex min-h-screen -mt-16">
+    <div className="max-w-7xl mx-auto px-4">
+      <h2 className="text-3xl md:text-4xl font-bold text-center mb-3 text-purpletext">
+        Key Benefits of CogniAgent
+      </h2>
+      <p className="text-lg text-gray-500 text-center mb-10 max-w-3xl mx-auto">
+        Unlock new levels of efficiency, accuracy, and scalability for your business operations.
+      </p>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7">
+        {benefits.map((item, idx) => (
+          <div
+            key={item.title}
+            className={`
+              bg-white rounded-2xl p-5 shadow-md flex flex-col items-start
+              border transition-all duration-300
+              ${highlighted === idx ? "border-purple text-purple shadow-purple/40" : "border-transparent text-white"}
+              hover:border-purple hover:text-purple hover:shadow-purple/40 hover:scale-105
+              focus:outline-none
+              fade-in zoom-in
+            `}
+            onMouseEnter={() => setHighlighted(idx)}
+            onMouseLeave={() => setHighlighted(null)}
+            onFocus={() => setHighlighted(idx)}
+            onBlur={() => setHighlighted(null)}
+            tabIndex={0}
+          >
+            {item.icon}
+            <div className={`font-semibold text-base mt-3 mb-2 ${highlighted === idx ? "text-purple" : "text-purple"}`}>
+              {item.title}
+            </div>
+            <div className={`text-[15px] text-gray-300 ${highlighted === idx ? "text-purple" : "text-gray-500"}`}>
+              {item.desc}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {/* section3 */}
+
+  </>
   );
 }
