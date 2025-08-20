@@ -308,7 +308,7 @@ const CogniLoom = () => {
 
       {/* //Technical Architecture */}
       <section className="w-full min-h-screen bg-background py-16 px-4 flex flex-col items-center fade-in">
-      <h2 className="text-3xl md:text-4xl font-extrabold text-center mb-4 text-purple">
+      <h2 className="text-3xl md:text-4xl font-extrabold text-center mb-4 text-purpletext">
         Technical Architecture
       </h2>
       <p className="text-lg text-gray-600 max-w-2xl text-center mb-12">
@@ -417,7 +417,7 @@ const CogniLoom = () => {
 
     {/* section4 */}
     <section className="w-full  bg-background py-16 px-4 fade-in flex flex-col items-center -mt-24">
-      <h2 className="text-3xl md:text-4xl font-extrabold text-center mb-2 text-purple">
+      <h2 className="text-3xl md:text-4xl font-extrabold text-center mb-2 text-purpletext">
         Customer Success Stories
       </h2>
       <p className="text-lg text-gray-600 mb-12 text-center">Real-world implementations across industries</p>

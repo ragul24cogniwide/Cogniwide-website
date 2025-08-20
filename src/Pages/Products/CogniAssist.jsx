@@ -394,7 +394,7 @@ const CogniAssist=()=> {
 
   return (
     <>
-    <section className="w-full min-h-screen py-16 bg-background fade-in">
+    <section className="w-full min-h-screen py-16  items-center  bg-background fade-in">
       <div
         className="max-w-7xl mx-auto
           flex flex-col-reverse lg:flex-row items-center
@@ -407,7 +407,7 @@ const CogniAssist=()=> {
             <div className="w-2 h-2 bg-cyan-500 rounded-full"></div>
             <span>Intelligent Workflow Orchestration</span>
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold mb-4 leading-tight">
+          <h1 className="text-4xl md:text-6xl font-bold mb-4 leading-tight">
             <span  className="bg-clip-text text-transparent animate-fade-in"
                 style={{
                   backgroundImage: "linear-gradient(var(--color-purpletext), var(--color-purpletext))"
@@ -472,7 +472,7 @@ const CogniAssist=()=> {
       </div>
     </section>
 
-<section className="w-full py-16 bg-amber-50 -mt-36 lg:-mt-56">
+<section className="w-full py-16 bg-amber-50 ">
 <div className="max-w-7xl mx-auto px-4">
   <h2 className="text-3xl md:text-4xl font-extrabold text-center mb-3 bg-clip-text animate-fade-in text-purpletext"  >   
     Unleash the Power of Conversational AI
