@@ -10,8 +10,13 @@ import CogniLoom from './Pages/Products/CogniLoom';
 import CogniAssist from './Pages/Products/CogniAssist';
 import CogniAgent from "./Pages/Products/CogniAgent";
 
+<<<<<<< HEAD
 // loading import
 import LoadingPage from "./Components/LoadingPage";
+=======
+import Solutions from "./Pages/Solutions"
+
+>>>>>>> 220aa79227f646b1e6e7da6d0a02bf499476bfbe
 
 function App() {
   return (
@@ -20,6 +25,7 @@ function App() {
         {/* Loader route (no header) */}
         <Route path="/" element={<LoadingPage />} />
 
+<<<<<<< HEAD
         {/* All other routes should include Header */}
         <Route
           path="/*"
@@ -38,6 +44,15 @@ function App() {
             </>
           }
         />
+=======
+        {/* Products routes */}
+        <Route path="/cognixcelerate" element={<CogniXcelerate />} />
+        <Route path='/cogniloom' element={<CogniLoom/>}/>
+
+        <Route path="/solutions" element={<Solutions/>}/>
+        <Route path='/cogniassist' element={<CogniAssist/>}/>
+        <Route path='/cogniagent' element={<CogniAgent/>}/>
+>>>>>>> 220aa79227f646b1e6e7da6d0a02bf499476bfbe
       </Routes>
     </Router>
   );
