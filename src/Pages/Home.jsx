@@ -464,6 +464,9 @@ const Home = () => {
       {/* Content Section */}
       <div className="space-y-8" style={{ fontFamily: 'ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif' }}>
         <div>
+ Pages/Solution
+            <h1 className='text-3xl font-bold underline text-red-500'>Cogniwide</h1>
+
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
             <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
               CogniXcellerate:
@@ -929,13 +932,6 @@ const Home = () => {
     </div>
   </div>
 </div>
-
-
-
-
-
-
-
         </div>
       </div>
     </div>
