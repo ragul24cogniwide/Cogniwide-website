@@ -4,7 +4,11 @@ import './App.css'
 import Header from './Components/Header';
 
 import Home from "./Pages/Home";
-import './App.css'
+import CogniXcelerate from "./Pages/Products/CogniXcelerate";
+import CogniLoom from './Pages/Products/CogniLoom';
+
+import Solutions from "./Pages/Solutions"
+
 
 function App() {
   return (
@@ -14,6 +18,9 @@ function App() {
         <Router>
           <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/cognixcelerate" element={<CogniXcelerate />} />
+        <Route path='/cogniloom' element={<CogniLoom/>}/>
+        <Route path="/solutions" element={<Solutions/>/>}
       </Routes>
     </Router>
       </div>
