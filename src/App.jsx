@@ -38,6 +38,7 @@ function App() {
                   <Route path="/cogniloom" element={<CogniLoom />} />
                   <Route path="/cogniassist" element={<CogniAssist />} />
                   <Route path="/cogniagent" element={<CogniAgent />} />
+                  <Route path="/solutions" element={<Solutions />} />
                 </Routes>
               </div>
             </>
