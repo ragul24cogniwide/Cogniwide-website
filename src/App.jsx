@@ -43,13 +43,6 @@ function App() {
             </>
           }
         />
-        {/* Products routes */}
-        <Route path="/cognixcelerate" element={<CogniXcelerate />} />
-        <Route path='/cogniloom' element={<CogniLoom/>}/>
-
-        <Route path="/solutions" element={<Solutions/>}/>
-        <Route path='/cogniassist' element={<CogniAssist/>}/>
-        <Route path='/cogniagent' element={<CogniAgent/>}/>
 
       </Routes>
     </Router>
