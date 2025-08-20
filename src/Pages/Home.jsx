@@ -18,7 +18,7 @@ const Home = () => {
           
           
          {/* Hero Section - Perfect First View Alignment */}
-<div className="relative pt-6 pb-4 px-4 -mt-8 overflow-hidden min-h-[500px] max-h-[680px] flex flex-col justify-center">
+<div className="relative pt-6 pb-4 px-4 -mt- overflow-hidden min-h-[500px] max-h-[680px] flex flex-col justify-center">
   {/* Animated Background Grid */}
   <div className="absolute inset-0 opacity-[0.02]">
     <div className="absolute inset-0" style={{
