@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import cognixceleratePic from '../assets/cognixcelerate-pic.png';
 import cogniLoomPic from '../assets/cogniloom-pic.png';
 import cogniAgentPic from '../assets/cogniagent-pic.png';
+import backgroundPic from '../assets/background-pic.jpg'; // Your background image
 
 // Custom Hook for scroll animation
 function useScrollAnimation(threshold = 0.1, triggerOnce = true) {
@@ -48,10 +49,44 @@ const Home = () => {
   const [ctaRef, ctaVisible] = useScrollAnimation();
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 via-white to-purple-100/50 relative overflow-hidden">
+    <div className="min-h-screen relative overflow-hidden">
+      
+      {/* Animated Background */}
+      <div 
+        className="fixed inset-0 z-0"
+        style={{
+          backgroundImage: `url(${backgroundPic})`,
+          backgroundSize: '120%',
+          backgroundPosition: 'center center',
+          backgroundRepeat: 'no-repeat',
+          animation: 'floatingBackground 20s ease-in-out infinite'
+        }}
+      />
+      
+      {/* Background Overlay for Better Content Readability */}
+      <div className="fixed inset-0 z-[1] bg-white/85 backdrop-blur-[1px]" />
       
       {/* Animation Styles */}
       <style>{`
+        @keyframes floatingBackground {
+          0%, 100% { 
+            transform: scale(1.2) translate(0, 0);
+            background-position: 0% 0%;
+          }
+          25% { 
+            transform: scale(1.15) translate(-2%, -1%);
+            background-position: 5% 5%;
+          }
+          50% { 
+            transform: scale(1.25) translate(1%, 1%);
+            background-position: -5% 10%;
+          }
+          75% { 
+            transform: scale(1.18) translate(-1%, -2%);
+            background-position: 10% -5%;
+          }
+        }
+        
         .animate-fade-up {
           opacity: 0;
           transform: translateY(30px);
@@ -102,15 +137,6 @@ const Home = () => {
         .stagger-4 { transition-delay: 0.4s; }
       `}</style>
 
-      {/* Subtle Background Pattern */}
-      <div className="absolute inset-0 opacity-10 pointer-events-none">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `radial-gradient(circle at 25px 25px, #8b5cf6 2px, transparent 0), 
-                           radial-gradient(circle at 75px 75px, #06b6d4 1px, transparent 0)`,
-          backgroundSize: '100px 100px'
-        }}></div>
-      </div>
-
       {/* Main Content Container */}
       <div className="relative z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -120,24 +146,16 @@ const Home = () => {
             ref={heroRef}
             className={`relative pt-12 pb-16 -mt-4 overflow-hidden min-h-[600px] flex flex-col justify-center animate-fade-up ${heroVisible ? 'visible' : ''}`}
           >
-            {/* Animated Background Grid */}
-            <div className="absolute inset-0 opacity-[0.02]">
-              <div className="absolute inset-0" style={{
-                backgroundImage: `linear-gradient(rgba(129, 0, 215, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(129, 0, 215, 0.1) 1px, transparent 1px)`,
-                backgroundSize: '40px 40px'
-              }}></div>
-            </div>
-
-            {/* Floating Orbs - Enhanced Purple Theme */}
-            <div className="absolute top-6 left-6 w-8 h-8 bg-gradient-to-r from-[#a533f0] to-[#8100d7] rounded-full opacity-20 blur-lg animate-pulse"></div>
-            <div className="absolute bottom-8 right-6 w-7 h-7 bg-gradient-to-r from-[#8100d7] to-[#5c009b] rounded-full opacity-20 blur-lg animate-pulse" style={{animationDelay: '1s'}}></div>
+            {/* Enhanced Floating Orbs */}
+            <div className="absolute top-6 left-6 w-8 h-8 bg-gradient-to-r from-[#a533f0] to-[#8100d7] rounded-full opacity-30 blur-lg animate-pulse" />
+            <div className="absolute bottom-8 right-6 w-7 h-7 bg-gradient-to-r from-[#8100d7] to-[#5c009b] rounded-full opacity-30 blur-lg animate-pulse" style={{animationDelay: '1s'}} />
 
             <div className="max-w-5xl mx-auto text-center px-4">
               {/* Status Indicator */}
-              <div className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-gradient-to-r from-green-50 to-emerald-50 border border-green-200/60 mb-8 animate-fade-up ${heroVisible ? 'visible stagger-1' : ''}`}>
+              <div className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-gradient-to-r from-green-50/90 to-emerald-50/90 backdrop-blur-sm border border-green-200/60 mb-8 animate-fade-up ${heroVisible ? 'visible stagger-1' : ''}`}>
                 <div className="relative">
-                  <div className="w-1.5 h-1.5 bg-green-500 rounded-full"></div>
-                  <div className="absolute inset-0 w-1.5 h-1.5 bg-green-500 rounded-full animate-ping"></div>
+                  <div className="w-1.5 h-1.5 bg-green-500 rounded-full" />
+                  <div className="absolute inset-0 w-1.5 h-1.5 bg-green-500 rounded-full animate-ping" />
                 </div>
                 <span className="text-xs font-medium text-green-700">Live & Ready to Transform</span>
               </div>
@@ -145,7 +163,7 @@ const Home = () => {
               {/* Headline - INTELLIGENT Black, AUTOMATION Enhanced Purple */}
               <div className={`space-y-2 mb-8 animate-fade-up ${heroVisible ? 'visible stagger-2' : ''}`}>
                 <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight">
-                  <span className="block text-black leading-[0.9]">INTELLIGENT</span>
+                  <span className="block text-black leading-[0.9] drop-shadow-sm">INTELLIGENT</span>
                   <span className="block text-transparent bg-gradient-to-r from-[#8100d7] via-[#5c009b] to-[#3d006b] bg-clip-text leading-[0.9] -mt-1">
                     AUTOMATION
                   </span>
@@ -165,11 +183,11 @@ const Home = () => {
                 <button className="group relative bg-black hover:bg-gray-800 text-white font-bold py-3 px-6 rounded-xl text-sm transition-all duration-200 transform hover:scale-105 shadow-lg hover:shadow-xl overflow-hidden min-w-[160px]">
                   <span className="relative z-10 flex items-center justify-center gap-2">
                     Start Building Now
-                    <div className="w-1.5 h-1.5 bg-[#00d7a3] rounded-full animate-pulse"></div>
+                    <div className="w-1.5 h-1.5 bg-[#00d7a3] rounded-full animate-pulse" />
                   </span>
-                  <div className="absolute inset-0 bg-gradient-to-r from-[#8100d7] to-[#5c009b] opacity-0 group-hover:opacity-100 transition-opacity duration-200"></div>
+                  <div className="absolute inset-0 bg-gradient-to-r from-[#8100d7] to-[#5c009b] opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
                 </button>
-                <button className="group relative bg-gradient-to-r from-[#f5f3ff] to-[#faf9ff] hover:from-[#8100d7] hover:to-[#a533f0] border border-[#8100d7]/20 hover:border-[#8100d7] text-[#8100d7] hover:text-white font-bold py-3 px-4 rounded-xl text-sm transition-all duration-200 transform hover:scale-105 shadow hover:shadow-lg overflow-hidden">
+                <button className="group relative bg-gradient-to-r from-white/90 to-white/95 backdrop-blur-sm hover:from-[#8100d7] hover:to-[#a533f0] border border-[#8100d7]/20 hover:border-[#8100d7] text-[#8100d7] hover:text-white font-bold py-3 px-4 rounded-xl text-sm transition-all duration-200 transform hover:scale-105 shadow hover:shadow-lg overflow-hidden">
                   <span className="relative z-10 flex items-center gap-2">
                     <div className="w-7 h-7 bg-gradient-to-r from-[#8100d7]/10 to-[#a533f0]/10 group-hover:from-white/20 group-hover:to-white/20 rounded-xl flex items-center justify-center transition-all duration-200">
                       <svg className="w-3 h-3 text-[#8100d7] group-hover:text-white transition-colors duration-200" fill="currentColor" viewBox="0 0 24 24">
@@ -239,10 +257,10 @@ const Home = () => {
               ].map((feature, idx) => (
                 <div
                   key={idx}
-                  className={`group relative bg-white/90 backdrop-blur-sm border border-gray-200 rounded-2xl py-4 px-3 hover:bg-gradient-to-br hover:from-white hover:to-[#f5f3ff] hover:border-[#8100d7]/35 hover:shadow-lg transition-all duration-250 hover:scale-[1.03] flex flex-col items-center text-center space-y-2 cursor-pointer animate-scale ${featuresVisible ? `visible stagger-${idx + 1}` : ''}`}
+                  className={`group relative bg-white/95 backdrop-blur-sm border border-gray-200/80 rounded-2xl py-4 px-3 hover:bg-gradient-to-br hover:from-white hover:to-[#f5f3ff] hover:border-[#8100d7]/35 hover:shadow-lg transition-all duration-250 hover:scale-[1.03] flex flex-col items-center text-center space-y-2 cursor-pointer animate-scale ${featuresVisible ? `visible stagger-${idx + 1}` : ''}`}
                 >
                   {/* Purple accent overlay */}
-                  <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-[#8100d7]/0 via-transparent to-[#8100d7]/0 group-hover:from-[#8100d7]/8 group-hover:via-[#8100d7]/4 group-hover:to-transparent transition-all duration-250"></div>
+                  <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-[#8100d7]/0 via-transparent to-[#8100d7]/0 group-hover:from-[#8100d7]/8 group-hover:via-[#8100d7]/4 group-hover:to-transparent transition-all duration-250" />
                   
                   <div className="relative z-10 mb-1 transition-all duration-250">
                     {feature.icon}
@@ -260,7 +278,7 @@ const Home = () => {
          {/* Product Portfolio Section */}
 <section 
   ref={productsRef}
-  className={`py-16 bg-gray-50 animate-fade-up ${productsVisible ? 'visible' : ''}`}
+  className={`py-16 bg-white/80 backdrop-blur-sm animate-fade-up ${productsVisible ? 'visible' : ''}`}
 >
   <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     {/* Section Header */}
@@ -338,14 +356,14 @@ const Home = () => {
       ].map((product, index) => (
         <div
           key={index}
-          className={`group relative bg-white/90 backdrop-blur-sm border border-gray-200 rounded-2xl shadow-sm hover:shadow-2xl transition-all duration-500 transform hover:scale-[1.03] hover:-translate-y-1 hover:border-[#8100d7]/35 flex flex-col h-full overflow-hidden cursor-pointer animate-scale ${productsVisible ? `visible stagger-${index + 1}` : ''}`}
+          className={`group relative bg-white/95 backdrop-blur-sm border border-gray-200/80 rounded-2xl shadow-sm hover:shadow-2xl transition-all duration-500 transform hover:scale-[1.03] hover:-translate-y-1 hover:border-[#8100d7]/35 flex flex-col h-full overflow-hidden cursor-pointer animate-scale ${productsVisible ? `visible stagger-${index + 1}` : ''}`}
         >
           {/* Enhanced gradient overlay with multiple layers */}
-          <div className="absolute inset-0 bg-gradient-to-br from-[#8100d7]/0 via-transparent to-[#8100d7]/0 group-hover:from-[#8100d7]/8 group-hover:via-[#8100d7]/4 group-hover:to-transparent transition-all duration-500 pointer-events-none rounded-2xl"></div>
-          <div className="absolute inset-0 bg-gradient-to-br from-white/0 to-[#f5f3ff]/0 group-hover:from-white/50 group-hover:to-[#f5f3ff]/80 transition-all duration-500 pointer-events-none rounded-2xl"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-[#8100d7]/0 via-transparent to-[#8100d7]/0 group-hover:from-[#8100d7]/8 group-hover:via-[#8100d7]/4 group-hover:to-transparent transition-all duration-500 pointer-events-none rounded-2xl" />
+          <div className="absolute inset-0 bg-gradient-to-br from-white/0 to-[#f5f3ff]/0 group-hover:from-white/50 group-hover:to-[#f5f3ff]/80 transition-all duration-500 pointer-events-none rounded-2xl" />
           
           {/* Subtle ring effect on hover */}
-          <div className="absolute inset-0 rounded-2xl ring-0 group-hover:ring-1 group-hover:ring-[#8100d7]/20 transition-all duration-500"></div>
+          <div className="absolute inset-0 rounded-2xl ring-0 group-hover:ring-1 group-hover:ring-[#8100d7]/20 transition-all duration-500" />
           
           {/* Card Content - Center Aligned and Compact */}
           <div className="p-5 flex flex-col flex-grow relative z-10 text-center">
@@ -370,7 +388,7 @@ const Home = () => {
             <ul className="space-y-2 mb-5">
               {product.features.map((feature, featureIndex) => (
                 <li key={featureIndex} className="flex items-center justify-center text-sm text-gray-600 group-hover:text-gray-700 transition-colors duration-300">
-                  <div className="w-1.5 h-1.5 rounded-full mr-2 flex-shrink-0 bg-gradient-to-r from-[#8100d7] to-[#5c009b] group-hover:scale-125 group-hover:shadow-md transition-all duration-300"></div>
+                  <div className="w-1.5 h-1.5 rounded-full mr-2 flex-shrink-0 bg-gradient-to-r from-[#8100d7] to-[#5c009b] group-hover:scale-125 group-hover:shadow-md transition-all duration-300" />
                   <span className="font-medium">{feature}</span>
                 </li>
               ))}
@@ -463,11 +481,11 @@ const Home = () => {
                 ].map((stage, index) => (
                   <div 
                     key={index}
-                    className={`group relative bg-white/80 backdrop-blur-sm border border-gray-200/50 rounded-3xl p-6 hover:bg-white hover:border-violet-300 hover:shadow-xl transition-all duration-300 hover:scale-[1.02] overflow-hidden animate-scale ${sdlcVisible ? `visible stagger-${index + 3}` : ''}`}
+                    className={`group relative bg-white/90 backdrop-blur-sm border border-gray-200/50 rounded-3xl p-6 hover:bg-white hover:border-violet-300 hover:shadow-xl transition-all duration-300 hover:scale-[1.02] overflow-hidden animate-scale ${sdlcVisible ? `visible stagger-${index + 3}` : ''}`}
                     style={{ fontFamily: 'ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif' }}
                   >
                     {/* Background Gradient */}
-                    <div className={`absolute inset-0 bg-gradient-to-br ${stage.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-300 rounded-3xl`}></div>
+                    <div className={`absolute inset-0 bg-gradient-to-br ${stage.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-300 rounded-3xl`} />
                     
                     <div className="relative z-10 text-center space-y-6">
                       {/* Icon */}
@@ -487,7 +505,7 @@ const Home = () => {
                         {stage.items.map((item, idx) => (
                           <div key={idx} className="text-left">
                             <div className="flex items-center gap-3 mb-2">
-                              <div className={`w-2 h-2 bg-gradient-to-r from-violet-500 to-violet-700 rounded-full`}></div>
+                              <div className={`w-2 h-2 bg-gradient-to-r from-violet-500 to-violet-700 rounded-full`} />
                               <span className="text-gray-900 font-medium text-sm">{item.title}</span>
                             </div>
                             <p className="text-gray-600 text-sm ml-5">{item.desc}</p>
@@ -497,7 +515,7 @@ const Home = () => {
                     </div>
 
                     {/* Modern glow effect */}
-                    <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-violet-500/5 via-transparent to-violet-700/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-violet-500/5 via-transparent to-violet-700/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   </div>
                 ))}
               </div>
@@ -512,10 +530,10 @@ const Home = () => {
             <div className="max-w-7xl mx-auto">
               
               {/* Benefits Card */}
-              <div className={`relative mb-20 bg-white border border-gray-200 rounded-3xl p-12 shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden animate-scale ${benefitsVisible ? 'visible stagger-1' : ''}`} style={{ fontFamily: 'ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif' }}>
+              <div className={`relative mb-20 bg-white/95 backdrop-blur-sm border border-gray-200/80 rounded-3xl p-12 shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden animate-scale ${benefitsVisible ? 'visible stagger-1' : ''}`} style={{ fontFamily: 'ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif' }}>
                 {/* Minimal Decorative Elements */}
-                <div className="absolute top-0 right-0 w-32 h-32 bg-[#4f0386]/5 rounded-full -translate-y-16 translate-x-16"></div>
-                <div className="absolute bottom-0 left-0 w-24 h-24 bg-[#4f0386]/5 rounded-full translate-y-12 -translate-x-12"></div>
+                <div className="absolute top-0 right-0 w-32 h-32 bg-[#4f0386]/5 rounded-full -translate-y-16 translate-x-16" />
+                <div className="absolute bottom-0 left-0 w-24 h-24 bg-[#4f0386]/5 rounded-full translate-y-12 -translate-x-12" />
                 
                 <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-12">
                   {/* Text Content */}
@@ -548,7 +566,7 @@ const Home = () => {
                         }
                       ].map((item, index) => (
                         <div key={index} className="flex items-center gap-4">
-                          <div className={`w-3 h-3 ${item.color} rounded-full`}></div>
+                          <div className={`w-3 h-3 ${item.color} rounded-full`} />
                           <span className="text-gray-800 text-lg font-medium">{item.text}</span>
                         </div>
                       ))}
@@ -630,13 +648,13 @@ const Home = () => {
 
                 {/* Image Section */}
                 <div className={`relative animate-fade-right ${cognixVisible ? 'visible stagger-2' : ''}`}>
-                  <div className="bg-white border border-gray-200 rounded-3xl p-10 relative overflow-hidden shadow-xl">
+                  <div className="bg-white/95 backdrop-blur-sm border border-gray-200/80 rounded-3xl p-10 relative overflow-hidden shadow-xl">
                     {/* Minimal Background Pattern */}
                     <div className="absolute inset-0 opacity-5">
                       <div className="absolute inset-0" style={{
                         backgroundImage: `radial-gradient(circle at 25px 25px, #4f0386 1px, transparent 0)`,
                         backgroundSize: '50px 50px'
-                      }}></div>
+                      }} />
                     </div>
                     
                     {/* Real CogniXcellerate Image */}
@@ -659,7 +677,7 @@ const Home = () => {
   className={`py-20 animate-fade-up ${cogniloomVisible ? 'visible' : ''}`}
 >
   <div className="max-w-7xl mx-auto">
-    <div className="bg-white border border-gray-200 rounded-3xl p-12 shadow-xl">
+    <div className="bg-white/95 backdrop-blur-sm border border-gray-200/80 rounded-3xl p-12 shadow-xl">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         
         {/* Content */}
@@ -686,7 +704,7 @@ const Home = () => {
               "Adaptive Process Optimization"
             ].map((feature, index) => (
               <div key={index} className="flex items-center gap-4">
-                <div className="w-3 h-3 bg-violet-500 rounded-full"></div>
+                <div className="w-3 h-3 bg-violet-500 rounded-full" />
                 <span className="text-gray-800 text-base font-medium">{feature}</span>
               </div>
             ))}
@@ -699,7 +717,7 @@ const Home = () => {
 
         {/* Image Section - Replaced DevOps Visualization */}
         <div className={`flex justify-center animate-fade-right ${cogniloomVisible ? 'visible stagger-2' : ''}`}>
-          <div className="bg-white border border-gray-200 rounded-3xl p-8 relative overflow-hidden shadow-xl w-full max-w-md">
+          <div className="bg-white/95 backdrop-blur-sm border border-gray-200/80 rounded-3xl p-8 relative overflow-hidden shadow-xl w-full max-w-md">
             <div className="relative z-10 h-80 rounded-2xl overflow-hidden bg-gray-50">
               <img
                 src={cogniLoomPic}
@@ -714,19 +732,18 @@ const Home = () => {
   </div>
 </section>
 
-
           {/* CogniAgent Section */}
 <section 
   ref={cogniagentRef}
   className={`py-20 animate-fade-up ${cogniagentVisible ? 'visible' : ''}`}
 >
   <div className="max-w-7xl mx-auto">
-    <div className="bg-white border border-gray-200 rounded-3xl p-12 shadow-xl">
+    <div className="bg-white/95 backdrop-blur-sm border border-gray-200/80 rounded-3xl p-12 shadow-xl">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         
         {/* Image Section - Replaced AI Agent Visualization */}
         <div className={`flex justify-center lg:order-1 animate-fade-left ${cogniagentVisible ? 'visible stagger-1' : ''}`}>
-          <div className="bg-white border border-gray-200 rounded-3xl p-8 relative overflow-hidden shadow-xl w-full max-w-md">
+          <div className="bg-white/95 backdrop-blur-sm border border-gray-200/80 rounded-3xl p-8 relative overflow-hidden shadow-xl w-full max-w-md">
             <div className="relative z-10 h-80 rounded-2xl overflow-hidden bg-gray-50">
               <img
                 src={cogniAgentPic}
@@ -761,7 +778,7 @@ const Home = () => {
               "Complex Task Orchestration"
             ].map((feature, index) => (
               <div key={index} className="flex items-center gap-4">
-                <div className="w-3 h-3 bg-violet-500 rounded-full"></div>
+                <div className="w-3 h-3 bg-violet-500 rounded-full" />
                 <span className="text-gray-800 text-base font-medium">{feature}</span>
               </div>
             ))}
@@ -841,11 +858,11 @@ const Home = () => {
                 ].map((solution, index) => (
                   <div 
                     key={index}
-                    className={`bg-white border border-gray-200 rounded-3xl p-10 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 relative overflow-hidden group animate-scale ${solutionsVisible ? `visible stagger-${index + 3}` : ''}`}
+                    className={`bg-white/95 backdrop-blur-sm border border-gray-200/80 rounded-3xl p-10 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 relative overflow-hidden group animate-scale ${solutionsVisible ? `visible stagger-${index + 3}` : ''}`}
                     style={{ fontFamily: 'ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif' }}
                   >
                     {/* Background Gradient Overlay */}
-                    <div className={`absolute inset-0 bg-gradient-to-br ${solution.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-300 rounded-3xl`}></div>
+                    <div className={`absolute inset-0 bg-gradient-to-br ${solution.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-300 rounded-3xl`} />
                     
                     {/* Icon */}
                     <div className="relative z-10 mb-8">
@@ -863,7 +880,7 @@ const Home = () => {
                       <div className="space-y-6">
                         {solution.benefits.map((benefit, idx) => (
                           <div key={idx} className="flex items-start gap-4">
-                            <div className={`w-2 h-2 bg-gradient-to-r ${solution.gradient} rounded-full mt-2 flex-shrink-0`}></div>
+                            <div className={`w-2 h-2 bg-gradient-to-r ${solution.gradient} rounded-full mt-2 flex-shrink-0`} />
                             <p className="text-gray-700 text-base leading-relaxed">{benefit}</p>
                           </div>
                         ))}
@@ -871,7 +888,7 @@ const Home = () => {
                     </div>
 
                     {/* Subtle Glow Effect */}
-                    <div className={`absolute inset-0 rounded-3xl bg-gradient-to-br ${solution.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-300`}></div>
+                    <div className={`absolute inset-0 rounded-3xl bg-gradient-to-br ${solution.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-300`} />
                   </div>
                 ))}
               </div>
@@ -893,20 +910,9 @@ const Home = () => {
   ref={ctaRef}
   className={`py-16 px-4 relative overflow-hidden animate-fade-up ${ctaVisible ? 'visible' : ''}`}
 >
-  {/* Background Elements */}
-  <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-white to-purple-50/30"></div>
-  
-  {/* Subtle Pattern Overlay */}
-  <div className="absolute inset-0 opacity-[0.03]">
-    <div className="absolute inset-0" style={{
-      backgroundImage: `radial-gradient(circle at 30% 20%, #8b5cf6 1px, transparent 1px), radial-gradient(circle at 70% 80%, #8b5cf6 1px, transparent 1px)`,
-      backgroundSize: '60px 60px, 80px 80px'
-    }}></div>
-  </div>
-
-  {/* Floating Accent Elements */}
-  <div className="absolute top-8 left-8 w-16 h-16 bg-gradient-to-r from-purple-500/10 to-purple-600/10 rounded-full blur-xl"></div>
-  <div className="absolute bottom-8 right-8 w-20 h-20 bg-gradient-to-r from-purple-600/10 to-purple-700/10 rounded-full blur-xl"></div>
+  {/* Subtle accent elements with backdrop blur */}
+  <div className="absolute top-8 left-8 w-16 h-16 bg-gradient-to-r from-purple-500/20 to-purple-600/20 rounded-full blur-xl backdrop-blur-sm" />
+  <div className="absolute bottom-8 right-8 w-20 h-20 bg-gradient-to-r from-purple-600/20 to-purple-700/20 rounded-full blur-xl backdrop-blur-sm" />
 
   <div className="max-w-3xl mx-auto text-center relative z-10">
     <h2 className={`text-3xl sm:text-4xl md:text-5xl font-black mb-6 leading-tight animate-fade-up ${ctaVisible ? 'visible stagger-1' : ''}`}>
@@ -929,10 +935,10 @@ const Home = () => {
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
           </svg>
         </span>
-        <div className="absolute inset-0 bg-gradient-to-r from-purple-700 to-purple-800 opacity-0 group-hover:opacity-100 transition-opacity duration-200"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-purple-700 to-purple-800 opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
       </button>
       
-      <button className="group relative bg-transparent border-2 border-purple-600 text-purple-600 hover:bg-purple-600 hover:text-white font-bold py-3 px-8 rounded-xl transition-all duration-200 text-base shadow hover:shadow-lg transform hover:scale-105">
+      <button className="group relative bg-white/90 backdrop-blur-sm border-2 border-purple-600 text-purple-600 hover:bg-purple-600 hover:text-white font-bold py-3 px-8 rounded-xl transition-all duration-200 text-base shadow hover:shadow-lg transform hover:scale-105">
         <span className="relative z-10 flex items-center justify-center gap-2">
           <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
@@ -945,11 +951,9 @@ const Home = () => {
 
 </section>
 
-
-</div>
-
         </div>
       </div>
+    </div>
     
   );
 };
