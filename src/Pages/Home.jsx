@@ -156,84 +156,148 @@ const Home = () => {
             </div>
           </section>
 
-          {/* Product Portfolio Section */}
-         <section className="py-20">
-  <div className="max-w-7xl mx-auto">
+         {/* Product Portfolio Section */}
+<section className="py-16 bg-gray-50">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     {/* Section Header */}
-    <div className="text-center mb-16">
+    <div className="text-center mb-12">
       <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-        Our Products
+        Our Product <span className="text-purple-600">Portfolio</span>
       </h2>
-      <p className="text-lg text-gray-600">
-        Explore our suite of AI-driven products designed to accelerate your business growth.
+      <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+        Four powerful platforms designed to transform every aspect of your enterprise operations.
       </p>
     </div>
 
-    {/* CTA Button */}
-    <div className="flex-shrink-0 text-center mb-20">
-      <button className="bg-gradient-to-r from-brandblue to-brandpink text-white font-semibold px-6 py-3 rounded-lg shadow-md hover:opacity-90 transition">
-        Get Started
-      </button>
-    </div>
-  </div>
-
-  {/* CogniXcellerate Platform Section */}
-  <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-    <div className="space-y-8">
-      <div>
-        <h3 className="text-2xl font-bold text-gray-900 mb-4">
-          CogniXcellerate Platform
-        </h3>
-        <p className="text-gray-600">
-          CogniXcellerate leverages advanced AI to streamline your software
-          development lifecycle, ensuring faster and more efficient delivery.
-        </p>
-      </div>
-    </div>
-
     {/* Product Cards Grid */}
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
       {[
         {
-          title: "CogniLoom",
-          description: "AI-powered data fabric to integrate and manage data seamlessly.",
-        },
-        {
-          title: "CogniAssist",
-          description: "Intelligent assistant for task automation and productivity.",
-        },
-        {
-          title: "CogniAgent",
-          description: "Autonomous AI agents designed to perform complex workflows.",
-        },
-        {
+          icon: (
+            <svg className="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M13 10V3L4 14h7v7l9-11h-7z"/>
+            </svg>
+          ),
           title: "CogniXcelerate",
-          description: "Accelerated development with AI-optimized SDLC processes.",
+          description: "Unified workflow automation platform that intelligently coordinates complex workflows and automates decision-making processes across your enterprise.",
+          features: [
+            "Advanced Process Mining",
+            "Intelligent Decision Making", 
+            "Real-time Monitoring"
+          ]
         },
+        {
+          icon: (
+            <svg className="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M22 21H2V3h3v2H4v14h16V5h-1V3h3v18zM7 9h10v2H7V9zm0 4h7v2H7v-2z"/>
+              <rect x="6" y="6" width="4" height="2"/>
+              <rect x="12" y="6" width="6" height="2"/>
+            </svg>
+          ),
+          title: "CogniLearn",
+          description: "Unified data fabric platform that transforms enterprise-wide data into a cohesive, secure and intelligent foundation for decision making.",
+          features: [
+            "Smart Data Integration",
+            "Automated Data Lineage", 
+            "Enterprise Knowledge Graph"
+          ]
+        },
+        {
+          icon: (
+            <svg className="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M20 2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h4l4 4 4-4h4c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/>
+            </svg>
+          ),
+          title: "CogniAssist",
+          description: "Enterprise-grade conversational AI framework tailored for business-specific tasks, deployed securely at scale across your organization.",
+          features: [
+            "Enterprise-grade NLP",
+            "Role-based Orchestration",
+            "Full Control & Privacy"
+          ]
+        },
+        {
+          icon: (
+            <svg className="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M20 3H4c-1.1 0-2 .9-2 2v11c0 1.1.9 2 2 2h3l-1 1v1h12v-1l-1-1h3c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM4 14V5h16v9H4z"/>
+              <circle cx="12" cy="9" r="2"/>
+            </svg>
+          ),
+          title: "CogniAgent",
+          description: "Autonomous AI agents equipped with advanced reasoning and planning capabilities that execute complex tasks with minimal human intervention.",
+          features: [
+            "Autonomous Task Execution",
+            "Advanced Reasoning Engine",
+            "Human-in-the-Loop Control"
+          ]
+        }
       ].map((product, index) => (
         <div
           key={index}
-          className="group relative bg-gray-900 text-white p-6 rounded-3xl shadow-lg hover:shadow-2xl transition-all"
+          className="group relative bg-white/90 backdrop-blur-sm border border-gray-200 rounded-2xl shadow-sm hover:shadow-2xl transition-all duration-500 transform hover:scale-[1.03] hover:-translate-y-1 hover:border-[#8100d7]/35 flex flex-col h-full overflow-hidden cursor-pointer"
         >
-          {/* Background Gradient */}
-          <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-purple-500 to-pink-500 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+          {/* Enhanced gradient overlay with multiple layers */}
+          <div className="absolute inset-0 bg-gradient-to-br from-[#8100d7]/0 via-transparent to-[#8100d7]/0 group-hover:from-[#8100d7]/8 group-hover:via-[#8100d7]/4 group-hover:to-transparent transition-all duration-500 pointer-events-none rounded-2xl"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-white/0 to-[#f5f3ff]/0 group-hover:from-white/50 group-hover:to-[#f5f3ff]/80 transition-all duration-500 pointer-events-none rounded-2xl"></div>
+          
+          {/* Subtle ring effect on hover */}
+          <div className="absolute inset-0 rounded-2xl ring-0 group-hover:ring-1 group-hover:ring-[#8100d7]/20 transition-all duration-500"></div>
+          
+          {/* Card Content - Center Aligned and Compact */}
+          <div className="p-5 flex flex-col flex-grow relative z-10 text-center">
+            {/* Enhanced Icon - Centered & Stable */}
+            <div className="mx-auto mb-4">
+              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#8100d7] via-[#5c009b] to-[#3d006b] flex items-center justify-center text-white group-hover:scale-110 transition-all duration-300 shadow-lg group-hover:shadow-xl ring-1 ring-[#8100d7]/20 group-hover:ring-[#8100d7]/40">
+                {product.icon}
+              </div>
+            </div>
 
-          {/* Content */}
-          <div className="relative z-10 flex flex-col h-full justify-between">
-            <h4 className="text-xl font-semibold mb-2">{product.title}</h4>
-            <p className="text-sm opacity-90 mb-4">{product.description}</p>
-            <button className="self-start text-sm font-semibold text-white border border-white px-4 py-2 rounded-lg hover:bg-white hover:text-gray-900 transition">
-              Learn More
-            </button>
+            {/* Title - Centered and Compact */}
+            <h3 className="text-lg font-bold text-gray-900 mb-3 group-hover:text-[#8100d7] transition-all duration-300 leading-tight">
+              {product.title}
+            </h3>
+
+            {/* Description - Centered and Compact */}
+            <p className="text-gray-600 text-sm leading-relaxed mb-4 flex-grow group-hover:text-gray-700 transition-colors duration-300">
+              {product.description}
+            </p>
+
+            {/* Enhanced Features List - Centered */}
+            <ul className="space-y-2 mb-5">
+              {product.features.map((feature, featureIndex) => (
+                <li key={featureIndex} className="flex items-center justify-center text-sm text-gray-600 group-hover:text-gray-700 transition-colors duration-300">
+                  <div className="w-1.5 h-1.5 rounded-full mr-2 flex-shrink-0 bg-gradient-to-r from-[#8100d7] to-[#5c009b] group-hover:scale-125 group-hover:shadow-md transition-all duration-300"></div>
+                  <span className="font-medium">{feature}</span>
+                </li>
+              ))}
+            </ul>
           </div>
 
-          {/* Glow Effect */}
-          <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-purple-500 to-pink-500 opacity-10 group-hover:opacity-30 blur-2xl"></div>
+          {/* Enhanced Explore Button - Compact */}
+          <div className="p-5 pt-0 relative z-10">
+            <button className="w-full bg-gradient-to-r from-[#8100d7] to-[#5c009b] hover:from-[#6b17d4] hover:to-[#4a0080] text-white font-semibold py-3 px-5 rounded-xl transition-all duration-300 transform group-hover:scale-[1.02] hover:shadow-xl text-sm ring-1 ring-white/20 hover:ring-white/40">
+              <span className="relative z-10 flex items-center justify-center gap-2">
+                Explore Solution
+                <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                </svg>
+              </span>
+            </button>
+          </div>
         </div>
       ))}
     </div>
   </div>
 </section>
+
+
+
+
+
+
+
+
+
 
           {/* AI-Powered SDLC Section */}
           <section className="py-20">
