@@ -25,6 +25,21 @@ body {
   --animate-pulse-slow: pulse 4s infinite;
   --animate-slide-in: slide-in 0.8s ease-out forwards;
   --animate-zoom-in: zoom-in 0.5s ease-in-out forwards;
+
+   /* Existing animations */
+  --animate-bounce-slow: bounce 3s infinite;
+  --animate-fade-in: fade-in 4s ease-in-out;
+  --animate-pulse-slow: pulse 4s infinite;
+  --animate-slide-in: slide-in 0.8s ease-out forwards;
+  --animate-zoom-in: zoom-in 0.5s ease-in-out forwards;
+
+  /* New animations */
+  --animate-fade-out: fade-out 2s ease-in-out forwards;
+  --animate-fade-in-out: fade-in-out 3s ease-in-out infinite;
+  --animate-fade-up: fade-up 1s ease-out forwards;
+  --animate-fade-down: fade-down 1s ease-out forwards;
+  --animate-fade-left: fade-left 1s ease-out forwards;
+  --animate-fade-right: fade-right 1s ease-out forwards;
 }
 
 @keyframes fade-in {
@@ -40,4 +55,36 @@ body {
 @keyframes zoom-in {
   0%   { transform: scale(0.8); opacity: 0 }
   100% { transform: scale(1); opacity: 1 }
+}
+
+
+/* New animations */
+@keyframes fade-out {
+  0%   { opacity: 1 }
+  100% { opacity: 0 }
+}
+
+@keyframes fade-in-out {
+  0%, 100% { opacity: 0 }
+  50% { opacity: 1 }
+}
+
+@keyframes fade-up {
+  0%   { transform: translateY(30px); opacity: 0 }
+  100% { transform: translateY(0); opacity: 1 }
+}
+
+@keyframes fade-down {
+  0%   { transform: translateY(-30px); opacity: 0 }
+  100% { transform: translateY(0); opacity: 1 }
+}
+
+@keyframes fade-left {
+  0%   { transform: translateX(30px); opacity: 0 }
+  100% { transform: translateX(0); opacity: 1 }
+}
+
+@keyframes fade-right {
+  0%   { transform: translateX(-30px); opacity: 0 }
+  100% { transform: translateX(0); opacity: 1 }
 }
