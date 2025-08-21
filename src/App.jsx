@@ -18,7 +18,11 @@ import AIPoweredSDLC from "./Pages/Services/AIPoweredSDLC"
 // loading import
 import LoadingPage from "./Components/LoadingPage";
 import Solutions from "./Pages/Solutions"
+
+import About from './Pages/About';
+
 import Industries from "./Pages/Industries"; // Importing Industries page
+
 
 import Footer from './Components/Footer';
 import AIPoweredQA from './Pages/Services/AIPoweredQA';
@@ -53,6 +57,10 @@ function App() {
                   <Route path='/platformengineering' element={<PlatformEngineering/>}/>
                   <Route path='/aipoweredsdlc' element={<AIPoweredSDLC/>}/>
                   <Route path='/aipoweredqa' element={<AIPoweredQA/>}/>
+
+                  <Route path='/about' element={<About/>}/>
+
+
 
                 </Routes>
               </div>
