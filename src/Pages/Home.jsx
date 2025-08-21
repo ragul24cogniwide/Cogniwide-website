@@ -173,6 +173,44 @@ const Home = () => {
                 </p>
               </div>
 
+            ))}
+          </div>
+        </div>
+        
+        {/* CTA Button */}
+        <div className="flex-shrink-0">
+          <button className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-bold py-4 px-8 rounded-2xl transition-all duration-300 transform hover:scale-105 shadow-lg flex items-center gap-3 text-lg">
+            <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+            </svg>
+            Get Started with AI SDLC
+          </button>
+        </div>
+      </div>
+    </div>
+
+    {/* CogniXcellerate Platform Section */}
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      
+      {/* Content Section */}
+      <div className="space-y-8" style={{ fontFamily: 'ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif' }}>
+        <div>
+ Pages/Solution
+            <h1 className='text-3xl font-bold underline text-red-500'>Cogniwide</h1>
+
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
+            <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+              CogniXcellerate:
+            </span>
+            <span className="text-gray-900"> AI Orchestration Platform</span>
+          </h2>
+          
+          <p className="text-gray-700 text-base sm:text-lg leading-relaxed">
+            CogniXcellerate is our flagship AI orchestration platform, designed to intelligently coordinate complex workflows and automate decision-making across your enterprise. It acts as the central nervous system for your AI initiatives, ensuring seamless integration and optimal performance.
+          </p>
+        </div>
+
+
               {/* Product Cards Grid */}
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 {[
@@ -806,8 +844,11 @@ const Home = () => {
       </button>
     </div>
   </div>
+
 </section>
 
+
+</div>
 
         </div>
       </div>
