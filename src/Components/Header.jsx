@@ -39,17 +39,17 @@ const Header = () => {
       { 
         title: 'Platform Engineering', 
         subtitle: 'Cloud and DevOps Services',
-        path: '/platform-engineering'
+        path: '/platformengineering'
       },
       { 
         title: 'AI Powered SDLC', 
         subtitle: 'From ideation to deployment',
-        path: '/ai-powered-sdlc'
+        path: '/aipoweredsdlc'
       },
       { 
         title: 'AI Powered QA', 
         subtitle: 'Elevate QA to the strategic function it was always meant to be',
-        path: '/ai-powered-qa'
+        path: '/aipoweredqa'
       },
     ],
     Company: [
