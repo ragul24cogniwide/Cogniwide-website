@@ -175,7 +175,7 @@ const Home = () => {
 
             ))}
           </div>
-        </section>
+        
         
         
         {/* CTA Button */}
