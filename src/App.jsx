@@ -14,6 +14,7 @@ import CogniAgent from "./Pages/Products/CogniAgent";
 // loading import
 import LoadingPage from "./Components/LoadingPage";
 import Solutions from "./Pages/Solutions"
+import Footer from './Components/Footer';
 
 
 
@@ -41,6 +42,7 @@ function App() {
                   <Route path="/solutions" element={<Solutions />} />
                 </Routes>
               </div>
+              <Footer/>
             </>
           }
         />
