@@ -1,12 +1,107 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import cognixceleratePic from '../assets/cognixcelerate-pic.png';
 import cogniLoomPic from '../assets/cogniloom-pic.png';
 import cogniAgentPic from '../assets/cogniagent-pic.png';
 
+// Custom Hook for scroll animation
+function useScrollAnimation(threshold = 0.1, triggerOnce = true) {
+  const ref = useRef(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const element = ref.current;
+    if (!element) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true);
+          if (triggerOnce) {
+            observer.unobserve(element);
+          }
+        } else if (!triggerOnce) {
+          setVisible(false);
+        }
+      },
+      { threshold, rootMargin: '50px' }
+    );
+
+    observer.observe(element);
+
+    return () => observer.unobserve(element);
+  }, [threshold, triggerOnce]);
+
+  return [ref, visible];
+}
 
 const Home = () => {
+  // Animation refs for different sections
+  const [heroRef, heroVisible] = useScrollAnimation();
+  const [featuresRef, featuresVisible] = useScrollAnimation();
+  const [productsRef, productsVisible] = useScrollAnimation();
+  const [sdlcRef, sdlcVisible] = useScrollAnimation();
+  const [benefitsRef, benefitsVisible] = useScrollAnimation();
+  const [cognixRef, cognixVisible] = useScrollAnimation();
+  const [cogniloomRef, cogniloomVisible] = useScrollAnimation();
+  const [cogniagentRef, cogniagentVisible] = useScrollAnimation();
+  const [solutionsRef, solutionsVisible] = useScrollAnimation();
+  const [ctaRef, ctaVisible] = useScrollAnimation();
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-50 via-white to-purple-100/50 relative overflow-hidden">
+      
+      {/* Animation Styles */}
+      <style>{`
+        .animate-fade-up {
+          opacity: 0;
+          transform: translateY(30px);
+          transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        
+        .animate-fade-up.visible {
+          opacity: 1;
+          transform: translateY(0);
+        }
+        
+        .animate-fade-left {
+          opacity: 0;
+          transform: translateX(-30px);
+          transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        
+        .animate-fade-left.visible {
+          opacity: 1;
+          transform: translateX(0);
+        }
+        
+        .animate-fade-right {
+          opacity: 0;
+          transform: translateX(30px);
+          transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        
+        .animate-fade-right.visible {
+          opacity: 1;
+          transform: translateX(0);
+        }
+        
+        .animate-scale {
+          opacity: 0;
+          transform: scale(0.95);
+          transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        
+        .animate-scale.visible {
+          opacity: 1;
+          transform: scale(1);
+        }
+        
+        .stagger-1 { transition-delay: 0.1s; }
+        .stagger-2 { transition-delay: 0.2s; }
+        .stagger-3 { transition-delay: 0.3s; }
+        .stagger-4 { transition-delay: 0.4s; }
+      `}</style>
+
       {/* Subtle Background Pattern */}
       <div className="absolute inset-0 opacity-10 pointer-events-none">
         <div className="absolute inset-0" style={{
@@ -21,7 +116,10 @@ const Home = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           {/* Hero Section - Perfect First View Alignment */}
-          <section className="relative pt-12 pb-16 -mt-4 overflow-hidden min-h-[600px] flex flex-col justify-center">
+          <section 
+            ref={heroRef}
+            className={`relative pt-12 pb-16 -mt-4 overflow-hidden min-h-[600px] flex flex-col justify-center animate-fade-up ${heroVisible ? 'visible' : ''}`}
+          >
             {/* Animated Background Grid */}
             <div className="absolute inset-0 opacity-[0.02]">
               <div className="absolute inset-0" style={{
@@ -36,7 +134,7 @@ const Home = () => {
 
             <div className="max-w-5xl mx-auto text-center px-4">
               {/* Status Indicator */}
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-gradient-to-r from-green-50 to-emerald-50 border border-green-200/60 mb-8">
+              <div className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-gradient-to-r from-green-50 to-emerald-50 border border-green-200/60 mb-8 animate-fade-up ${heroVisible ? 'visible stagger-1' : ''}`}>
                 <div className="relative">
                   <div className="w-1.5 h-1.5 bg-green-500 rounded-full"></div>
                   <div className="absolute inset-0 w-1.5 h-1.5 bg-green-500 rounded-full animate-ping"></div>
@@ -45,7 +143,7 @@ const Home = () => {
               </div>
 
               {/* Headline - INTELLIGENT Black, AUTOMATION Enhanced Purple */}
-              <div className="space-y-2 mb-8">
+              <div className={`space-y-2 mb-8 animate-fade-up ${heroVisible ? 'visible stagger-2' : ''}`}>
                 <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight">
                   <span className="block text-black leading-[0.9]">INTELLIGENT</span>
                   <span className="block text-transparent bg-gradient-to-r from-[#8100d7] via-[#5c009b] to-[#3d006b] bg-clip-text leading-[0.9] -mt-1">
@@ -58,12 +156,12 @@ const Home = () => {
               </div>
 
               {/* Description */}
-              <p className="text-sm sm:text-base text-gray-600 max-w-2xl mx-auto leading-relaxed mb-10 font-normal">
+              <p className={`text-sm sm:text-base text-gray-600 max-w-2xl mx-auto leading-relaxed mb-10 font-normal animate-fade-up ${heroVisible ? 'visible stagger-3' : ''}`}>
                 Transform your enterprise with AI-powered orchestration that adapts, learns, and scales with your business needs.
               </p>
 
               {/* Action Buttons */}
-              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
+              <div className={`flex flex-col sm:flex-row gap-4 justify-center items-center mb-16 animate-fade-up ${heroVisible ? 'visible stagger-4' : ''}`}>
                 <button className="group relative bg-black hover:bg-gray-800 text-white font-bold py-3 px-6 rounded-xl text-sm transition-all duration-200 transform hover:scale-105 shadow-lg hover:shadow-xl overflow-hidden min-w-[160px]">
                   <span className="relative z-10 flex items-center justify-center gap-2">
                     Start Building Now
@@ -85,7 +183,10 @@ const Home = () => {
             </div>
 
             {/* Feature Cards Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 px-4 max-w-6xl mx-auto w-full">
+            <div 
+              ref={featuresRef}
+              className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 px-4 max-w-6xl mx-auto w-full animate-fade-up ${featuresVisible ? 'visible' : ''}`}
+            >
               {[
                 {
                   icon: (
@@ -138,7 +239,7 @@ const Home = () => {
               ].map((feature, idx) => (
                 <div
                   key={idx}
-                  className="group relative bg-white/90 backdrop-blur-sm border border-gray-200 rounded-2xl py-4 px-3 hover:bg-gradient-to-br hover:from-white hover:to-[#f5f3ff] hover:border-[#8100d7]/35 hover:shadow-lg transition-all duration-250 hover:scale-[1.03] flex flex-col items-center text-center space-y-2 cursor-pointer"
+                  className={`group relative bg-white/90 backdrop-blur-sm border border-gray-200 rounded-2xl py-4 px-3 hover:bg-gradient-to-br hover:from-white hover:to-[#f5f3ff] hover:border-[#8100d7]/35 hover:shadow-lg transition-all duration-250 hover:scale-[1.03] flex flex-col items-center text-center space-y-2 cursor-pointer animate-scale ${featuresVisible ? `visible stagger-${idx + 1}` : ''}`}
                 >
                   {/* Purple accent overlay */}
                   <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-[#8100d7]/0 via-transparent to-[#8100d7]/0 group-hover:from-[#8100d7]/8 group-hover:via-[#8100d7]/4 group-hover:to-transparent transition-all duration-250"></div>
@@ -157,10 +258,13 @@ const Home = () => {
           </section>
 
          {/* Product Portfolio Section */}
-<section className="py-16 bg-gray-50">
+<section 
+  ref={productsRef}
+  className={`py-16 bg-gray-50 animate-fade-up ${productsVisible ? 'visible' : ''}`}
+>
   <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     {/* Section Header */}
-    <div className="text-center mb-12">
+    <div className={`text-center mb-12 animate-fade-up ${productsVisible ? 'visible stagger-1' : ''}`}>
       <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
         Our Product <span className="text-purple-600">Portfolio</span>
       </h2>
@@ -170,7 +274,7 @@ const Home = () => {
     </div>
 
     {/* Product Cards Grid */}
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+    <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 animate-fade-up ${productsVisible ? 'visible stagger-2' : ''}`}>
       {[
         {
           icon: (
@@ -234,7 +338,7 @@ const Home = () => {
       ].map((product, index) => (
         <div
           key={index}
-          className="group relative bg-white/90 backdrop-blur-sm border border-gray-200 rounded-2xl shadow-sm hover:shadow-2xl transition-all duration-500 transform hover:scale-[1.03] hover:-translate-y-1 hover:border-[#8100d7]/35 flex flex-col h-full overflow-hidden cursor-pointer"
+          className={`group relative bg-white/90 backdrop-blur-sm border border-gray-200 rounded-2xl shadow-sm hover:shadow-2xl transition-all duration-500 transform hover:scale-[1.03] hover:-translate-y-1 hover:border-[#8100d7]/35 flex flex-col h-full overflow-hidden cursor-pointer animate-scale ${productsVisible ? `visible stagger-${index + 1}` : ''}`}
         >
           {/* Enhanced gradient overlay with multiple layers */}
           <div className="absolute inset-0 bg-gradient-to-br from-[#8100d7]/0 via-transparent to-[#8100d7]/0 group-hover:from-[#8100d7]/8 group-hover:via-[#8100d7]/4 group-hover:to-transparent transition-all duration-500 pointer-events-none rounded-2xl"></div>
@@ -290,20 +394,14 @@ const Home = () => {
   </div>
 </section>
 
-
-
-
-
-
-
-
-
-
           {/* AI-Powered SDLC Section */}
-          <section className="py-20">
+          <section 
+            ref={sdlcRef}
+            className={`py-20 animate-fade-up ${sdlcVisible ? 'visible' : ''}`}
+          >
             <div className="max-w-6xl mx-auto">
               {/* Header */}
-              <div className="text-center mb-16">
+              <div className={`text-center mb-16 animate-fade-up ${sdlcVisible ? 'visible stagger-1' : ''}`}>
                 <h2 className="text-3xl sm:text-4xl md:text-5xl font-black mb-6" style={{ fontFamily: 'ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif' }}>
                   <span className="bg-gradient-to-r from-violet-500 via-violet-600 to-violet-700 bg-clip-text text-transparent">AI-Powered</span>
                   <span className="text-gray-900"> SDLC Life Cycle</span>
@@ -315,7 +413,7 @@ const Home = () => {
               </div>
 
               {/* SDLC Process Flow */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div className={`grid grid-cols-1 md:grid-cols-3 gap-8 animate-fade-up ${sdlcVisible ? 'visible stagger-2' : ''}`}>
                 {[
                   {
                     phase: "Planning & Design",
@@ -365,7 +463,7 @@ const Home = () => {
                 ].map((stage, index) => (
                   <div 
                     key={index}
-                    className="group relative bg-white/80 backdrop-blur-sm border border-gray-200/50 rounded-3xl p-6 hover:bg-white hover:border-violet-300 hover:shadow-xl transition-all duration-300 hover:scale-[1.02] overflow-hidden"
+                    className={`group relative bg-white/80 backdrop-blur-sm border border-gray-200/50 rounded-3xl p-6 hover:bg-white hover:border-violet-300 hover:shadow-xl transition-all duration-300 hover:scale-[1.02] overflow-hidden animate-scale ${sdlcVisible ? `visible stagger-${index + 3}` : ''}`}
                     style={{ fontFamily: 'ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif' }}
                   >
                     {/* Background Gradient */}
@@ -407,11 +505,14 @@ const Home = () => {
           </section>
 
           {/* AI-Powered SDLC Benefits & CogniXcellerate Section */}
-          <section className="py-20">
+          <section 
+            ref={benefitsRef}
+            className={`py-20 animate-fade-up ${benefitsVisible ? 'visible' : ''}`}
+          >
             <div className="max-w-7xl mx-auto">
               
               {/* Benefits Card */}
-              <div className="relative mb-20 bg-white border border-gray-200 rounded-3xl p-12 shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden" style={{ fontFamily: 'ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif' }}>
+              <div className={`relative mb-20 bg-white border border-gray-200 rounded-3xl p-12 shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden animate-scale ${benefitsVisible ? 'visible stagger-1' : ''}`} style={{ fontFamily: 'ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif' }}>
                 {/* Minimal Decorative Elements */}
                 <div className="absolute top-0 right-0 w-32 h-32 bg-[#4f0386]/5 rounded-full -translate-y-16 translate-x-16"></div>
                 <div className="absolute bottom-0 left-0 w-24 h-24 bg-[#4f0386]/5 rounded-full translate-y-12 -translate-x-12"></div>
@@ -461,16 +562,19 @@ const Home = () => {
                         <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
                       </svg>
                       Get Started with AI SDLC
-                    </button>
+                    </button> 
                   </div>
                 </div>
               </div>
 
               {/* CogniXcellerate Platform Section */}
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+              <div 
+                ref={cognixRef}
+                className={`grid grid-cols-1 lg:grid-cols-2 gap-16 items-center animate-fade-up ${cognixVisible ? 'visible' : ''}`}
+              >
                 
                 {/* Content Section */}
-                <div className="space-y-8" style={{ fontFamily: 'ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif' }}>
+                <div className={`space-y-8 animate-fade-left ${cognixVisible ? 'visible stagger-1' : ''}`} style={{ fontFamily: 'ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif' }}>
                   <div>
                     <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
                       <span className="bg-gradient-to-r from-[#4f0386] via-[#6300a8] to-[#7a00ca] bg-clip-text text-transparent">
@@ -525,7 +629,7 @@ const Home = () => {
                 </div>
 
                 {/* Image Section */}
-                <div className="relative">
+                <div className={`relative animate-fade-right ${cognixVisible ? 'visible stagger-2' : ''}`}>
                   <div className="bg-white border border-gray-200 rounded-3xl p-10 relative overflow-hidden shadow-xl">
                     {/* Minimal Background Pattern */}
                     <div className="absolute inset-0 opacity-5">
@@ -537,12 +641,12 @@ const Home = () => {
                     
                     {/* Real CogniXcellerate Image */}
                     <div className="relative z-10 flex items-center justify-center h-80">
-  <img 
-    src={cognixceleratePic} 
-    alt="CogniXcellerate AI Orchestration Platform" 
-    className="w-full h-full object-contain"
-  />
-</div>
+                      <img 
+                        src={cognixceleratePic} 
+                        alt="CogniXcellerate AI Orchestration Platform" 
+                        className="w-full h-full object-contain"
+                      />
+                    </div>
                   </div>
                 </div>
               </div>
@@ -550,13 +654,16 @@ const Home = () => {
           </section>
 
           {/* CogniLoom Section */}
-<section className="py-20">
+<section 
+  ref={cogniloomRef}
+  className={`py-20 animate-fade-up ${cogniloomVisible ? 'visible' : ''}`}
+>
   <div className="max-w-7xl mx-auto">
     <div className="bg-white border border-gray-200 rounded-3xl p-12 shadow-xl">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         
         {/* Content */}
-        <div className="space-y-8" style={{ fontFamily: 'ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif' }}>
+        <div className={`space-y-8 animate-fade-left ${cogniloomVisible ? 'visible stagger-1' : ''}`} style={{ fontFamily: 'ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif' }}>
           <div>
             <h2 className="text-3xl sm:text-4xl font-bold mb-6">
               <span className="bg-gradient-to-r from-violet-500 via-violet-600 to-violet-700 bg-clip-text text-transparent">CogniLoom:</span>
@@ -591,7 +698,7 @@ const Home = () => {
         </div>
 
         {/* Image Section - Replaced DevOps Visualization */}
-        <div className="flex justify-center">
+        <div className={`flex justify-center animate-fade-right ${cogniloomVisible ? 'visible stagger-2' : ''}`}>
           <div className="bg-white border border-gray-200 rounded-3xl p-8 relative overflow-hidden shadow-xl w-full max-w-md">
             <div className="relative z-10 h-80 rounded-2xl overflow-hidden bg-gray-50">
               <img
@@ -609,13 +716,16 @@ const Home = () => {
 
 
           {/* CogniAgent Section */}
-<section className="py-20">
+<section 
+  ref={cogniagentRef}
+  className={`py-20 animate-fade-up ${cogniagentVisible ? 'visible' : ''}`}
+>
   <div className="max-w-7xl mx-auto">
     <div className="bg-white border border-gray-200 rounded-3xl p-12 shadow-xl">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         
         {/* Image Section - Replaced AI Agent Visualization */}
-        <div className="flex justify-center lg:order-1">
+        <div className={`flex justify-center lg:order-1 animate-fade-left ${cogniagentVisible ? 'visible stagger-1' : ''}`}>
           <div className="bg-white border border-gray-200 rounded-3xl p-8 relative overflow-hidden shadow-xl w-full max-w-md">
             <div className="relative z-10 h-80 rounded-2xl overflow-hidden bg-gray-50">
               <img
@@ -628,7 +738,7 @@ const Home = () => {
         </div>
 
         {/* Content */}
-        <div className="space-y-8 lg:order-2" style={{ fontFamily: 'ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif' }}>
+        <div className={`space-y-8 lg:order-2 animate-fade-right ${cogniagentVisible ? 'visible stagger-2' : ''}`} style={{ fontFamily: 'ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif' }}>
           <div>
             <h2 className="text-3xl sm:text-4xl font-bold mb-6">
               <span className="bg-gradient-to-r from-violet-500 via-violet-600 to-violet-700 bg-clip-text text-transparent">CogniAgent:</span>
@@ -666,12 +776,14 @@ const Home = () => {
   </div>
 </section>
 
-
           {/* Enterprise Solutions Section */}
-          <section className="py-24">
+          <section 
+            ref={solutionsRef}
+            className={`py-24 animate-fade-up ${solutionsVisible ? 'visible' : ''}`}
+          >
             <div className="max-w-7xl mx-auto">
               {/* Section Header */}
-              <div className="text-center mb-20">
+              <div className={`text-center mb-20 animate-fade-up ${solutionsVisible ? 'visible stagger-1' : ''}`}>
                 <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-8" style={{ fontFamily: 'ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif' }}>
                   <span className="text-gray-900">Enterprise Solutions </span>
                   <span className="bg-gradient-to-r from-[#960ef7] via-[#a855f7] to-[#8b5cf6] bg-clip-text text-transparent">
@@ -685,7 +797,7 @@ const Home = () => {
               </div>
 
               {/* Enterprise Solutions Cards */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-16">
+              <div className={`grid grid-cols-1 md:grid-cols-3 gap-10 mb-16 animate-fade-up ${solutionsVisible ? 'visible stagger-2' : ''}`}>
                 {[
                   {
                     title: "Insurance Underwriting Agent",
@@ -729,7 +841,7 @@ const Home = () => {
                 ].map((solution, index) => (
                   <div 
                     key={index}
-                    className="bg-white border border-gray-200 rounded-3xl p-10 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 relative overflow-hidden group"
+                    className={`bg-white border border-gray-200 rounded-3xl p-10 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 relative overflow-hidden group animate-scale ${solutionsVisible ? `visible stagger-${index + 3}` : ''}`}
                     style={{ fontFamily: 'ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif' }}
                   >
                     {/* Background Gradient Overlay */}
@@ -765,7 +877,7 @@ const Home = () => {
               </div>
 
               {/* Call to Action */}
-              <div className="text-center">
+              <div className={`text-center animate-fade-up ${solutionsVisible ? 'visible stagger-3' : ''}`}>
                 <button className="bg-gradient-to-r from-[#960ef7] to-[#8b5cf6] hover:from-[#7c3aed] hover:to-[#6d28d9] text-white font-bold py-4 px-10 rounded-2xl transition-all duration-300 text-lg transform hover:scale-105 shadow-xl flex items-center gap-3 mx-auto">
                   <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
@@ -777,7 +889,10 @@ const Home = () => {
           </section>
 
           {/* Final CTA Section - Clean & Compact */}
-<section className="py-16 px-4 relative overflow-hidden">
+<section 
+  ref={ctaRef}
+  className={`py-16 px-4 relative overflow-hidden animate-fade-up ${ctaVisible ? 'visible' : ''}`}
+>
   {/* Background Elements */}
   <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-white to-purple-50/30"></div>
   
@@ -794,20 +909,19 @@ const Home = () => {
   <div className="absolute bottom-8 right-8 w-20 h-20 bg-gradient-to-r from-purple-600/10 to-purple-700/10 rounded-full blur-xl"></div>
 
   <div className="max-w-3xl mx-auto text-center relative z-10">
-
-    <h2 className="text-3xl sm:text-4xl md:text-5xl font-black mb-6 leading-tight">
+    <h2 className={`text-3xl sm:text-4xl md:text-5xl font-black mb-6 leading-tight animate-fade-up ${ctaVisible ? 'visible stagger-1' : ''}`}>
       <span className="text-gray-900">Ready to </span>
       <span className="bg-gradient-to-r from-purple-600 via-purple-700 to-purple-800 bg-clip-text text-transparent">
         Transform Your Enterprise?
       </span>
     </h2>
     
-    <p className="text-gray-600 text-lg max-w-2xl mx-auto mb-10 leading-relaxed">
+    <p className={`text-gray-600 text-lg max-w-2xl mx-auto mb-10 leading-relaxed animate-fade-up ${ctaVisible ? 'visible stagger-2' : ''}`}>
       Start your AI journey with CogniVide's intelligent automation platform.
     </p>
     
     {/* CTA Buttons */}
-    <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+    <div className={`flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-up ${ctaVisible ? 'visible stagger-3' : ''}`}>
       <button className="group relative bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-8 rounded-xl transition-all duration-200 text-base shadow-lg hover:shadow-xl transform hover:scale-105 overflow-hidden">
         <span className="relative z-10 flex items-center justify-center gap-2">
           Start Your AI Journey
@@ -836,6 +950,7 @@ const Home = () => {
 
         </div>
       </div>
+    
   );
 };
 
