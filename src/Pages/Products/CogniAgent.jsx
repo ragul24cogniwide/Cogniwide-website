@@ -248,7 +248,7 @@ export default function CogniAgentSection() {
           <img
             src={bot}
             alt="Agent Dashboard"
-            className="w-50 h-auto rounded-xl bg-transparent object-contain absolute -top-20 right-[-30px] hidden xl:block"
+            className="w-50 h-auto rounded-xl bg-transparent object-contain absolute -top-20 right-[-30px] hidden xl:block animate-bounce-slow"
           />
         </div>
       </div>
