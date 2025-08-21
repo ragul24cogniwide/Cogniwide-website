@@ -10,10 +10,14 @@ import CogniLoom from './Pages/Products/CogniLoom';
 import CogniAssist from './Pages/Products/CogniAssist';
 import CogniAgent from "./Pages/Products/CogniAgent";
 
+// services Import
+import PlatformEngineering from "./Pages/Services/PlatformEngineering"
+
 
 // loading import
 import LoadingPage from "./Components/LoadingPage";
 import Solutions from "./Pages/Solutions"
+
 import Footer from './Components/Footer';
 
 
@@ -40,6 +44,7 @@ function App() {
                   <Route path="/cogniassist" element={<CogniAssist />} />
                   <Route path="/cogniagent" element={<CogniAgent />} />
                   <Route path="/solutions" element={<Solutions />} />
+                  <Route path='/platformengineering' element={<PlatformEngineering/>}/>
                 </Routes>
               </div>
               <Footer/>
