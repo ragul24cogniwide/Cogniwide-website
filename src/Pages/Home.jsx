@@ -175,7 +175,8 @@ const Home = () => {
 
             ))}
           </div>
-        </div>
+        </section>
+        
         
         {/* CTA Button */}
         <div className="flex-shrink-0">
