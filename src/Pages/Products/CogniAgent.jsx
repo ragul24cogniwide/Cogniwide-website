@@ -86,10 +86,69 @@ const benefits = [
     },
   ];
 
+  const agents = [
+    {
+      color: "bg-cyan-400",
+      icon: (
+        <div className="w-12 h-12 rounded-xl flex items-center justify-center bg-cyan-400">
+          <svg className="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24">
+            <rect x="6" y="8" width="12" height="10" rx="2" stroke="currentColor" strokeWidth="2"/>
+            <line x1="9" y1="12" x2="15" y2="12" stroke="currentColor" strokeWidth="2"/>
+          </svg>
+        </div>
+      ),
+      title: "Invoice Processing Agent",
+      desc: "Automated invoice extraction, validation, and approval workflows, reducing manual effort and errors.",
+      bullets: [
+        "Automated data extraction",
+        "Intelligent validation rules",
+        "Seamless ERP integration"
+      ]
+    },
+    {
+      color: "bg-blue-400",
+      icon: (
+        <div className="w-12 h-12 rounded-xl flex items-center justify-center bg-blue-400">
+          <svg className="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24">
+            <rect x="6" y="8" width="12" height="10" rx="2" stroke="currentColor" strokeWidth="2"/>
+            <path d="M10 12h4M12 10v4" stroke="currentColor" strokeWidth="2"/>
+          </svg>
+        </div>
+      ),
+      title: "Policy Review Agent",
+      desc: "Intelligent policy analysis and compliance checking, ensuring adherence to regulatory standards.",
+      bullets: [
+        "Automated compliance checks",
+        "Risk identification",
+        "Version control & audit trails"
+      ]
+    },
+    {
+      color: "bg-pink-400",
+      icon: (
+        <div className="w-12 h-12 rounded-xl flex items-center justify-center bg-pink-400">
+          <svg className="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24">
+            <rect x="6" y="5" width="12" height="14" rx="2" stroke="currentColor" strokeWidth="2"/>
+            <line x1="9" y1="9" x2="15" y2="9" stroke="currentColor" strokeWidth="2"/>
+            <line x1="9" y1="13" x2="15" y2="13" stroke="currentColor" strokeWidth="2"/>
+          </svg>
+        </div>
+      ),
+      title: "Report Generation Agent",
+      desc: "Automated report creation with data visualization, ensuring timely and accurate insights.",
+      bullets: [
+        "Customizable report templates",
+        "Automated data aggregation",
+        "Scheduled report delivery"
+      ]
+    }
+  ];
+
 export default function CogniAgentSection() {
   const [highlightedBtn, setHighlightedBtn] = useState(null);
   const [highlightedMetric, setHighlightedMetric] = useState(null);
   const [highlighted, setHighlighted] = useState(null);
+
 
   return (
     <>
@@ -189,7 +248,7 @@ export default function CogniAgentSection() {
           <img
             src={bot}
             alt="Agent Dashboard"
-            className="w-50 h-auto rounded-xl bg-transparent object-contain absolute -top-20 right-[-30px] hidden xl:block"
+            className="w-50 h-auto rounded-xl bg-transparent object-contain absolute -top-20 right-[-30px] hidden xl:block animate-bounce-slow"
           />
         </div>
       </div>
@@ -236,6 +295,54 @@ export default function CogniAgentSection() {
   </section>
 
   {/* section3 */}
+  <section className="w-full min-h-screen -mt-24 py-16 bg-background fade-in">
+      <div className="max-w-7xl mx-auto px-4">
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-3 text-purpletext">
+          Pre-built AI Agents for Every Business Need
+        </h2>
+        <p className="text-lg text-gray-500 text-center mb-10 max-w-3xl mx-auto">
+          CogniAgent provides a comprehensive library of pre-built AI agents designed for common business processes. From invoice processing to report generation, deploy powerful automation in minutes.
+        </p>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {agents.map((item, idx) => (
+            <div
+              key={item.title}
+              className={`
+                bg-[#181a1b] rounded-2xl p-6 shadow-md flex flex-col items-start
+                border transition-all duration-300
+                ${highlighted === idx ? "border-purple text-purple shadow-purple/40" : "border-transparent text-white"}
+                hover:border-purple hover:text-purple hover:shadow-purple/40 hover:scale-105
+                focus:outline-none fade-in zoom-in
+              `}
+              onMouseEnter={() => setHighlighted(idx)}
+              onMouseLeave={() => setHighlighted(null)}
+              onFocus={() => setHighlighted(idx)}
+              onBlur={() => setHighlighted(null)}
+              tabIndex={0}
+            >
+              {item.icon}
+              <div className={`font-semibold text-base mt-3 mb-2 ${highlighted === idx ? "text-purple" : "text-white"}`}>
+                {item.title}
+              </div>
+              <div className={`text-[15px] text-gray-300 mb-4 ${highlighted === idx ? "text-purple" : ""}`}>
+                {item.desc}
+              </div>
+              <ul className="space-y-1">
+                {item.bullets.map((b, bidx) => (
+                  <li
+                    key={bidx}
+                    className={`pl-4 relative before:absolute before:left-0 before:top-2 before:w-2 before:h-2 before:rounded-full
+                      before:${item.color} text-sm ${highlighted === idx ? "text-purple" : "text-gray-300"}`}
+                  >
+                    {b}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
 
   </>
   );
