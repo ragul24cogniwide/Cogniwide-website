@@ -1,27 +1,37 @@
 import React, { useEffect, useState } from 'react'
+import { useInView } from "react-intersection-observer";
+import telecomImg from '../assets/telecom.png'; // Adjust the import based on your file structure
+import bfsiImg from '../assets/bfsi.png';
+import insuranceImg from '../assets/insurance.png';
 
 const StatNumber = ({ value, prefix = '', suffix = '', duration = 1200, decimals = 0 }) => {
-    const [displayValue, setDisplayValue] = useState(0)
+    const [displayValue, setDisplayValue] = useState(0);
+    const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.3 });
 
     useEffect(() => {
-        let frameId = 0
-        const startTime = performance.now()
-        const animate = (now) => {
-            const elapsed = now - startTime
-            const progress = Math.min(elapsed / duration, 1)
-            const current = value * progress
-            setDisplayValue(current)
+        if (!inView) return;
+        let start = 0;
+        const end = Number(value);
+        if (start === end) return;
+
+        let startTimestamp = null;
+        const step = (timestamp) => {
+            if (!startTimestamp) startTimestamp = timestamp;
+            const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+            const current = start + (end - start) * progress;
+            setDisplayValue(current);
             if (progress < 1) {
-                frameId = requestAnimationFrame(animate)
+                window.requestAnimationFrame(step);
+            } else {
+                setDisplayValue(end);
             }
-        }
-        frameId = requestAnimationFrame(animate)
-        return () => cancelAnimationFrame(frameId)
-    }, [value, duration])
+        };
+        window.requestAnimationFrame(step);
+    }, [inView, value, duration])
 
     const formatted = decimals > 0 ? displayValue.toFixed(decimals) : Math.round(displayValue).toString()
     return (
-        <span>{`${prefix}${formatted}${suffix}`}</span>
+        <span ref={ref}>{`${prefix}${formatted}${suffix}`}</span>
     )
 }
 
@@ -40,27 +50,46 @@ const Solutions = () => {
                         </p>
                     </div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
-                        {[
-                            { value: 150, suffix: '+', label: 'Successful Implementations' },
-                            { value: 87, suffix: '%', label: 'Average Efficiency Gain' },
-                            { value: 2.4, prefix: '$', suffix: 'M', decimals: 1, label: 'Average Cost Savings' },
-                            { value: 6, suffix: ' Mo', label: 'Average ROI Timeline' }
-                        ].map((stat, idx) => (
-                            <div
-                                key={stat.label}
-                                className="rounded-xl border border-transparent bg-[#faf4fa] p-8 text-center shadow-lg transition-all duration-300 hover:shadow-2xl hover:bg-[#7f00d4]/10 hover:scale-105 group"
-                                style={{
-                                    boxShadow: '0 4px 24px 0 rgba(140, 44, 172, 0.07)'
-                                }}
-                            >
-                                <div className="text-3xl md:text-4xl font-extrabold mb-2 text-gray-900 group-hover:text-[#7f00d4] transition-colors duration-300">
-                                    {stat.prefix}
-                                    {stat.decimals ? stat.value.toFixed(stat.decimals) : stat.value}
-                                    {stat.suffix}
-                                </div>
-                                <div className="mt-2 text-base text-gray-900 group-hover:text-[#7f00d4] transition-colors duration-300">{stat.label}</div>
+                        <div className="rounded-xl border border-transparent bg-[#faf4fa] p-8 text-center shadow-lg transition-all duration-300 hover:shadow-2xl hover:bg-[#7f00d4]/10 hover:scale-105 group"
+                            style={{
+                                boxShadow: '0 4px 24px 0 rgba(140, 44, 172, 0.07)'
+                            }}
+                        >
+                            <div className="text-3xl md:text-4xl font-extrabold mb-2 text-gray-900">
+                                <StatNumber value={150} suffix="+" />
                             </div>
-                        ))}
+                            <div className="mt-2 text-base text-gray-900">Successful Implementations</div>
+                        </div>
+                        <div className="rounded-xl border border-transparent bg-[#faf4fa] p-8 text-center shadow-lg transition-all duration-300 hover:shadow-2xl hover:bg-[#7f00d4]/10 hover:scale-105 group"
+                            style={{
+                                boxShadow: '0 4px 24px 0 rgba(140, 44, 172, 0.07)'
+                            }}
+                        >
+                            <div className="text-3xl md:text-4xl font-extrabold mb-2 text-gray-900">
+                                <StatNumber value={87} suffix="%" />
+                            </div>
+                            <div className="mt-2 text-base text-gray-900">Average Efficiency Gain</div>
+                        </div>
+                        <div className="rounded-xl border border-transparent bg-[#faf4fa] p-8 text-center shadow-lg transition-all duration-300 hover:shadow-2xl hover:bg-[#7f00d4]/10 hover:scale-105 group"
+                            style={{
+                                boxShadow: '0 4px 24px 0 rgba(140, 44, 172, 0.07)'
+                            }}
+                        >
+                            <div className="text-3xl md:text-4xl font-extrabold mb-2 text-gray-900">
+                                <StatNumber value={2.4} prefix="$" suffix="M" decimals={1} />
+                            </div>
+                            <div className="mt-2 text-base text-gray-900">Average Cost Savings</div>
+                        </div>
+                        <div className="rounded-xl border border-transparent bg-[#faf4fa] p-8 text-center shadow-lg transition-all duration-300 hover:shadow-2xl hover:bg-[#7f00d4]/10 hover:scale-105 group"
+                            style={{
+                                boxShadow: '0 4px 24px 0 rgba(140, 44, 172, 0.07)'
+                            }}
+                        >
+                            <div className="text-3xl md:text-4xl font-extrabold mb-2 text-gray-900">
+                                <StatNumber value={6} suffix=" Mo" />
+                            </div>
+                            <div className="mt-2 text-base text-gray-900">Average ROI Timeline</div>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -415,24 +444,24 @@ const Solutions = () => {
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {/* Box 1 */}
-            <div className="rounded-2xl bg-white p-8 flex flex-col items-center shadow-lg border border-purple/10">
+            <div className="rounded-2xl bg-white p-8 flex flex-col items-center shadow-lg border border-purple/10 transition-all duration-300 hover:shadow-2xl hover:bg-[#7f00d4]/10 hover:scale-105">
                 <div className="text-gray-900 text-3xl font-extrabold mb-2">99.97%</div>
-                <div className="text-purple font-semibold">Average Uptime</div>
+                <div className="text-[#7f00d4] font-semibold">Average Uptime</div>
             </div>
-            {/* Box 2 (black color for number) */}
-            <div className="rounded-2xl bg-white p-8 flex flex-col items-center shadow-lg border border-purple/10">
+            {/* Box 2 */}
+            <div className="rounded-2xl bg-white p-8 flex flex-col items-center shadow-lg border border-purple/10 transition-all duration-300 hover:shadow-2xl hover:bg-[#7f00d4]/10 hover:scale-105">
                 <div className="text-black text-3xl font-extrabold mb-2">150+</div>
-                <div className="text-purple font-semibold">Successful Deployments</div>
+                <div className="text-[#7f00d4] font-semibold">Successful Deployments</div>
             </div>
             {/* Box 3 */}
-            <div className="rounded-2xl bg-white p-8 flex flex-col items-center shadow-lg border border-purple/10">
+            <div className="rounded-2xl bg-white p-8 flex flex-col items-center shadow-lg border border-purple/10 transition-all duration-300 hover:shadow-2xl hover:bg-[#7f00d4]/10 hover:scale-105">
                 <div className="text-gray-900 text-3xl font-extrabold mb-2">4.2 Mo</div>
-                <div className="text-purple font-semibold">Average Implementation</div>
+                <div className="text-[#7f00d4] font-semibold">Average Implementation</div>
             </div>
             {/* Box 4 */}
-            <div className="rounded-2xl bg-white p-8 flex flex-col items-center shadow-lg border border-purple/10">
+            <div className="rounded-2xl bg-white p-8 flex flex-col items-center shadow-lg border border-purple/10 transition-all duration-300 hover:shadow-2xl hover:bg-[#7f00d4]/10 hover:scale-105">
                 <div className="text-gray-900 text-3xl font-extrabold mb-2">24/7</div>
-                <div className="text-purple font-semibold">Enterprise Support</div>
+                <div className="text-[#7f00d4] font-semibold">Enterprise Support</div>
             </div>
         </div>
     </div>
@@ -441,22 +470,29 @@ const Solutions = () => {
 {/* Place this after your KPI cards section */}
 <div className="bg-background py-20">
     <div className="max-w-3xl mx-auto text-center">
-        <h2 className="text-4xl font-extrabold mb-4 text-gray-900">
-            Ready to <span className="text-cyan-400">Join Our Success Stories??</span>
+        <h2 className="text-4xl font-extrabold mb-4" style={{ color: '#7f00d4' }}>
+           Ready to Join Our Success Stories??
         </h2>
-        <p className="text-lg text-purpletext/80 mb-8">
+        <p className="text-lg text-gray-900 mb-8">
             Transform your enterprise operations with proven AI solutions. Start your journey to measurable ROI today.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <button className="px-6 py-3 rounded-lg border-2 border-cyan-400 text-purple bg-white hover:bg-cyan-400 hover:text-white font-semibold shadow-lg transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-cyan-400 animate-fade-in-up">
+            <button
+                className="px-6 py-3 rounded-lg border-2 border-[#7f00d4] text-black bg-white font-semibold shadow-lg transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#7f00d4]
+                hover:text-white hover:bg-gradient-to-r hover:from-[#7f00d4] hover:to-[#b266ff]"
+            >
                 Initiate Innovation → Start POC
             </button>
-            <button className="px-6 py-3 rounded-lg border-2 border-purple/40 text-purple bg-white hover:bg-purple hover:text-white font-semibold shadow-lg transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-purple animate-fade-in-up">
+            <button
+                className="px-6 py-3 rounded-lg border-2 border-[#7f00d4] text-black bg-white font-semibold shadow-lg transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#7f00d4]
+                hover:text-white hover:bg-gradient-to-r hover:from-[#7f00d4] hover:to-[#b266ff]"
+            >
                 Schedule Demo
             </button>
         </div>
     </div>
 </div>
+
         </div>
     )
 }
