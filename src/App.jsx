@@ -12,6 +12,7 @@ import CogniAgent from "./Pages/Products/CogniAgent";
 
 // services Import
 import PlatformEngineering from "./Pages/Services/PlatformEngineering"
+import AIPoweredSDLC from "./Pages/Services/AIPoweredSDLC"
 
 
 // loading import
@@ -19,6 +20,7 @@ import LoadingPage from "./Components/LoadingPage";
 import Solutions from "./Pages/Solutions"
 
 import Footer from './Components/Footer';
+import AIPoweredQA from './Pages/Services/AIPoweredQA';
 
 
 
@@ -45,6 +47,8 @@ function App() {
                   <Route path="/cogniagent" element={<CogniAgent />} />
                   <Route path="/solutions" element={<Solutions />} />
                   <Route path='/platformengineering' element={<PlatformEngineering/>}/>
+                  <Route path='/aipoweredsdlc' element={<AIPoweredSDLC/>}/>
+                  <Route path='/aipoweredqa' element={<AIPoweredQA/>}/>
                 </Routes>
               </div>
               <Footer/>
