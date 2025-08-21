@@ -58,7 +58,7 @@ const loomStats = {
 const cards = [
   {
     icon: (
-      <div className=" rounded-full w-10 h-10 flex items-center justify-center">
+      <div className="bg-cyan-400 rounded-2xl unded-full w-10 h-10 flex items-center justify-center">
         <svg width="22" height="22" fill="none">
           <rect width="22" height="22" rx="5" fill="#fff" />
           <path
@@ -132,7 +132,7 @@ spec:
     details: (
       <>
         <div className="font-semibold mb-2">Automated Pipeline Stages</div>
-        <ul className="text-xs mb-2 text-white/80">
+        <ul className="text-xs mb-2 text-black/80">
           <li>
             <span className="inline-block w-32">Code Commit</span>
             <span className="text-green-400">PASSED</span>
@@ -180,18 +180,18 @@ spec:
     details: (
       <>
         <div className="font-semibold mb-2">Pipeline Health</div>
-        <ul className="text-xs mb-4 text-white/80">
+        <ul className="text-xs mb-4 text-black">
           <li>
-            Success Rate <span className="ml-2 text-cyan-400">94%</span>
+            Success Rate <span className="ml-2 text-purpletext">94%</span>
           </li>
           <li>
-            Avg. Build Time <span className="ml-2 text-cyan-400">45s</span>
+            Avg. Build Time <span className="ml-2 text-purpletext">45s</span>
           </li>
           <li>
-            Tests Passed <span className="ml-2 text-cyan-400">2,847/2,891</span>
+            Tests Passed <span className="ml-2 text-purpletext">2,847/2,891</span>
           </li>
           <li>
-            Security Scans <span className="ml-2 text-cyan-400">@ Critical Issues</span>
+            Security Scans <span className="ml-2 text-purpletext">@ Critical Issues</span>
           </li>
         </ul>
       </>
@@ -210,6 +210,96 @@ spec:
     ],
   },
 ];
+
+// section3
+const colors = [
+  "bg-purpletext",      // Auth Service
+  "bg-fuchsiatext",     // AI Engine
+  "bg-bluetext",        // Data Service
+  "bg-cyantext",        // Load Balancer
+  "bg-pinktext",        // API Gateway
+  "bg-indigo-300",      // PostgreSQL
+  "bg-emerald-300",     // Redis Cache
+];
+
+const boxes = [
+  { label: "Auth Service", desc: "", color: colors[0] },
+  { label: "AI Engine", desc: "", color: colors[1] },
+  { label: "Data Service", desc: "", color: colors },
+  { label: "Load Balancer", desc: "", color: colors },
+  { label: "API Gateway", desc: "", color: colors },
+  { label: "PostgreSQL", desc: "", color: colors },
+  { label: "Redis Cache", desc: "", color: colors },
+];
+
+function AnimatedBox({ label, color, small = false }) {
+  return (
+    <div
+      className={`rounded-lg transition-all duration-300 ease-in-out 
+        ${color} shadow-md flex items-center justify-center text-white font-semibold
+        ${small ? "w-32 h-10 text-xs" : "w-40 h-12 text-base"}
+        hover:text-purple outline-none focus:text-purple
+        animate-fadeIn`}
+      tabIndex={0} // for focus accessibility
+    >
+      {label}
+    </div>
+  );
+}
+
+const statsTelecom = [
+  { label: "Deployment Speed", value: "24x Faster", color: "bg-purpletext" },
+  { label: "System Uptime", value: "99.97%", color: "bg-fuchsiatext" },
+  { label: "Cost Reduction", value: "45%", color: "bg-bluetext" },
+];
+
+const statsFinance = [
+  { label: "Daily Deployments", value: "50+", color: "bg-purpletext" },
+  { label: "Zero Downtime", value: "100%", color: "bg-cyantext" },
+  { label: "Security Compliance", value: "SOC 2 Type II", color: "bg-pinktext" },
+];
+
+// White card with fade-in animation
+function FadeInCard({ children }) {
+  return (
+    <div className="bg-white rounded-xl shadow-lg p-6 flex-1 min-w-[270px]
+      transition-all animate-fadeIn
+      flex flex-col justify-between
+      ">
+      {children}
+    </div>
+  );
+}
+
+// Statistic colored box, highlight on hover/focus
+function StatBox({ label, value, color }) {
+  return (
+    <div
+      tabIndex={0}
+      className={`rounded-lg ${color} px-3 py-2 w-max flex flex-col items-center
+        text-gray-700 font-semibold text-xs shadow-md cursor-pointer transition-all duration-300
+        hover:text-purple focus:text-purple outline-none animate-fadeIn`}
+    >
+      <span>{label}</span>
+      <span className="text-base font-bold">{value}</span>
+    </div>
+  );
+}
+
+// CTA Button with glow effect and highlight
+function GlowingButton({ children }) {
+  return (
+    <button
+      className="mt-2 px-6 py-2 text-black font-semibold bg-white rounded-lg border border-purpletext
+        transition-all duration-300 shadow-md
+         focus:text-purple outline-none
+        hover:shadow-cyan-400/80 hover:border-purpletext hover:bg-purpletext hover:text-white
+        animate-fadeIn"
+    >
+      {children}
+    </button>
+  );
+}
 
 export default function PlatformEngineering() {
   const [highlightedBtn, setHighlightedBtn] = useState(null);
@@ -353,7 +443,7 @@ export default function PlatformEngineering() {
           {cards.map((card, idx) => (
             <div
               key={card.title}
-              className={`relative bg-white border-2  rounded-xl p-5 flex flex-col justify-between
+              className={`relative bg-white   rounded-xl p-5 flex flex-col justify-between
                 transition-all duration-300
                 ${highlighted ? "text-purple-500 shadow-2xl " : "text-gray-500 shadow-md"}
                 hover:scale-105 hover:shadow-xl cursor-pointer`}
@@ -368,7 +458,7 @@ export default function PlatformEngineering() {
               {/* Show Code button and code block */}
               <button
                 onClick={() => setShowCodeAll(!showCodeAll)}
-                className={`text-cyan-400 hover:underline text-xs font-mono transition mb-2`}
+                className={`text-black hover:underline text-xs font-mono transition mb-2`}
               >
                 Show Code {showCodeAll ? '▲' : '▼'}
               </button>
@@ -381,8 +471,8 @@ export default function PlatformEngineering() {
               {/* Stats & Learn More */}
               <div className="flex gap-4 items-center text-xs font-mono mb-3">
                 {card.stats.map(s => (
-                  <div key={s.label} className="text-cyan-400 font-bold">{s.label}
-                    <span className="ml-1 text-white/70 font-normal">{s.text}</span>
+                  <div key={s.label} className="text-purpletext font-bold">{s.label}
+                    <span className="ml-1 text-black font-normal">{s.text}</span>
                   </div>
                 ))}
               </div>
@@ -392,6 +482,123 @@ export default function PlatformEngineering() {
             </div>
           ))}
         </div>
+      </div>
+    </section>
+
+    {/* Section3 */}
+    <section className="bg-background min-h-screen flex flex-col px-2 py-8 items-center transition-all md:-mt-32">
+      <h2 className="text-3xl md:text-4xl font-bold text-purple mb-4 transition-all">
+        Technical Architecture & Implementation
+      </h2>
+      <p className="text-gray-500 text-center max-w-xl mb-8">
+        Comprehensive technical documentation and architecture diagrams for solution architects and DevOps engineers
+      </p>
+      {/* Platform Architecture */}
+      <div className="rounded-xl shadow-lg bg-black/80 p-3 md:p-7 flex flex-col w-full max-w-2xl md:max-w-3xl gap-4 transition-all">
+        {/* Load Balancer & API Gateway */}
+        <div className="flex flex-row gap-2 justify-center items-center">
+          <AnimatedBox label="Load Balancer" color={colors[3]} />
+          <AnimatedBox label="API Gateway" color={colors} />
+        </div>
+        {/* Second Row */}
+        <div className="flex flex-col md:flex-row gap-2 justify-center items-center">
+          <AnimatedBox label="Auth Service" color={colors} />
+          <AnimatedBox label="AI Engine" color={colors[1]} />
+          <AnimatedBox label="Data Service" color={colors} />
+        </div>
+        {/* Third Row */}
+        <div className="flex flex-col md:flex-row gap-2 justify-center items-center">
+          <AnimatedBox label="PostgreSQL" color={colors} small />
+          <AnimatedBox label="Redis Cache" color={colors} small />
+        </div>
+        {/* Features List */}
+        <ul className="text-white/80 mt-2 space-y-1 text-sm md:text-base pl-4">
+          <li className="list-disc">Kubernetes-native deployment</li>
+          <li className="list-disc">Microservices architecture</li>
+          <li className="list-disc">Event-driven communication</li>
+          <li className="list-disc">Distributed data management</li>
+        </ul>
+      </div>
+      {/* Performance Benchmarks */}
+      <div className="bg-black/70 rounded-lg mt-6 px-4 py-6 w-full max-w-md mx-auto flex justify-between">
+        <div>
+          <p className="font-semibold text-white">API Response Time</p>
+          <span className="text-purple font-bold text-lg">&lt; 100ms</span>
+        </div>
+        <div>
+          <p className="font-semibold text-white">Requests/Second</p>
+          <span className="text-purple font-bold text-lg">10,000+</span>
+        </div>
+      </div>
+    </section>
+
+
+    {/* section4 */}
+<section className="bg-background py-8 px-3 flex flex-col items-center transition-all -mt-24">
+      {/* Title & Subtitle */}
+      <h2 className="text-2xl md:text-4xl font-bold text-purple mb-2 transition-all">
+        Technical Success Stories
+      </h2>
+      <p className="text-gray-500 mb-8 text-center max-w-xl">
+        Real-world implementations showcasing technical achievements and measurable improvements
+      </p>
+      {/* Testimonials Section */}
+      <div className="flex flex-col md:flex-row gap-6 w-full max-w-4xl justify-center items-stretch">
+        {/* Global Telecom Provider */}
+        <FadeInCard>
+          <div className="flex gap-3 items-start">
+            <img
+              src="https://randomuser.me/api/portraits/women/44.jpg"
+              alt="Sarah Chen"
+              className="w-10 h-10 rounded-md object-cover"
+            />
+            <div>
+              <h3 className="font-bold text-lg text-black">Global Telecom Provider</h3>
+              <p className="text-black text-sm">Infrastructure Modernization</p>
+            </div>
+          </div>
+          <blockquote className="italic text-gray-700 mt-3 mb-2">
+            "Cogniwide’s platform engineering team reduced our deployment time from 6 hours to 15 minutes while improving system reliability by 300%. The Loom portal gives us unprecedented visibility into our infrastructure."
+          </blockquote>
+          <div className="flex flex-col sm:flex-row gap-2 mt-2">
+            {statsTelecom.map((stat) => (
+              <StatBox key={stat.label} label={stat.label} value={stat.value} color={stat.color} />
+            ))}
+          </div>
+          <div className="mt-3 text-gray-900 text-sm">
+            <span className="font-bold">Sarah Chen</span><br />
+            CTO, TelecomGlobal
+          </div>
+        </FadeInCard>
+        {/* Finance Institution */}
+        <FadeInCard>
+          <div>
+            <div className="text-black font-semibold text-lg mb-1">Leading Financial Institution</div>
+            <div className="text-black text-sm mb-2">DevOps Transformation</div>
+            <blockquote className="italic text-gray-700">
+              "The automated CI/CD pipeline implementation exceeded our expectations. We now deploy 50+ times per day with zero downtime, and the security scanning integration gives us complete confidence in our releases."
+            </blockquote>
+            <div className="flex flex-col sm:flex-row gap-2 mt-2">
+              {statsFinance.map((stat) => (
+                <StatBox key={stat.label} label={stat.label} value={stat.value} color={stat.color} />
+              ))}
+            </div>
+            <div className="mt-3 text-gray-900 text-sm">
+              <span className="font-bold">Michael Rodriguez</span><br />
+              VP Engineering, FinanceFirst
+            </div>
+          </div>
+        </FadeInCard>
+      </div>
+      {/* CTA Section */}
+      <div className="w-full max-w-3xl mt-12 mb-2 bg-transparent flex flex-col items-center">
+        <h3 className="text-gray-900 text-2xl md:text-3xl font-bold mb-2">
+          Ready to <span className="text-purpletext">Transform Your Platform Engineering??</span>
+        </h3>
+        <p className="text-gray-500 text-center max-w-xl mb-4">
+          Schedule a technical consultation with our platform engineering experts and discover how Cogniwide can accelerate your infrastructure deployment.
+        </p>
+        <GlowingButton>Schedule Technical Consultation</GlowingButton>
       </div>
     </section>
 </>
