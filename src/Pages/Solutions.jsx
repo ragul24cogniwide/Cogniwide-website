@@ -48,22 +48,17 @@ const Solutions = () => {
                         ].map((stat, idx) => (
                             <div
                                 key={stat.label}
-                                className="rounded-xl border border-transparent bg-white p-8 text-center shadow-lg transition-all duration-300 hover:shadow-xl hover:border-0"
+                                className="rounded-xl border border-transparent bg-[#faf4fa] p-8 text-center shadow-lg transition-all duration-300 hover:shadow-2xl hover:bg-[#7f00d4]/10 hover:scale-105 group"
                                 style={{
-                                    boxShadow: '0 4px 24px 0 rgba(140, 44, 172, 0.07)',
-                                    background: '#faf4fa'
+                                    boxShadow: '0 4px 24px 0 rgba(140, 44, 172, 0.07)'
                                 }}
                             >
-                                <div
-                                    className="text-3xl md:text-4xl font-extrabold mb-2 transition-all duration-300 text-gray-900 hover:bg-clip-text hover:text-transparent hover:bg-gradient-to-r hover:from-[#8B5CF6] hover:to-[#F97316]"
-                                >
-                                    <span>
-                                        {stat.prefix}
-                                        {stat.decimals ? stat.value.toFixed(stat.decimals) : stat.value}
-                                        {stat.suffix}
-                                    </span>
+                                <div className="text-3xl md:text-4xl font-extrabold mb-2 text-gray-900 group-hover:text-[#7f00d4] transition-colors duration-300">
+                                    {stat.prefix}
+                                    {stat.decimals ? stat.value.toFixed(stat.decimals) : stat.value}
+                                    {stat.suffix}
                                 </div>
-                                <div className="mt-2 text-base text-gray-900">{stat.label}</div>
+                                <div className="mt-2 text-base text-gray-900 group-hover:text-[#7f00d4] transition-colors duration-300">{stat.label}</div>
                             </div>
                         ))}
                     </div>
@@ -85,7 +80,7 @@ const Solutions = () => {
                             <div className="w-full rounded-2xl border border-purple bg-white p-8 md:p-12 text-left text-purpletext">
                                 <div className="flex items-start justify-between gap-4">
                                     {/* Insurance Underwriting Agent */}
-                                    <h3 className="text-2xl md:text-3xl font-bold mb-2" style={{ color: '#7f00d4' }}>
+                                    <h3 className="text-2xl md:text-3xl font-bold mb-2 text-gray-800">
                                         Insurance Underwriting Agent
                                     </h3>
                                 </div>
@@ -185,7 +180,7 @@ const Solutions = () => {
                             <div className="w-full rounded-2xl border border-purple bg-white p-8 md:p-12 text-left text-purpletext">
                                 <div className="flex items-start justify-between gap-4">
                                     {/* RFP Response Agent */}
-                                    <h3 className="text-2xl md:text-3xl font-bold mb-2" style={{ color: '#7f00d4' }}>
+                                    <h3 className="text-2xl md:text-3xl font-bold mb-2 text-gray-800">
                                         RFP Response Agent
                                     </h3>
                                 </div>
@@ -282,7 +277,7 @@ const Solutions = () => {
                             <div className="w-full rounded-2xl border border-purple bg-white p-8 md:p-12 text-left text-purpletext">
                                 <div className="flex items-start justify-between gap-4">
                                     {/* Three-Way Invoice Matching Agent */}
-                                    <h3 className="text-2xl md:text-3xl font-bold mb-2" style={{ color: '#7f00d4' }}>
+                                    <h3 className="text-2xl md:text-3xl font-bold mb-2 text-gray-800">
                                         Three-Way Invoice Matching Agent
                                     </h3>
                                 </div>
@@ -377,56 +372,66 @@ const Solutions = () => {
             <section className="bg-background text-purpletext py-16">
     <div className="max-w-7xl mx-auto px-4">
         <div className="text-center mb-10">
-            <h2 className="text-4xl font-extrabold mb-2 text-purple">Enterprise Trust & Compliance</h2>
-            <p className="text-lg text-purpletext/70">
+            <h2 className="text-4xl font-extrabold mb-2 text-gray-900">
+                Enterprise Trust & Compliance
+            </h2>
+            <p className="text-lg text-gray-900">
                 Our implementations meet the highest standards of security, compliance, and reliability
             </p>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 mb-10">
+            {/* Card 1 */}
             <div className="rounded-2xl bg-white p-8 flex flex-col items-center shadow-lg border border-purple/10">
-                <div className="bg-cyan-400 rounded-xl p-3 mb-4">
-                    <span className="text-white text-2xl">🛡️</span>
+                <div className="bg-[#7f00d4] rounded-xl p-3 mb-4 animate-bounce">
+                    <span className="text-gray-900 text-2xl">🛡️</span>
                 </div>
-                <div className="font-bold text-lg mb-2 text-purple">SOC 2 Type II</div>
+                <div className="font-bold text-lg mb-2 text-gray-900">SOC 2 Type II</div>
                 <div className="text-purpletext/70 text-sm text-center">Certified security controls and operational effectiveness</div>
             </div>
+            {/* Card 2 */}
             <div className="rounded-2xl bg-white p-8 flex flex-col items-center shadow-lg border border-purple/10">
-                <div className="bg-cyan-400 rounded-xl p-3 mb-4">
-                    <span className="text-white text-2xl">🧭</span>
+                <div className="bg-[#7f00d4] rounded-xl p-3 mb-4 animate-bounce">
+                    <span className="text-gray-900 text-2xl">🧭</span>
                 </div>
-                <div className="font-bold text-lg mb-2 text-purple">ISO 27001</div>
+                <div className="font-bold text-lg mb-2 text-gray-900">ISO 27001</div>
                 <div className="text-purpletext/70 text-sm text-center">International information security management standard</div>
             </div>
+            {/* Card 3 */}
             <div className="rounded-2xl bg-white p-8 flex flex-col items-center shadow-lg border border-purple/10">
-                <div className="bg-cyan-400 rounded-xl p-3 mb-4">
-                    <span className="text-white text-2xl">✅</span>
+                <div className="bg-[#7f00d4] rounded-xl p-3 mb-4 animate-bounce">
+                    <span className="text-gray-900 text-2xl">✅</span>
                 </div>
-                <div className="font-bold text-lg mb-2 text-purple">GDPR Compliant</div>
+                <div className="font-bold text-lg mb-2 text-gray-900">GDPR Compliant</div>
                 <div className="text-purpletext/70 text-sm text-center">Full compliance with European data protection regulations</div>
             </div>
+            {/* Card 4 */}
             <div className="rounded-2xl bg-white p-8 flex flex-col items-center shadow-lg border border-purple/10">
-                <div className="bg-cyan-400 rounded-xl p-3 mb-4">
-                    <span className="text-white text-2xl">🏳️</span>
+                <div className="bg-[#7f00d4] rounded-xl p-3 mb-4 animate-bounce">
+                    <span className="text-gray-900 text-2xl">🏳️</span>
                 </div>
-                <div className="font-bold text-lg mb-2 text-purple">HIPAA Ready</div>
+                <div className="font-bold text-lg mb-2 text-gray-900">HIPAA Ready</div>
                 <div className="text-purpletext/70 text-sm text-center">Healthcare data protection and privacy compliance</div>
             </div>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            {/* Box 1 */}
             <div className="rounded-2xl bg-white p-8 flex flex-col items-center shadow-lg border border-purple/10">
-                <div className="text-cyan-400 text-3xl font-extrabold mb-2">99.97%</div>
+                <div className="text-gray-900 text-3xl font-extrabold mb-2">99.97%</div>
                 <div className="text-purple font-semibold">Average Uptime</div>
             </div>
+            {/* Box 2 (black color for number) */}
             <div className="rounded-2xl bg-white p-8 flex flex-col items-center shadow-lg border border-purple/10">
-                <div className="text-cyan-400 text-3xl font-extrabold mb-2">150+</div>
+                <div className="text-black text-3xl font-extrabold mb-2">150+</div>
                 <div className="text-purple font-semibold">Successful Deployments</div>
             </div>
+            {/* Box 3 */}
             <div className="rounded-2xl bg-white p-8 flex flex-col items-center shadow-lg border border-purple/10">
-                <div className="text-cyan-400 text-3xl font-extrabold mb-2">4.2 Mo</div>
+                <div className="text-gray-900 text-3xl font-extrabold mb-2">4.2 Mo</div>
                 <div className="text-purple font-semibold">Average Implementation</div>
             </div>
+            {/* Box 4 */}
             <div className="rounded-2xl bg-white p-8 flex flex-col items-center shadow-lg border border-purple/10">
-                <div className="text-cyan-400 text-3xl font-extrabold mb-2">24/7</div>
+                <div className="text-gray-900 text-3xl font-extrabold mb-2">24/7</div>
                 <div className="text-purple font-semibold">Enterprise Support</div>
             </div>
         </div>
@@ -436,7 +441,7 @@ const Solutions = () => {
 {/* Place this after your KPI cards section */}
 <div className="bg-background py-20">
     <div className="max-w-3xl mx-auto text-center">
-        <h2 className="text-4xl font-extrabold mb-4 text-purple">
+        <h2 className="text-4xl font-extrabold mb-4 text-gray-900">
             Ready to <span className="text-cyan-400">Join Our Success Stories??</span>
         </h2>
         <p className="text-lg text-purpletext/80 mb-8">
