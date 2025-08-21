@@ -61,9 +61,107 @@ const impacts = [
   },
 ];
 
+const steps = [
+  {
+    title: "Gen AI Kicks Off",
+    desc: "Scans code changes Generates test cases Identifies API/UI breakpoints & edge cases",
+    border: "border-purpletext",
+  },
+  {
+    title: "Manual QA leads to release drag",
+    desc: "Slow, human-dependent processes bottleneck release cycles.",
+    border: "border-purpletext",
+  },
+  {
+    title: "Flaky results break trust in pipelines",
+    desc: "Inconsistent test outcomes erode confidence in quality gates.",
+    border: "border-purpletext",
+  },
+  {
+    title: "Bugs escape to production",
+    desc: "Ineffective testing allows critical defects to reach end-users.",
+    border: "border-purpletext",
+  },
+];
+
+const offers = [
+  {
+    title: "QA as a Service Subscription",
+    border: "border-purpletext",
+    points: [
+      { highlight: "Complete QA Ownership:", text: "From strategy to execution, we take full responsibility for your quality assurance needs." },
+      { highlight: "AI-Powered Testing Platform:", text: "Automated test generation tailored to your product." },
+      { highlight: "Real-time Quality Insights:", text: "Actionable metrics and seamless integration with your development tools." },
+      { highlight: "Flexible Subscription Model:", text: "Scale up or down based on your needs while maintaining consistent quality standards." },
+    ]
+  },
+  {
+    title: "On-Demand Testing",
+    border: "border-cyantext",
+    points: [
+      { highlight: "Scalable QA Workforce:", text: "Expand your testing team instantly with seasoned experts, backed by our AI capabilities." },
+      { highlight: "AI-Assisted Testing Execution:", text: "Blending human expertise with AI-driven efficiency for faster, more accurate results." },
+      { highlight: "Flexible, Pay-as-You-Go Model:", text: "Adaptable to your project needs without long-term commitments, perfect for peak periods and specific projects." },
+    ]
+  }
+];
+
+function Card({ children, border, className = "" }) {
+  return (
+    <div
+      tabIndex={0}
+      className={`bg-white rounded-lg  shadow-md py-4 px-4 min-h-[120px] border-l-4 ${border}
+        transition-all duration-300
+        hover:text-purple focus:text-purple
+        hover:shadow-lg focus:shadow-lg
+        animate-fadeIn outline-none ${className}`}
+    >
+      {children}
+    </div>
+  );
+}
+
+
+const technologies = [
+  { name: "Generative AI", color: "bg-cyan-100 text-cyan-700" },
+  { name: "Machine Learning", color: "bg-blue-100 text-blue-700" },
+  { name: "Test Automation Frameworks", color: "bg-purpletext text-white" },
+  { name: "Predictive Analytics", color: "bg-pink-100 text-pink-700" },
+  { name: "MLOps for QA", color: "bg-green-100 text-green-700" },
+  { name: "Cloud Testing", color: "bg-white text-gray-700 border border-gray-200" },
+];
+
+const testimonials = [
+  {
+    client: "Client1",
+    name: "Seyed–Mahdi Khaligh",
+    role: "Chief Innovation Officer, Cognetivity Neurosciences",
+    text: `“We've entrusted our Quality Assurance entirely to Ideas2IT, allowing us to scale our efforts according to our needs. They have proven to be the fastest and most accurate partner we’ve worked with.”`,
+    accent: "border-purpletext",
+  },
+  {
+    client: "Client2",
+    name: "Kumar Srivatsan",
+    role: "Founder & CEO - Fego",
+    text: `“Our product lines were owned by Ideas2IT and the QA platform + human subscription allowed us to ship product fast enough to launch 3 completely new fintech products in a matter of 8 months.”`,
+    accent: "border-purpletext",
+  },
+  {
+    client: "Client3",
+    name: "Raj Abishek",
+    role: "Co-Founder, Product - Nurturebox",
+    text: `“As a startup founder, having fast and accurate QA is crucial for our accelerated go-to-market timelines. Ideas2IT delivers 100% of our QA efforts, ensuring we catch critical issues and stay on track, consistently.”`,
+    accent: "border-purpletext",
+  },
+];
+
+
 export default function QASection() {
      const [issueHover, setIssueHover] = useState(-1);
   const [impactHover, setImpactHover] = useState(-1);
+  const [techHover, setTechHover] = useState(-1);
+  const [testimonialHover, setTestimonialHover] = useState(-1);
+  const [ctaHover, setCtaHover] = useState(false);
 
   return (
     <>
@@ -169,6 +267,125 @@ export default function QASection() {
         *Validated across SaaS, fintech, healthtech, marketplaces, and complex B2B platforms.
       </div>
     </section>
+
+    {/* section5 & 6 */}
+            <section className="bg-background w-full py-10 px-2 flex flex-col items-center transition-all">
+  {/* How It Works Section */}
+  <div className="w-full max-w-3xl mx-auto mb-10 animate-fadeIn">
+    <h2 className="text-2xl md:text-3xl font-bold text-purple text-center mb-2">
+      How It <span className="text-cyan-400">Works</span>
+    </h2>
+    <p className="text-gray-700 text-center mb-6">
+      We plug into your repo, CI/CD tools, and product flow. Here’s a simplified breakdown:
+    </p>
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+      {steps.map((step, i) => (
+        <Card key={i} border={step.border}>
+          <h3 className="font-semibold text-purpletext mb-1 text-base">{step.title}</h3>
+          <p className="text-gray-700 text-sm">{step.desc}</p>
+        </Card>
+      ))}
+    </div>
+  </div>
+  {/* What We Offer Section */}
+  <div className="w-full max-w-3xl mx-auto animate-fadeIn">
+    <h2 className="text-2xl md:text-3xl font-bold text-purple text-center mb-2">
+      What <span className="text-cyan-400">We Offer</span>
+    </h2>
+    <p className="text-gray-700 text-center mb-6">
+      Designed for Engineering-Led Teams. Built by engineers who’ve scaled products from 0 to millions of users.
+    </p>
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      {offers.map((offer, i) => (
+        <Card key={i} border={offer.border} className="flex flex-col">
+          <h3 className="font-semibold text-black mb-2 text-base">{offer.title}</h3>
+          <ul className="text-sm text-gray-700 list-none space-y-2">
+            {offer.points.map((point, idx) => (
+              <li key={idx}>
+                <span className="font-bold text-black">{point.highlight}</span>{" "}
+                <span>{point.text}</span>
+              </li>
+            ))}
+          </ul>
+        </Card>
+      ))}
+    </div>
+  </div>
+</section>
+
+
+    {/* section 6 7 8 */}
+    <section className="bg-background py-10 px-2 flex flex-col items-center w-full">
+      {/* Technologies */}
+      <h2 className="text-2xl sm:text-3xl font-bold text-center mb-2 text-gray-900">
+        Key <span className="text-purpletext">Technologies We Leverage</span>
+      </h2>
+      <p className="text-gray-500 text-base text-center mb-7 max-w-xl mx-auto">
+        Our expertise spans a wide range of cutting-edge AI and testing technologies.
+      </p>
+      <div className="flex flex-wrap gap-4 justify-center mb-12">
+        {technologies.map((tech, idx) => (
+          <span
+            key={tech.name}
+            className={`px-5 py-2 rounded-full font-semibold text-sm shadow
+            transition-all duration-300 cursor-pointer
+            ${tech.color}
+            ${techHover === idx ? "scale-105 text-purple-500 border border-purpletext shadow-lg" : "hover:scale-105 hover:text-purple-500 hover:border-purpletext"} 
+            `}
+            onMouseEnter={() => setTechHover(idx)}
+            onMouseLeave={() => setTechHover(-1)}
+          >
+            {tech.name}
+          </span>
+        ))}
+      </div>
+
+      {/* QA Covered */}
+      <h3 className="text-xl sm:text-2xl font-bold text-center mb-2 text-gray-900">
+        We've Got Your <span className="text-purpletext">QA Covered.</span>
+      </h3>
+      <p className="text-gray-500 text-center text-base mb-8 max-w-2xl mx-auto">
+        Powerful stories from leading companies that made the switch to AI-powered QA, and never looked back.
+      </p>
+      <div className="flex flex-col md:flex-row gap-8 justify-center items-stretch mb-14 w-full max-w-4xl">
+        {testimonials.map((t, idx) => (
+          <div
+            key={t.name}
+            className={`bg-white rounded-xl shadow-md px-6 py-8 flex-1 min-w-[240px] max-w-sm
+              border-t-4 ${t.accent}
+              transition-all duration-300 cursor-pointer
+              text-center
+              ${testimonialHover === idx ? "scale-105 shadow-xl border-purpletext text-purple-500" : "hover:scale-105 hover:shadow-xl hover:text-purple-500"}
+            `}
+            onMouseEnter={() => setTestimonialHover(idx)}
+            onMouseLeave={() => setTestimonialHover(-1)}
+          >
+            <div className="font-bold opacity-60 mb-2 text-xs">{t.client}</div>
+            <div className="font-bold text-base mb-1">{t.name}</div>
+            <div className="text-gray-400 text-xs mb-3 font-semibold">{t.role}</div>
+            <div className="text-gray-800 text-sm">{t.text}</div>
+          </div>
+        ))}
+      </div>
+
+      {/* CTA */}
+      <h4 className="text-gray-900 text-lg text-center font-bold mb-2">
+        Let’s Get You <span className="text-purpletext">Real QA ROI</span>
+      </h4>
+      <p className="text-gray-500 text-center text-base mb-5 max-w-xl mx-auto">
+        Start with a free QA assessment. We’ll show you exactly where your bottlenecks are, and what a better path looks like.
+      </p>
+      <button
+        className={`px-8 py-2 rounded-lg border-2 font-semibold mb-6
+        transition duration-300
+        ${ctaHover ? "border-purpletext text-purple-500 bg-white scale-105 shadow-lg" : "border-cyan-400 text-cyan-400 bg-background hover:scale-105 hover:text-purple-500 hover:border-purpletext hover:bg-white"}
+        `}
+        onMouseEnter={() => setCtaHover(true)}
+        onMouseLeave={() => setCtaHover(false)}
+      >
+        Start Your Free Assessment
+      </button>
+    </section>  
     </>
   );
 }
