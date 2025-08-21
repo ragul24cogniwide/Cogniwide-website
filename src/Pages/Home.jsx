@@ -157,164 +157,83 @@ const Home = () => {
           </section>
 
           {/* Product Portfolio Section */}
-          <section className="py-20">
-            <div className="max-w-7xl mx-auto">
-              {/* Header Section */}
-              <div className="text-center mb-16">
-                <h2 className="text-3xl sm:text-4xl md:text-5xl font-black mb-6" style={{ fontFamily: 'ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif' }}>
-                  <span className="text-gray-900">Our Product </span>
-                  <span className="bg-gradient-to-r from-violet-500 via-violet-600 to-violet-700 bg-clip-text text-transparent">
-                    Portfolio
-                  </span>
-                </h2>
-                
-                <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed" style={{ fontFamily: 'ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif' }}>
-                  Four powerful platforms designed to transform every aspect of your enterprise operations.
-                </p>
-              </div>
+         <section className="py-20">
+  <div className="max-w-7xl mx-auto">
+    {/* Section Header */}
+    <div className="text-center mb-16">
+      <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+        Our Products
+      </h2>
+      <p className="text-lg text-gray-600">
+        Explore our suite of AI-driven products designed to accelerate your business growth.
+      </p>
+    </div>
 
-            ))}
-          </div>
-        
-        
-        
-        {/* CTA Button */}
-        <div className="flex-shrink-0">
-          <button className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-bold py-4 px-8 rounded-2xl transition-all duration-300 transform hover:scale-105 shadow-lg flex items-center gap-3 text-lg">
-            <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
-            </svg>
-            Get Started with AI SDLC
-          </button>
-        </div>
+    {/* CTA Button */}
+    <div className="flex-shrink-0 text-center mb-20">
+      <button className="bg-gradient-to-r from-brandblue to-brandpink text-white font-semibold px-6 py-3 rounded-lg shadow-md hover:opacity-90 transition">
+        Get Started
+      </button>
+    </div>
+  </div>
+
+  {/* CogniXcellerate Platform Section */}
+  <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+    <div className="space-y-8">
+      <div>
+        <h3 className="text-2xl font-bold text-gray-900 mb-4">
+          CogniXcellerate Platform
+        </h3>
+        <p className="text-gray-600">
+          CogniXcellerate leverages advanced AI to streamline your software
+          development lifecycle, ensuring faster and more efficient delivery.
+        </p>
       </div>
     </div>
 
-    {/* CogniXcellerate Platform Section */}
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-      
-      {/* Content Section */}
-      <div className="space-y-8" style={{ fontFamily: 'ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif' }}>
-        <div>
- Pages/Solution
-            <h1 className='text-3xl font-bold underline text-red-500'>Cogniwide</h1>
+    {/* Product Cards Grid */}
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      {[
+        {
+          title: "CogniLoom",
+          description: "AI-powered data fabric to integrate and manage data seamlessly.",
+        },
+        {
+          title: "CogniAssist",
+          description: "Intelligent assistant for task automation and productivity.",
+        },
+        {
+          title: "CogniAgent",
+          description: "Autonomous AI agents designed to perform complex workflows.",
+        },
+        {
+          title: "CogniXcelerate",
+          description: "Accelerated development with AI-optimized SDLC processes.",
+        },
+      ].map((product, index) => (
+        <div
+          key={index}
+          className="group relative bg-gray-900 text-white p-6 rounded-3xl shadow-lg hover:shadow-2xl transition-all"
+        >
+          {/* Background Gradient */}
+          <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-purple-500 to-pink-500 opacity-0 group-hover:opacity-100 transition-opacity"></div>
 
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
-            <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
-              CogniXcellerate:
-            </span>
-            <span className="text-gray-900"> AI Orchestration Platform</span>
-          </h2>
-          
-          <p className="text-gray-700 text-base sm:text-lg leading-relaxed">
-            CogniXcellerate is our flagship AI orchestration platform, designed to intelligently coordinate complex workflows and automate decision-making across your enterprise. It acts as the central nervous system for your AI initiatives, ensuring seamless integration and optimal performance.
-          </p>
+          {/* Content */}
+          <div className="relative z-10 flex flex-col h-full justify-between">
+            <h4 className="text-xl font-semibold mb-2">{product.title}</h4>
+            <p className="text-sm opacity-90 mb-4">{product.description}</p>
+            <button className="self-start text-sm font-semibold text-white border border-white px-4 py-2 rounded-lg hover:bg-white hover:text-gray-900 transition">
+              Learn More
+            </button>
+          </div>
+
+          {/* Glow Effect */}
+          <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-purple-500 to-pink-500 opacity-10 group-hover:opacity-30 blur-2xl"></div>
         </div>
-
-
-              {/* Product Cards Grid */}
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                {[
-                  {
-                    icon: (
-                      <div className="w-12 h-12 bg-gradient-to-br from-violet-500 via-violet-600 to-violet-700 rounded-2xl flex items-center justify-center shadow-lg ring-1 ring-violet-500/20">
-                        <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                        </svg>
-                      </div>
-                    ),
-                    title: "CogniXcelerate",
-                    description: "Unified workflow automation platform that intelligently coordinates complex workflows and automates decision-making processes.",
-                    features: ["Advanced Process Mining", "Intelligent Decision Making", "Real-time Monitoring"],
-                    gradient: "from-violet-500 to-violet-700"
-                  },
-                  {
-                    icon: (
-                      <div className="w-12 h-12 bg-gradient-to-br from-violet-500 via-violet-600 to-violet-700 rounded-2xl flex items-center justify-center shadow-lg ring-1 ring-violet-500/20">
-                        <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-                        </svg>
-                      </div>
-                    ),
-                    title: "CogniLearn",
-                    description: "Unified data fabric platform that revolves enterprises' wide data into a cohesive, secure and intelligent layer.",
-                    features: ["Smart Data Integration", "Automated Lineage", "Enterprise Ontology"],
-                    gradient: "from-violet-500 to-violet-700"
-                  },
-                  {
-                    icon: (
-                      <div className="w-12 h-12 bg-gradient-to-br from-violet-500 via-violet-600 to-violet-700 rounded-2xl flex items-center justify-center shadow-lg ring-1 ring-violet-500/20">
-                        <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
-                        </svg>
-                      </div>
-                    ),
-                    title: "CogniAssist",
-                    description: "Enterprise-grade conversational AI framework tailored for business-specific tasks, deployed securely at scale.",
-                    features: ["Enterprise-grade NLP", "Orchestrated Role", "Full Control and Privacy"],
-                    gradient: "from-violet-500 to-violet-700"
-                  },
-                  {
-                    icon: (
-                      <div className="w-12 h-12 bg-gradient-to-br from-violet-500 via-violet-600 to-violet-700 rounded-2xl flex items-center justify-center shadow-lg ring-1 ring-violet-500/20">
-                        <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                        </svg>
-                      </div>
-                    ),
-                    title: "CogniAgent",
-                    description: "Autonomous agents equipped with reasoning and planning that carry out tasks and processes through minimal human input.",
-                    features: ["Autonomous Workflows", "Tool Augmented Reasoning", "Human-in-the-loop Control"],
-                    gradient: "from-violet-500 to-violet-700"
-                  }
-                ].map((product, index) => (
-                  <div 
-                    key={index}
-                    className="group relative bg-white/80 backdrop-blur-sm border border-gray-200/50 rounded-3xl p-6 hover:bg-white hover:border-violet-300 hover:shadow-xl transition-all duration-300 hover:scale-[1.02] overflow-hidden flex flex-col h-full"
-                    style={{ fontFamily: 'ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif' }}
-                  >
-                    {/* Background Gradient */}
-                    <div className={`absolute inset-0 bg-gradient-to-br ${product.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-300 rounded-3xl`}></div>
-
-                    <div className="relative z-10 flex flex-col items-center text-center h-full">
-                      {/* Icon */}
-                      <div className="transition-transform duration-300 group-hover:scale-105 mb-6">
-                        {product.icon}
-                      </div>
-                      
-                      {/* Title */}
-                      <h3 className="text-gray-900 font-bold text-base leading-tight mb-4">
-                        {product.title}
-                      </h3>
-                      
-                      {/* Description */}
-                      <p className="text-gray-600 text-sm leading-relaxed mb-6 h-20 flex items-center">
-                        {product.description}
-                      </p>
-
-                      {/* Features List */}
-                      <div className="space-y-3 w-full mb-8 flex-grow">
-                        {product.features.map((feature, idx) => (
-                          <div key={idx} className="flex items-center gap-3 text-left">
-                            <div className="w-1.5 h-1.5 bg-gradient-to-r from-violet-500 to-violet-700 rounded-full flex-shrink-0"></div>
-                            <span className="text-gray-600 text-xs">{feature}</span>
-                          </div>
-                        ))}
-                      </div>
-
-                      {/* Action Button */}
-                      <button className="w-full bg-gradient-to-r from-violet-500 via-violet-600 to-violet-700 hover:from-violet-600 hover:via-violet-700 hover:to-violet-800 text-white font-semibold py-3 px-6 rounded-2xl text-sm transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl mt-auto">
-                        Explore Solution
-                      </button>
-                    </div>
-
-                    {/* Modern glow effect */}
-                    <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-violet-500/5 via-transparent to-violet-700/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </section>
+      ))}
+    </div>
+  </div>
+</section>
 
           {/* AI-Powered SDLC Section */}
           <section className="py-20">
