@@ -5,7 +5,7 @@ const currentYear = new Date().getFullYear();
 
 export default function Footer() {
   return (
-    <footer className="w-full bg-background text-gray-900 pt-12 pb-4  rounded-xl shadow-lg border border-gray-200">
+    <footer className="w-full bg-[#f6edfc] text-gray-900 pt-12 pb-4  rounded-xl shadow-lg border border-gray-200">
       <div className="max-w-7xl mx-auto px-4">
         {/* Top row: logo + about + socials */}
         <div className="flex flex-col lg:flex-row gap-10 lg:gap-0 justify-between items-start mb-10">
