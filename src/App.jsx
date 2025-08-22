@@ -16,7 +16,7 @@ import AIPoweredSDLC from "./Pages/Services/AIPoweredSDLC"
 
 
 // loading import
-import LoadingPage from "./Components/LoadingPage";
+// import LoadingPage from "./Components/LoadingPage";
 import Solutions from "./Pages/Solutions"
 import About from './Pages/About';
 
@@ -30,7 +30,7 @@ function App() {
     <Router>
       <Routes>
         {/* Loader route (no header) */}
-        <Route path="/" element={<LoadingPage />} />
+        {/* <Route path="/" element={<LoadingPage />} /> */}
 
 
         {/* All other routes should include Header */}
@@ -41,7 +41,7 @@ function App() {
               <Header />
               <div style={{ paddingTop: '60px' }}>
                 <Routes>
-                  <Route path="/home" element={<Home />} />
+                  <Route path="/" element={<Home />} />
                   <Route path="/cognixcelerate" element={<CogniXcelerate />} />
                   <Route path="/cogniloom" element={<CogniLoom />} />
                   <Route path="/cogniassist" element={<CogniAssist />} />
