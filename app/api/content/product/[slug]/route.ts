@@ -1,12 +1,15 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getProductBySlug } from '@/lib/cms-api';
 
+export const dynamic = 'force-dynamic';
+export const runtime = 'nodejs';
+
 export async function GET(
   request: NextRequest,
   { params }: { params: { slug: string } }
 ) {
   try {
-    const { searchParams } = new URL(request.url);
+    const searchParams = request.nextUrl.searchParams;
     const preview = searchParams.get('preview') === 'true';
     
     const product = await getProductBySlug(params.slug, preview);

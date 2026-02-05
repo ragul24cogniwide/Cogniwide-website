@@ -1,8 +1,11 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { enablePreview } from '@/lib/cms-api';
 
+export const dynamic = 'force-dynamic';
+export const runtime = 'nodejs';
+
 export async function GET(request: NextRequest) {
-  const { searchParams } = new URL(request.url);
+  const searchParams = request.nextUrl.searchParams;
   const secret = searchParams.get('secret');
   const slug = searchParams.get('slug');
 
@@ -25,7 +28,7 @@ export async function GET(request: NextRequest) {
   }
 
   // Enable Next.js Preview Mode
-  const response = NextResponse.redirect(new URL(`/${slug}`, request.url));
+  const response = NextResponse.redirect(new URL(`/${slug}`, request.nextUrl.origin));
   
   // Set preview cookies
   response.cookies.set('__prerender_bypass', '1', {
