@@ -133,19 +133,19 @@ const TrustIndicators = () => {
               </motion.div>
             </div>
 
-            {/* Second Row - Left to Right */}
+            {/* Second Row - Left to Right (Same 8 companies as first row) */}
             <div className="overflow-hidden">
               <motion.div
                 className="flex gap-6"
-                animate={{ x: [-100 * 9, 0] }}
+                animate={{ x: [-100 * 8, 0] }}
                 transition={{
                   duration: 20,
                   repeat: Infinity,
                   ease: "linear"
                 }}
-                style={{ width: `${9 * 140}px` }}
+                style={{ width: `${8 * 140}px` }}
               >
-                {clientLogos.slice(8).concat(clientLogos.slice(8)).map((client, index) => (
+                {clientLogos.slice(0, 8).concat(clientLogos.slice(0, 8)).map((client, index) => (
                   <motion.div
                     key={`row2-${client.name}-${index}`}
                     className="flex-shrink-0 w-32 h-20 flex items-center justify-center p-3 bg-white/80 backdrop-blur-sm rounded-xl border border-gray-200/50 shadow-sm hover:shadow-md transition-all duration-300 ease-out group"
@@ -153,7 +153,7 @@ const TrustIndicators = () => {
                     whileInView={{ opacity: 1, scale: 1 }}
                     transition={{
                       duration: 0.6,
-                      delay: (index % 9) * 0.05,
+                      delay: (index % 8) * 0.05,
                       ease: [0.25, 0.46, 0.45, 0.94]
                     }}
                     viewport={{ once: true, margin: "-50px" }}
