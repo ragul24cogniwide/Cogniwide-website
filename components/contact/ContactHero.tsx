@@ -112,7 +112,7 @@ const ContactHero = () => {
             className="mt-12 flex justify-center"
           >
             <a
-              href="mailto:shambu@cogniwide.com"
+              href="mailto:reachus@cogniwide.com"
               className="group px-10 py-5 bg-brand-blue text-white font-semibold rounded-xl shadow-lg hover:shadow-2xl hover:bg-blue-700 transition-all duration-300 hover:-translate-y-1 flex items-center gap-3 text-lg"
             >
               <Mail className="w-6 h-6" />
@@ -182,7 +182,7 @@ const ContactHero = () => {
             {/* Email Button */}
             <div className="text-center">
               <a
-                href="mailto:shambu@cogniwide.com"
+                href="mailto:reachus@cogniwide.com"
                 className="group/btn inline-flex items-center gap-3 px-8 py-4 bg-brand-blue text-white font-semibold rounded-xl shadow-lg hover:shadow-xl hover:bg-blue-700 transition-all duration-300 text-lg"
               >
                 <Mail className="w-6 h-6" />
@@ -191,8 +191,8 @@ const ContactHero = () => {
               </a>
               <p className="mt-4 text-sm text-gray-500">
                 Or email us directly at:{' '}
-                <a href="mailto:shambu@cogniwide.com" className="text-brand-blue hover:underline font-semibold">
-                  shambu@cogniwide.com
+                <a href="mailto:reachus@cogniwide.com" className="text-brand-blue hover:underline font-semibold">
+                  reachus@cogniwide.com
                 </a>
               </p>
             </div>

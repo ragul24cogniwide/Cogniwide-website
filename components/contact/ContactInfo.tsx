@@ -19,9 +19,9 @@ const contactMethods = [
   {
     icon: EnvelopeIcon,
     title: 'Email',
-    details: 'shambu@cogniwide.com',
+    details: 'reachus@cogniwide.com',
     description: '24-hour response time',
-    href: 'mailto:shambu@cogniwide.com',
+    href: 'mailto:reachus@cogniwide.com',
   },
   {
     icon: ChatBubbleLeftRightIcon,
