@@ -6,6 +6,6 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "3100:3655"
+      - "3100:3000"
     restart: always
     container_name: cogniwide-website
