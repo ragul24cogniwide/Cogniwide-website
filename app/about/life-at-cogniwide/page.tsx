@@ -32,8 +32,7 @@ function withFallback(images: string[]): string[] {
 export default function LifeAtCogniwidePage() {
   const hackathonImages = withFallback(getImagesFrom('hackathon'));
   const turfImages = withFallback(getImagesFrom('turf'));
-  const funFridayImages = withFallback(getImagesFrom('fun_friday'));
-  const conferenceImages = withFallback(getImagesFrom('conference'));
+  const pongalImages = withFallback(getImagesFrom('pongal_celebration'));
   const innovationImages = withFallback(getImagesFrom('innovation'));
 
   return (
@@ -41,8 +40,7 @@ export default function LifeAtCogniwidePage() {
       <LifeContent
         hackathonImages={hackathonImages}
         turfImages={turfImages}
-        funFridayImages={funFridayImages}
-        conferenceImages={conferenceImages}
+        pongalImages={pongalImages}
         innovationImages={innovationImages}
       />
     </PageLayout>

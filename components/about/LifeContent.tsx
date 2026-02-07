@@ -15,25 +15,19 @@ const lifeEvents = [
     title: 'Pongal Celebration',
     description:
       'Our flagship gathering where teams share breakthroughs, celebrate milestones, and set the vision for the year ahead.',
-    image: '/images/placeholder.svg',
-  },
-  {
-    title: 'Fun Friday',
-    description:
-      'Monthly themed sessions with games, quizzes, and team-building activities designed to keep the culture lively and inclusive.',
-    image: '/images/life/placeholder.svg',
+    image: '/images/life-at-cogniwide/pongal_celebration/image.png',
   },
   {
     title: 'Innovation Day',
     description:
       'A focused day dedicated to exploring new ideas, prototyping concepts, and demoing internal innovations across teams.',
-    image: '/images/life/placeholder.svg',
+    image: '/images/life-at-cogniwide/innovation/image.png',
   },
   {
     title: 'Bi-weekly Hackathons',
     description:
       'Fast-paced hack sessions where cross-functional teams build, iterate, and showcase solutions that often mature into real products.',
-    image: '/images/life-at-cogniwide/hackathon/image 6.png',
+    image: '/images/life-at-cogniwide/hackathon/image.png',
   },
 ]
 
@@ -48,14 +42,12 @@ const gradientSets = [
 export default function LifeContent({
   hackathonImages,
   turfImages,
-  funFridayImages,
-  conferenceImages,
+  pongalImages,
   innovationImages,
 }: {
   hackathonImages: string[];
   turfImages: string[];
-  funFridayImages: string[];
-  conferenceImages: string[];
+  pongalImages: string[];
   innovationImages: string[];
 }) {
   return (
@@ -126,8 +118,7 @@ export default function LifeContent({
             return ordered.map((event, idx) => {
               const isHackathon = event.title.toLowerCase().includes('hackathon')
               const isTurf = event.title.toLowerCase().includes('turf')
-              const isConference = event.title.toLowerCase().includes('conference')
-              const isFunFriday = event.title.toLowerCase().includes('fun friday')
+              const isPongal = event.title.toLowerCase().includes('pongal')
               const isInnovation = event.title.toLowerCase().includes('innovation')
               if (isHackathon) {
                 return (
@@ -167,26 +158,7 @@ export default function LifeContent({
                 )
               }
 
-              if (isConference) {
-                return (
-                  <div key={event.title} className="relative mb-12 rounded-2xl overflow-hidden ring-1 ring-brand-blue/10 shadow-[0_10px_40px_-15px_rgba(37,99,235,0.15)] hover:shadow-[0_20px_50px_-12px_rgba(37,99,235,0.2)] transition-shadow duration-300">
-                    <div className={`p-5 md:p-6 ${gradientSets[idx % gradientSets.length]}`}>
-                      {/* Content on top */}
-                      <div>
-                        <div className="inline-flex items-center px-3 py-1 bg-brand-blue-light/20 rounded-full text-xs font-bold text-brand-blue-dark mb-3 border border-brand-blue-light/30">
-                          {idx + 1 < 10 ? `0${idx + 1}` : idx + 1}
-                        </div>
-                        <h3 className="text-2xl md:text-3xl font-bold text-brand-dark-grey mb-2">{event.title}</h3>
-                        <p className="text-brand-medium-grey text-base md:text-lg leading-relaxed">{event.description}</p>
-                      </div>
-                      {/* Carousel below (renders only if images provided) */}
-                      <HackathonCarousel images={conferenceImages} />
-                    </div>
-                  </div>
-                )
-              }
-
-              if (isFunFriday) {
+              if (isPongal) {
                 return (
                   <div key={event.title} className="relative mb-12 rounded-2xl overflow-hidden ring-1 ring-brand-blue/10 shadow-[0_10px_40px_-15px_rgba(37,99,235,0.15)] hover:shadow-[0_20px_50px_-12px_rgba(37,99,235,0.2)] transition-shadow duration-300">
                     <div className={`p-5 md:p-6 ${gradientSets[idx % gradientSets.length]}`}>
@@ -199,7 +171,7 @@ export default function LifeContent({
                         <p className="text-brand-medium-grey text-base md:text-lg leading-relaxed">{event.description}</p>
                       </div>
                       {/* Carousel below */}
-                      <HackathonCarousel images={funFridayImages} />
+                      <HackathonCarousel images={pongalImages} />
                     </div>
                   </div>
                 )

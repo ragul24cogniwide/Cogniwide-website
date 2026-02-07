@@ -209,24 +209,6 @@ const CogniTestPage = () => {
             ))}
           </div>
 
-          {/* Success Stories Preview */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className="bg-white backdrop-blur-sm border-2 border-brand-blue-light rounded-3xl p-8 text-center shadow-soft"
-          >
-            <h3 className="text-2xl font-bold text-brand-blue mb-4">Trusted by Testing Teams Worldwide</h3>
-            <p className="text-brand-dark-grey mb-6 max-w-2xl mx-auto">
-              From startups to enterprise, teams rely on CogniTest to deliver quality software faster
-            </p>
-            <div className="flex flex-wrap justify-center gap-8 items-center opacity-60">
-              <div className="text-brand-blue font-semibold">TechCorp</div>
-              <div className="text-brand-blue font-semibold">InnovateLabs</div>
-              <div className="text-brand-blue font-semibold">QualityFirst</div>
-              <div className="text-brand-blue font-semibold">TestMasters</div>
-            </div>
-          </motion.div>
         </div>
       </section>
 

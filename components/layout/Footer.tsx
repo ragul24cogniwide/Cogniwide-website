@@ -15,7 +15,7 @@ const Footer = () => {
             title: 'Products',
             links: [
                 { name: 'CogniAssist', href: '/products/cogniassist' },
-                { name: 'CogniLoom', href: '/products/CogniLoom' },
+                { name: 'CogniLoom', href: '/products/cogniloom' },
                 { name: 'CogniAura', href: '/products/cogniaura' },
             ],
             subSections: [
