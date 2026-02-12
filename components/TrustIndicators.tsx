@@ -10,7 +10,7 @@ const TrustIndicators = () => {
     { name: 'Almuzaini', logo: '/clients/almuzaini.png' },
     { name: 'Awnic', logo: '/clients/awnic.png' },
     { name: 'Federal Bank', logo: '/clients/federalbank.png' },
-    { name: 'Fifth9', logo: '/clients/fifth9.png' },
+    // { name: 'Fifth9', logo: '/clients/fifth9.png' },
     { name: 'Lycamobile', logo: '/clients/lycamobile.png' },
     { name: 'Nesto', logo: '/clients/nesto.jpg' },
     { name: 'Geepas', logo: '/clients/geepas.webp' },
