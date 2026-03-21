@@ -73,8 +73,10 @@ const ThreeBackground = () => {
 
     // Animation Loop
     let time = 0
+    let animationFrameId: number
+
     const animate = () => {
-      requestAnimationFrame(animate)
+      animationFrameId = requestAnimationFrame(animate)
       time += 0.005
 
       // Rotate group
@@ -111,6 +113,7 @@ const ThreeBackground = () => {
     window.addEventListener('resize', handleResize)
 
     return () => {
+      cancelAnimationFrame(animationFrameId)
       window.removeEventListener('resize', handleResize)
       document.removeEventListener('mousemove', onDocumentMouseMove)
       if (containerRef.current && containerRef.current.contains(renderer.domElement)) {
@@ -120,6 +123,7 @@ const ThreeBackground = () => {
         line.geometry.dispose()
         ;(line.material as THREE.Material).dispose()
       })
+      renderer.dispose()
     }
   }, [])
 

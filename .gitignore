@@ -39,3 +39,19 @@ ENV/
 backend/chroma_db/**/*.sqlite3
 
 # Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Next.js & React
+.next
+out
+build
+.vercel
+
+# Caches
+.cache
+.eslintcache
+.stylelintcache
+.npm
+.yarn

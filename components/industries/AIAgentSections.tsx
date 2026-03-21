@@ -23,7 +23,7 @@ import {
   WifiIcon,
   BanknotesIcon,
 } from '@heroicons/react/24/outline';
-import { Link } from 'lucide-react';
+import Link from 'next/link';
 
 interface AgentStage {
   stage: string;
@@ -294,15 +294,11 @@ const AIAgentSections: React.FC<AIAgentSectionsProps> = ({
             viewport={{ once: true }}
           >
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/products/cogniassist">
-              <button className="px-8 py-4 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-colors shadow-lg hover:shadow-xl">
+              <Link href="/products/cogniassist" className="inline-flex items-center justify-center px-8 py-4 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-colors shadow-lg hover:shadow-xl">
                 Get Started with AI Agents
-              </button>
               </Link>
-              <Link href="/contact">
-              <button className="px-8 py-4 bg-white text-blue-600 border-2 border-blue-600 rounded-lg font-semibold hover:bg-blue-50 transition-colors">
+              <Link href="/contact" className="inline-flex items-center justify-center px-8 py-4 bg-white text-blue-600 border-2 border-blue-600 rounded-lg font-semibold hover:bg-blue-50 transition-colors">
                 Schedule a Consultation
-              </button>
               </Link>
             </div>
           </motion.div>

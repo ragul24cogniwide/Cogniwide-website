@@ -2,9 +2,11 @@
 
 import { motion, AnimatePresence } from 'framer-motion'
 import Link from 'next/link'
-import ThreeBackground from './ThreeBackground'
+import dynamic from 'next/dynamic'
 import { ArrowRightIcon, ChevronDownIcon } from '@heroicons/react/24/outline'
 import { useState, useEffect } from 'react'
+
+const ThreeBackground = dynamic(() => import('./ThreeBackground'), { ssr: false })
 
 const ModernHero = () => {
   const [activeTab, setActiveTab] = useState(0)
@@ -112,11 +114,9 @@ const ModernHero = () => {
                 {current.subtitle}
               </p>
 
-              <Link href={current.cta.href}>
-                <button className="bg-[#2dd4bf] hover:bg-[#14b8a6] text-[#000033] px-8 py-3 rounded-full font-bold text-lg transition-all shadow-lg hover:shadow-[#2dd4bf]/50 flex items-center gap-2 group">
+              <Link href={current.cta.href} className="inline-flex bg-[#2dd4bf] hover:bg-[#14b8a6] text-[#000033] px-8 py-3 rounded-full font-bold text-lg transition-all shadow-lg hover:shadow-[#2dd4bf]/50 items-center gap-2 group">
                   {current.cta.text}
                   <ArrowRightIcon className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                </button>
               </Link>
             </motion.div>
           </AnimatePresence>

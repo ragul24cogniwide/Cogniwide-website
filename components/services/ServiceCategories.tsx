@@ -45,14 +45,6 @@ const ServiceCategories = () => {
       capabilities: ['AI-powered data pipelines', 'Real-time analytics', 'ML infrastructure', 'Data governance & quality'],
       industries: ['Healthcare', 'Insurance', 'Logistics', 'Financial Services'],
       href: '/services/data-engineering'
-    },
-    {
-      title: 'Cybersecurity',
-      description: 'AI-enhanced enterprise security solutions and compliance services that protect your digital assets with intelligent threat detection.',
-      icon: ShieldCheckIcon,
-      capabilities: ['AI-enhanced security', 'Threat intelligence', 'Compliance automation', 'Security orchestration'],
-      industries: ['Banking', 'Healthcare', 'Government', 'Critical Infrastructure'],
-      href: '/services/cybersecurity'
     }
   ]
 

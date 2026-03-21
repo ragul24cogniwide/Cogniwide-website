@@ -81,10 +81,8 @@ export const CTASection = () => {
             <p className="text-sm text-slate-500 mb-6 leading-relaxed">
               Ready to deploy? Access our enterprise platform and begin onboarding.
             </p>
-            <Link href="/get-started">
-              <button className="w-full py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-xl text-sm font-bold transition-colors">
-                Quick Setup
-              </button>
+            <Link href="/get-started" className="block w-full py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-xl text-sm font-bold transition-colors text-center">
+              Quick Setup
             </Link>
           </motion.div>
 

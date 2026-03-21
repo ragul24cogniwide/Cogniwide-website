@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion'
 import { Button } from '@/components/ui/Button'
 import Section from '@/components/layout/Section'
-import { Link } from 'lucide-react'
+import Link from 'next/link'
 
 interface SolutionData {
   name: string

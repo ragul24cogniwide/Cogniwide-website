@@ -14,13 +14,13 @@ const VantaBackground = ({ effect = 'globe', className = '' }: VantaBackgroundPr
   useEffect(() => {
     if (!vantaRef.current) return
 
+    let effectInstance: any = null;
+
     const loadVanta = async () => {
       try {
         // Dynamically import THREE and specific VANTA effects to avoid SSR issues
         const THREE = await import('three')
         
-        let effectInstance
-
         switch (effect) {
           case 'globe':
             // @ts-ignore
@@ -160,13 +160,13 @@ const VantaBackground = ({ effect = 'globe', className = '' }: VantaBackgroundPr
 
     // Cleanup function
     return () => {
-      if (vantaEffect) {
-        vantaEffect.destroy()
+      if (effectInstance) {
+        effectInstance.destroy()
       }
     }
   }, [effect])
 
-  // Cleanup on unmount
+  // Optional: Cleanup on unmount (handled above, but kept if vantaEffect state is used elsewhere)
   useEffect(() => {
     return () => {
       if (vantaEffect) {

@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import Image from 'next/image'
 import { useEffect, useState } from 'react'
 
 const TrustIndicators = () => {
@@ -13,7 +14,7 @@ const TrustIndicators = () => {
     // { name: 'Fifth9', logo: '/clients/fifth9.png' },
     { name: 'Lycamobile', logo: '/clients/lycamobile.png' },
     { name: 'Nesto', logo: '/clients/nesto.jpg' },
-    { name: 'Geepas', logo: '/clients/geepas.webp' },
+    // { name: 'Geepas', logo: '/clients/geepas.webp' },
     { name: 'RoyalFord', logo: '/clients/brand-royalford.png' },
     { name: 'OlsenMark', logo: '/clients/olsenmark.webp' },
     { name: 'YoungLife', logo: '/clients/younglife.png' },
@@ -34,6 +35,8 @@ const TrustIndicators = () => {
   const [hasAnimated, setHasAnimated] = useState(false)
 
   useEffect(() => {
+    let timers: NodeJS.Timeout[] = []
+
     const animateStats = () => {
       if (hasAnimated) return
       setHasAnimated(true)
@@ -56,6 +59,7 @@ const TrustIndicators = () => {
             return newStats
           })
         }, 30)
+        timers.push(timer)
       })
     }
 
@@ -72,7 +76,10 @@ const TrustIndicators = () => {
     const element = document.getElementById('statistics')
     if (element) observer.observe(element)
 
-    return () => observer.disconnect()
+    return () => {
+      observer.disconnect()
+      timers.forEach(timer => clearInterval(timer))
+    }
   }, [hasAnimated])
 
   return (
@@ -123,11 +130,14 @@ const TrustIndicators = () => {
                     }}
                     viewport={{ once: true, margin: "-50px" }}
                   >
-                    <img
-                      src={client.logo}
-                      alt={client.name}
-                      className="max-w-full max-h-full object-contain transition-all duration-300 hover:scale-110"
-                    />
+                    <div className="relative w-full h-full">
+                      <Image
+                        src={client.logo}
+                        alt={client.name}
+                        fill
+                        className="object-contain transition-all duration-300 hover:scale-110"
+                      />
+                    </div>
                   </motion.div>
                 ))}
               </motion.div>
@@ -158,11 +168,14 @@ const TrustIndicators = () => {
                     }}
                     viewport={{ once: true, margin: "-50px" }}
                   >
-                    <img
-                      src={client.logo}
-                      alt={client.name}
-                      className="max-w-full max-h-full object-contain transition-all duration-300 hover:scale-110"
-                    />
+                    <div className="relative w-full h-full">
+                      <Image
+                        src={client.logo}
+                        alt={client.name}
+                        fill
+                        className="object-contain transition-all duration-300 hover:scale-110"
+                      />
+                    </div>
                   </motion.div>
                 ))}
               </motion.div>

@@ -9,7 +9,7 @@ import { LoadingSpinner } from '@/components/ui/LoadingSpinner'
 import { ArrowRightIcon, ArrowLeftIcon } from '@heroicons/react/24/outline'
 
 const industries = ['Banking & Financial Services', 'Healthcare', 'Retail E-commerce', 'Telecommunications', 'Insurance', 'Logistics & Supply Chain', 'Manufacturing', 'Government', 'Other']
-const interests = ['CogniAssist - Agentic AI', 'CogniLoom - Kubernetes Orchestration', 'CogniAura - Analytics & BI', 'CogniNova - Education ERP', 'CogniForge - Manufacturing ERP', 'Product Engineering Services', 'Cloud Engineering Services', 'Data Engineering Services', 'Intelligent Automation', 'Cybersecurity Services', 'General Consultation']
+const interests = ['CogniAssist - Agentic AI', 'CogniLoom - Kubernetes Orchestration', 'CogniAura - Analytics & BI', 'CogniNova - Education ERP', 'CogniForge - Manufacturing ERP', 'Product Engineering Services', 'Cloud Engineering Services', 'Data Engineering Services', 'Intelligent Automation', 'General Consultation']
 const budgetRanges = ['Under $50K', '$50K - $100K', '$100K - $250K', '$250K - $500K', '$500K - $1M', 'Over $1M', 'Not sure yet']
 const timelines = ['Immediate (within 1 month)', 'Short-term (1-3 months)', 'Medium-term (3-6 months)', 'Long-term (6+ months)', 'Just exploring options']
 

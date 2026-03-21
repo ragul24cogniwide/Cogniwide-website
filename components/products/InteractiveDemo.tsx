@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import { Card } from '@/components/ui/Card'
@@ -22,6 +22,7 @@ const InteractiveDemo = ({
 }: InteractiveDemoProps) => {
   const [activeStep, setActiveStep] = useState(0)
   const [isPlaying, setIsPlaying] = useState(false)
+  const timerRef = useRef<NodeJS.Timeout | null>(null)
 
   // SVG Icon Components
   const AgentIcon = () => (
@@ -158,10 +159,14 @@ const InteractiveDemo = ({
     setIsPlaying(true)
     setActiveStep(0)
 
-    const interval = setInterval(() => {
+    if (timerRef.current) {
+      clearInterval(timerRef.current)
+    }
+
+    timerRef.current = setInterval(() => {
       setActiveStep(prev => {
         if (prev >= demoSteps.length - 1) {
-          clearInterval(interval)
+          if (timerRef.current) clearInterval(timerRef.current)
           setIsPlaying(false)
           return 0
         }
@@ -169,6 +174,14 @@ const InteractiveDemo = ({
       })
     }, 2000)
   }
+
+  useEffect(() => {
+    return () => {
+      if (timerRef.current) {
+        clearInterval(timerRef.current)
+      }
+    }
+  }, [])
 
   return (
     <Section background="white" padding="lg">

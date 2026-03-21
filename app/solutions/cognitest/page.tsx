@@ -77,10 +77,8 @@ const CogniTestPage = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.6 }}
               >
-              <Link href="/contact">
-                <button className="bg-brand-yellow hover:bg-brand-yellow-dark text-brand-black px-8 py-4 rounded-xl font-semibold transition-all duration-200 transform hover:scale-105 shadow-lg">
+              <Link href="/contact" className="bg-brand-yellow hover:bg-brand-yellow-dark text-brand-black px-8 py-4 rounded-xl font-semibold transition-all duration-200 transform hover:scale-105 shadow-lg inline-block text-center">
                   Schedule demo
-                </button>
               </Link>
               </motion.div>
             </motion.div>

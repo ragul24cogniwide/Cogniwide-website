@@ -216,7 +216,7 @@ export interface ServiceEntry extends ContentfulEntry {
     name: string;
     slug: string;
     description: Document;
-    category: 'product-engineering' | 'cloud-engineering' | 'data-engineering' | 'intelligent-automation' | 'cybersecurity';
+    category: 'product-engineering' | 'cloud-engineering' | 'data-engineering' | 'intelligent-automation';
     technologies: string[];
     deliveryMethodology: string[];
     integrationPoints: string[];

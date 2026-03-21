@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { MapPinIcon, BuildingOfficeIcon, ClockIcon } from '@heroicons/react/24/outline';
+import { MapPinIcon, BuildingOfficeIcon, ClockIcon, EnvelopeIcon } from '@heroicons/react/24/outline';
 
 const positionsData = {
   engineering: [
@@ -115,7 +115,23 @@ export const OpenPositions = () => {
         </div>
         <div className="text-center">
           <h1 className="text-3xl font-bold text-gray-900 mb-4">Currently No Open Positions</h1>
-          <p className="text-gray-600 max-w-2xl mx-auto">We are currently not hiring for any positions. Please check back later.</p>
+          <p className="text-gray-600 max-w-2xl mx-auto mb-8">We are currently not hiring for any positions. Please check back later.</p>
+          
+          <div className="bg-white inline-block p-8 rounded-2xl shadow-sm border border-gray-100 max-w-md w-full">
+            <div className="w-12 h-12 bg-blue-50 text-brand-blue rounded-full flex items-center justify-center mx-auto mb-4">
+              <EnvelopeIcon className="w-6 h-6" />
+            </div>
+            <h3 className="text-xl font-bold text-gray-900 mb-2">Interested in joining us?</h3>
+            <p className="text-gray-600 mb-6 text-sm">
+              Send your resume to us and we'll keep you in mind for future opportunities.
+            </p>
+            <a 
+              href="mailto:reachus@cogniwide.com" 
+              className="inline-flex items-center justify-center w-full py-3 px-4 bg-brand-blue text-white rounded-xl font-semibold hover:bg-brand-blue-dark transition-colors duration-200"
+            >
+              reachus@cogniwide.com
+            </a>
+          </div>
         </div>
 
         {/* Tab Navigation */}

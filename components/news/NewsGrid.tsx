@@ -19,34 +19,36 @@ const news = [
     image: '/images/blog/cloud-native.jpg'
   },
   {
-    title: 'Cybersecurity in the Age of IoT',
-    excerpt: 'Protecting connected devices and networks from emerging threats in the Internet of Things.',
-    date: '2025-11-10',
-    category: 'Cybersecurity',
-    image: '/images/blog/iot-security.jpg'
+    title: 'AI in the Age of IoT',
+    excerpt: 'How AI is reshaping the landscape of connected devices and smart infrastructure.',
+    date: 'March 15, 2024',
+    category: 'AI & IoT',
+    image: '/images/blog/blog1.png'
   },
   {
-    title: 'Cybersecurity in the Age of IoT',
-    excerpt: 'Protecting connected devices and networks from emerging threats in the Internet of Things.',
-    date: '2025-11-10',
-    category: 'Cybersecurity',
-    image: '/images/blog/iot-security.jpg'
+    title: 'Future of Cloud Computing',
+    excerpt: 'Exploring the next generation of cloud technologies and their impact on enterprise architecture.',
+    date: 'March 10, 2024',
+    category: 'Cloud Engineering',
+    image: '/images/blog/blog-img1.png'
   },
   {
-    title: 'Cybersecurity in the Age of IoT',
-    excerpt: 'Protecting connected devices and networks from emerging threats in the Internet of Things.',
-    date: '2025-11-10',
-    category: 'Cybersecurity',
-    image: '/images/blog/iot-security.jpg'
+    title: 'Data Engineering Best Practices',
+    excerpt: 'Essential guidelines for building scalable and reliable data pipelines.',
+    date: 'March 5, 2024',
+    category: 'Data Engineering',
+    image: '/images/blog/ai.jpg'
   },
   {
-    title: 'Cybersecurity in the Age of IoT',
-    excerpt: 'Protecting connected devices and networks from emerging threats in the Internet of Things.',
-    date: '2025-11-10',
-    category: 'Cybersecurity',
-    image: '/images/blog/iot-security.jpg'
+    title: 'Intelligent Automation Trends',
+    excerpt: 'The latest trends and innovations in enterprise automation and RPA.',
+    date: 'February 28, 2024',
+    category: 'Intelligent Automation',
+    image: '/images/blog/rasa.jpg'
   }
 ];
+
+import Image from "next/image";
 
 export const NewsGrid = () => {
   return (
@@ -74,7 +76,9 @@ export const NewsGrid = () => {
               viewport={{ once: true }}
               className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 h-full flex flex-col"
             >
-              <img src={article.image} alt={article.title} className="w-full h-48 object-cover" />
+              <div className="relative w-full h-48">
+                <Image src={article.image} alt={article.title} fill className="object-cover" />
+              </div>
               <div className="p-6 flex flex-col flex-1">
                 <div className="text-sm font-medium text-brand-blue bg-brand-blue/10 px-2 py-1 rounded-full inline-block mb-4">
                   {article.category}

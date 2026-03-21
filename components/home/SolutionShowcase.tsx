@@ -356,13 +356,11 @@ const SolutionShowcase = () => {
                             </div>
 
                             <div className="mt-8">
-                              <Link href={`/solutions/${solutions[activeTab].id}`}>
-                                <button className="group flex items-center gap-2 text-[#2563eb] font-semibold hover:text-blue-700 transition-colors">
+                              <Link href={`/solutions/${solutions[activeTab].id}`} className="group flex items-center gap-2 text-[#2563eb] font-semibold hover:text-blue-700 transition-colors">
                                     Explore  
                                     <span className="group-hover:translate-x-1 transition-transform">
                                         <Icons.ArrowRight />
                                     </span>
-                                </button>
                               </Link>
                             </div>
                         </motion.div>
@@ -395,16 +393,14 @@ const SolutionShowcase = () => {
         </div>
 
         {/* Bottom CTA */}
-        <motion.div 
+        <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="mt-20 text-center"
         >
-            <Link href="/contact">
-                <button className="bg-[#2563eb] text-white px-10 py-4 rounded-full font-semibold text-lg shadow-xl shadow-blue-500/20 hover:bg-blue-700 hover:shadow-blue-600/30 hover:-translate-y-1 transition-all duration-300">
-                    Schedule a Demo
-                </button>
+            <Link href="/contact" className="inline-block bg-[#2563eb] text-white px-10 py-4 rounded-full font-semibold text-lg shadow-xl shadow-blue-500/20 hover:bg-blue-700 hover:shadow-blue-600/30 hover:-translate-y-1 transition-all duration-300">
+                Schedule a Demo
             </Link>
             {/* <p className="mt-4 text-sm text-slate-400">No credit card required • Enterprise Ready</p> */}
         </motion.div>

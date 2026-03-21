@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import NextTopLoader from 'nextjs-toploader';
 import './globals.css'
 import { PerformanceOptimizer, CriticalResourcePreloader, ServiceWorkerRegistration, DevServiceWorkerCleanup } from '@/components/performance/PerformanceOptimizer'
 
@@ -44,7 +45,8 @@ export default function RootLayout({
           `
         }} />
       </head>
-      <body>
+      <body suppressHydrationWarning>
+        <NextTopLoader color="#3b82f6" showSpinner={false} />
         {/* Performance monitoring and optimization - temporarily disabled */}
         {/* <PerformanceOptimizer 
           enableMonitoring={true}

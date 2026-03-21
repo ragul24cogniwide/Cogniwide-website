@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion'
 import { Button } from '@/components/ui/Button'
 import Section from '@/components/layout/Section'
-import { Link } from 'lucide-react'
+import Link from 'next/link'
 
 const ProductCTA = () => {
   return (
@@ -37,14 +37,12 @@ const ProductCTA = () => {
           viewport={{ once: true }}
           className="flex flex-col sm:flex-row gap-6 justify-center items-center"
         >
-          <Link href="/contact">
-          <Button variant="primary" size="lg">
+          <Link href="/contact" className="inline-flex items-center justify-center font-semibold rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 bg-brand-blue text-white hover:bg-brand-blue-dark focus:ring-brand-blue shadow-md hover:shadow-lg px-6 py-3 text-lg">
             Schedule Demo
-          </Button>
           </Link>
-          <Button variant="secondary" size="lg">
+          <Link href="/casestudy" className="inline-flex items-center justify-center font-semibold rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 bg-brand-white text-brand-dark-grey hover:bg-brand-light-grey focus:ring-brand-medium-grey border border-brand-light-grey px-6 py-3 text-lg">
             View Case Studies
-          </Button>
+          </Link>
         </motion.div>
         
         <motion.div

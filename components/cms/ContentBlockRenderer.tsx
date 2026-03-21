@@ -98,7 +98,6 @@ export function ServiceContentRenderer({
     'cloud-engineering': 'Cloud Engineering',
     'data-engineering': 'Data Engineering',
     'intelligent-automation': 'Intelligent Automation',
-    'cybersecurity': 'Cybersecurity',
   };
 
   return (

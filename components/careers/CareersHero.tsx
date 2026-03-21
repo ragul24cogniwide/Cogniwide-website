@@ -1,133 +1,105 @@
 'use client';
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
-import { UserGroupIcon, SparklesIcon } from '@heroicons/react/24/outline';
-
-const AnimatedNumber = ({ value, label, delay }: { value: string; label: string; delay: number }) => {
-  const [count, setCount] = useState(0);
-  const target = parseInt(value);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      let start = 0;
-      const increment = target / 50;
-      const counter = setInterval(() => {
-        start += increment;
-        if (start >= target) {
-          setCount(target);
-          clearInterval(counter);
-        } else {
-          setCount(Math.floor(start));
-        }
-      }, 30);
-      return () => clearInterval(counter);
-    }, delay);
-    return () => clearTimeout(timer);
-  }, [target, delay]);
-
-  return (
-    <div className="text-center">
-      <div className="text-3xl md:text-4xl lg:text-5xl font-bold text-blue-600 mb-1">
-        {count}{value.includes('+') ? '+' : ''}
-        {value.includes('%') && '%'}
-      </div>
-      <div className="text-gray-600 text-sm md:text-base font-medium">{label}</div>
-    </div>
-  );
-};
+import { UserGroupIcon, SparklesIcon, RocketLaunchIcon, HeartIcon } from '@heroicons/react/24/outline';
 
 export const CareersHero = () => {
   return (
     <div className="relative bg-white overflow-hidden">
-      {/* Curved background shape */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-white">
-        <svg className="absolute bottom-0 w-full" viewBox="0 0 1440 320" preserveAspectRatio="none">
-          <path fill="#ffffff" fillOpacity="1" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,154.7C960,171,1056,181,1152,165.3C1248,149,1344,107,1392,85.3L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
-        </svg>
+      {/* Background patterns */}
+      <div className="absolute inset-0">
+        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-gradient-to-br from-blue-50 to-indigo-50 rounded-full blur-3xl opacity-50 transform translate-x-1/3 -translate-y-1/4"></div>
+        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-gradient-to-tr from-brand-yellow/10 to-transparent rounded-full blur-3xl opacity-50 transform -translate-x-1/4 translate-y-1/4"></div>
       </div>
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
-        {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <div className="inline-block bg-blue-100 text-blue-700 text-sm font-semibold px-4 py-2 rounded-full mb-4">
-            Careers
-          </div>
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-            Shape the Future of AI
-          </h1>
-          <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto">
-            Join our passionate team of innovators, researchers, and engineers building the next generation of AI solutions.
-          </p>
-        </motion.div>
-
-        {/* Why Join Us Cards */}
-        <div className="grid md:grid-cols-2 gap-6 lg:gap-8 mb-16 max-w-5xl mx-auto">
-          {/* Culture Card */}
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28 lg:py-32">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+          {/* Header Content */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="relative"
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-left"
           >
-            <div className="bg-white rounded-2xl p-6 md:p-8 shadow-lg border-2 border-blue-100 hover:border-blue-200 hover:shadow-xl transition-all duration-300">
-              <div className="flex items-start gap-4 mb-4">
-                <div className="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center flex-shrink-0">
-                  <UserGroupIcon className="w-6 h-6 text-white" />
-                </div>
-                <h3 className="text-xl md:text-2xl font-bold text-gray-900 pt-2">Our Culture</h3>
-              </div>
-              <p className="text-gray-700 text-sm md:text-base leading-relaxed">
-                We foster a collaborative environment where innovation thrives, ideas are valued, and every team member has the opportunity to make a meaningful impact on the future of AI technology.
-              </p>
+            <div className="inline-flex items-center space-x-2 bg-blue-50 text-brand-blue border border-blue-100 px-4 py-2 rounded-full mb-6 shadow-sm">
+              <span className="relative flex h-2.5 w-2.5">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-blue opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-brand-blue"></span>
+              </span>
+              <span className="text-sm font-semibold tracking-wide">We&apos;re Hiring</span>
+            </div>
+            
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 mb-6 leading-tight tracking-tight">
+              Shape the Future of <br className="hidden md:block" />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-blue to-indigo-600">Enterprise AI</span>
+            </h1>
+            
+            <p className="text-lg md:text-xl text-gray-600 mb-10 max-w-2xl leading-relaxed">
+              Join our passionate team of innovators, researchers, and engineers building the next generation of AI solutions. At Cogniwide, we&apos;re not just writing code—we&apos;re redefining what&apos;s possible.
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-4">
+              <button className="bg-brand-blue text-white px-8 py-4 rounded-xl font-semibold shadow-lg shadow-blue-500/30 hover:bg-brand-blue-dark hover:shadow-xl hover:-translate-y-0.5 transition-all duration-200">
+                View Open Roles
+              </button>
+              <button className="bg-white text-gray-800 border border-gray-200 px-8 py-4 rounded-xl font-semibold hover:bg-gray-50 hover:border-gray-300 transition-all duration-200">
+                Learn About Our Culture
+              </button>
             </div>
           </motion.div>
 
-          {/* Growth Card */}
+          {/* Right side interactive grid */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="relative"
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-6 relative"
           >
-            <div className="bg-white rounded-2xl p-6 md:p-8 shadow-lg border-2 border-blue-100 hover:border-blue-200 hover:shadow-xl transition-all duration-300">
-              <div className="flex items-start gap-4 mb-4">
-                <div className="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center flex-shrink-0">
-                  <SparklesIcon className="w-6 h-6 text-white" />
-                </div>
-                <h3 className="text-xl md:text-2xl font-bold text-gray-900 pt-2">Your Growth</h3>
+            {/* Culture Card */}
+            <div className="bg-white rounded-2xl p-6 md:p-8 shadow-xl shadow-gray-200/50 border border-gray-100 hover:border-blue-200 hover:-translate-y-1 transition-all duration-300 group">
+              <div className="w-12 h-12 bg-blue-50 text-brand-blue rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-brand-blue group-hover:text-white transition-all duration-300">
+                <UserGroupIcon className="w-6 h-6" />
               </div>
-              <p className="text-gray-700 text-sm md:text-base leading-relaxed">
-                Continuous learning and career development opportunities with access to cutting-edge technologies, mentorship programs, and the resources you need to reach your full potential.
+              <h3 className="text-xl font-bold text-gray-900 mb-3">Our Culture</h3>
+              <p className="text-gray-600 text-sm leading-relaxed">
+                A collaborative environment where innovation thrives, ideas are valued, and you can make a meaningful impact.
+              </p>
+            </div>
+
+            {/* Growth Card - offset */}
+            <div className="bg-white rounded-2xl p-6 md:p-8 shadow-xl shadow-gray-200/50 border border-gray-100 hover:border-blue-200 hover:-translate-y-1 transition-all duration-300 sm:mt-8 group">
+              <div className="w-12 h-12 bg-indigo-50 text-indigo-600 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-indigo-600 group-hover:text-white transition-all duration-300">
+                <SparklesIcon className="w-6 h-6" />
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-3">Your Growth</h3>
+              <p className="text-gray-600 text-sm leading-relaxed">
+                Continuous learning with access to cutting-edge tech, mentorship, and resources to reach your full potential.
+              </p>
+            </div>
+
+            {/* Impact Card */}
+            <div className="bg-white rounded-2xl p-6 md:p-8 shadow-xl shadow-gray-200/50 border border-gray-100 hover:border-blue-200 hover:-translate-y-1 transition-all duration-300 group">
+              <div className="w-12 h-12 bg-brand-yellow/10 text-brand-yellow-dark rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-brand-yellow group-hover:text-brand-dark-grey transition-all duration-300">
+                <RocketLaunchIcon className="w-6 h-6" />
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-3">Global Impact</h3>
+              <p className="text-gray-600 text-sm leading-relaxed">
+                Build products that transform enterprise operations for Fortune 500 companies around the world.
+              </p>
+            </div>
+
+            {/* Wellbeing Card - offset */}
+            <div className="bg-white rounded-2xl p-6 md:p-8 shadow-xl shadow-gray-200/50 border border-gray-100 hover:border-blue-200 hover:-translate-y-1 transition-all duration-300 sm:mt-8 group">
+              <div className="w-12 h-12 bg-rose-50 text-rose-500 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-rose-500 group-hover:text-white transition-all duration-300">
+                <HeartIcon className="w-6 h-6" />
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-3">Wellbeing</h3>
+              <p className="text-gray-600 text-sm leading-relaxed">
+                Comprehensive benefits, flexible working arrangements, and a focus on work-life harmony.
               </p>
             </div>
           </motion.div>
         </div>
-
-        {/* Stats Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="relative max-w-4xl mx-auto"
-        >
-          <div className="bg-white rounded-3xl p-8 md:p-10 shadow-xl border border-gray-100 relative overflow-hidden">
-            {/* Decorative circles */}
-            <div className="absolute top-0 right-0 w-40 h-40 bg-blue-50 rounded-full -mr-20 -mt-20"></div>
-            <div className="absolute bottom-0 left-0 w-32 h-32 bg-blue-50 rounded-full -ml-16 -mb-16"></div>
-
-            <div className="relative grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
-              <AnimatedNumber value="70+" label="Team Members" delay={200} />
-              <AnimatedNumber value="10+" label="Countries" delay={400} />
-              <AnimatedNumber value="10+" label="Open Roles" delay={600} />
-              <AnimatedNumber value="95%" label="Satisfaction" delay={800} />
-            </div>
-          </div>
-        </motion.div>
       </div>
     </div>
   );

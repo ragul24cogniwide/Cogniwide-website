@@ -1,7 +1,7 @@
 'use client'
 
-import React from 'react'
-import { useState } from 'react'
+import Image from 'next/image'
+import React, { useEffect, useState } from 'react'
 import {
   Bars3Icon,
   XMarkIcon,
@@ -66,11 +66,11 @@ const Navigation = () => {
 
   // Individual navigation items with proper SVG icons
   const navigationItems = [
-    { name: 'Products', href: '/', icon: CogIcon, hasDropdown: true },
-    { name: 'Solutions', href: '/solutions', icon: BoltIcon, hasDropdown: true },
-    { name: 'Services', href: '/', icon: UserGroupIcon, hasDropdown: true },
-    { name: 'Industries', href: '/', icon: BuildingOfficeIcon, hasDropdown: true },
-    { name: 'About', href: '/about', icon: BuildingOffice2Icon, hasDropdown: true }
+    { name: 'Products', href: '#', icon: CogIcon, hasDropdown: true },
+    { name: 'Solutions', href: '#', icon: BoltIcon, hasDropdown: true },
+    { name: 'Services', href: '#', icon: UserGroupIcon, hasDropdown: true },
+    { name: 'Industries', href: '#', icon: BuildingOfficeIcon, hasDropdown: true },
+    { name: 'About', href: '#', icon: BuildingOffice2Icon, hasDropdown: true }
   ]
 
   const dropdownContent: Record<string, any> = {
@@ -181,7 +181,7 @@ const Navigation = () => {
       ],
       rightItems: [
         { name: 'Cloud & DevOps', href: '/services/cloud-devops', description: 'Cloud transformation', icon: CloudIcon, color: 'from-orange-600 to-red-600' },
-        { name: 'Cybersecurity', href: '/services/cybersecurity', description: 'Security solutions', icon: ShieldCheckIcon, color: 'from-purple-600 to-red-700' }
+        { name: 'Intelligent Automation', href: '/services/intelligent-automation', description: 'Business process automation', icon: BoltIcon, color: 'from-blue-600 to-indigo-600' }
       ]
     },
     'Industries': {
@@ -258,7 +258,9 @@ const Navigation = () => {
   }
 
   const closeDropdown = () => {
-    setActiveDropdown(null)
+    setTimeout(() => {
+      setActiveDropdown(null)
+    }, 150)
   }
 
   const handleMouseEnter = (itemName: string) => {
@@ -276,20 +278,31 @@ const Navigation = () => {
     setCloseTimeout(timeout)
   }
 
+  // Remove unused state and effect since we made it solid
+  useEffect(() => {
+    return () => {
+      if (closeTimeout) {
+        clearTimeout(closeTimeout)
+      }
+    }
+  }, [closeTimeout])
+
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 transition-all duration-500 bg-white/80 backdrop-blur-lg border-b border-white/20 opacity-95">
-      <div className="mx-auto px-4 sm:px-6 lg:px-8">
+    <nav className="fixed top-0 left-0 right-0 z-50 transition-all duration-500 bg-white/80 backdrop-blur-xl border-b border-white/40 shadow-sm opacity-95">
+      <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex-shrink-0">
             <Link href="/" className="flex items-center group">
               <div className="relative">
-                <div className="absolute inset-0 bg-gray-200/40 rounded-lg blur-sm -z-10 group-hover:blur-md transition-all duration-300" suppressHydrationWarning></div>
-                <img
+                <div className="absolute inset-0 bg-white/40 rounded-lg blur-md -z-10 group-hover:blur-lg transition-all duration-300" suppressHydrationWarning></div>
+                <Image
                   src="/logo-light.png"
                   alt="Cogniwide"
-                  className="h-9 w-auto group-hover:scale-105 transition-all duration-300 relative z-10 group-hover:brightness-110"
-                  suppressHydrationWarning
+                  width={150}
+                  height={36}
+                  className="h-9 w-auto group-hover:scale-[1.02] transition-all duration-300 relative z-10 drop-shadow-sm"
+                  priority
                 />
               </div>
             </Link>
@@ -305,19 +318,19 @@ const Navigation = () => {
                 return (
                   <div
                     key={item.name}
-                    className="relative"
+                    className="relative h-16 flex items-center"
                     onMouseEnter={() => handleMouseEnter(item.name)}
                     onMouseLeave={handleMouseLeave}
                   >
-                    <button className="flex items-center space-x-1 px-2.5 py-1.5 text-sm font-bold text-black hover:text-gray-700 transition-all duration-300 rounded-lg hover:bg-gray-100/50">
+                    <button className="flex items-center space-x-1.5 px-3 py-1.5 text-[14px] font-bold text-gray-800 hover:text-brand-blue hover:bg-white/60 transition-all duration-300 rounded-lg">
                       <span>{item.name}</span>
-                      <ChevronDownIcon className="w-3 h-3" />
+                      <ChevronDownIcon className={`w-3 h-3 transition-transform duration-200 ${activeDropdown === item.name ? 'rotate-180 text-brand-blue' : 'text-gray-500'}`} />
                     </button>
 
                     {activeDropdown === item.name && content.layout === 'mega-menu' && (
                       <div className="fixed left-0 right-0 top-16 pt-2 z-50 flex justify-center">
                         <div className="w-[1280px]">
-                          <div className="bg-white/95 backdrop-blur-xl rounded-xl shadow-2xl border border-gray-200/50 overflow-hidden">
+                          <div className="bg-white/95 backdrop-blur-xl rounded-2xl shadow-[0_20px_50px_-12px_rgba(0,0,0,0.1)] border border-gray-100 overflow-hidden">
                             {/* Mega Menu Layout */}
                             <div>
                               {/* Featured Banner */}
@@ -334,13 +347,14 @@ const Navigation = () => {
                                       <span>✨</span>
                                     </span>
                                     <div className="relative w-5 h-5 transition-transform duration-500 group-hover:translate-x-2">
-                                      <img
+                                      <Image
                                         src="/icon.png"
                                         alt="AI Icon"
-                                        className="w-full h-full object-contain"
+                                        fill
+                                        className="object-contain"
                                         onError={(e) => {
                                           console.log('Icon failed to load');
-                                          e.currentTarget.style.display = 'none';
+                                          (e.currentTarget as any).style.display = 'none';
                                         }}
                                       />
                                     </div>
@@ -398,8 +412,8 @@ const Navigation = () => {
                       </div>
                     )}
                     {activeDropdown === item.name && content.layout !== 'mega-menu' && (
-                      <div className={`absolute top-14 pt-2 z-50 ${isTwoColumn ? 'left-1/2 -translate-x-1/2 w-[530px]' : 'left-1/2 -translate-x-1/2 w-80'}`}>
-                        <div className="bg-white/90  backdrop-blur-xl rounded-xl shadow-2xl border border-gray-200/50 overflow-hidden">
+                      <div className={`absolute top-14 pt-2 z-50 ${isTwoColumn ? 'left-1/2 -translate-x-1/2 w-[560px]' : 'left-1/2 -translate-x-1/2 w-80'}`}>
+                        <div className="bg-white/95 backdrop-blur-xl rounded-2xl shadow-[0_20px_50px_-12px_rgba(0,0,0,0.1)] border border-gray-100 overflow-hidden">
                           {isTwoColumn ? (
                             <div className="p-3 bg-white/90">
                               <div className="grid grid-cols-2 gap-3">
@@ -510,10 +524,8 @@ const Navigation = () => {
           <div className="flex items-center space-x-3">
             {/* CTA Button */}
             <div className="hidden lg:block">
-              <Link href="/contact">
-                <button className="bg-brand-blue text-white px-4 py-2 rounded-lg font-medium text-sm hover:text-black hover:bg-brand-blue-light transition-all duration-200">
+              <Link href="/contact" className="inline-block bg-brand-blue text-white px-5 py-2 rounded-lg font-bold text-sm hover:bg-brand-blue-dark transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5">
                   <span>Contact Us</span>
-                </button>
               </Link>
             </div>
 
@@ -521,13 +533,13 @@ const Navigation = () => {
             <div className="block lg:hidden">
               <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="p-3 text-gray-900 hover:text-gray-700 hover:bg-gray-100/50 hover:shadow-md transition-all duration-300 rounded-lg group z-50 relative bg-white/90 backdrop-blur-sm border-2 border-gray-300 shadow-sm"
+                className="p-2 transition-all duration-300 rounded-lg group z-50 relative text-gray-900 hover:bg-gray-100/80 bg-white/60 backdrop-blur-sm border border-white/40 shadow-sm"
               >
                 <div className={`transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`}>
                   {isOpen ? (
-                    <XMarkIcon className="h-7 w-7 text-gray-900" />
+                    <XMarkIcon className="h-6 w-6" />
                   ) : (
-                    <Bars3Icon className="h-7 w-7 text-gray-900" />
+                    <Bars3Icon className="h-6 w-6" />
                   )}
                 </div>
               </button>
@@ -564,7 +576,7 @@ const Navigation = () => {
                                 key={product.name}
                                 href={product.href}
                                 className="flex items-center space-x-3 p-3 rounded-lg bg-white hover:bg-gray-50 transition-all duration-200 group border border-gray-200"
-                                onClick={() => setIsOpen(false)}
+                                onClick={() => setTimeout(() => setIsOpen(false), 150)}
                               >
                                 <div className="w-8 h-8 rounded-lg bg-brand-blue flex items-center justify-center flex-shrink-0">
                                   {React.createElement(product.icon, { className: "w-4 h-4 text-white" })}
@@ -593,7 +605,7 @@ const Navigation = () => {
                                 key={subItem.name}
                                 href={subItem.href}
                                 className="flex items-start space-x-3 p-3 rounded-lg bg-white hover:bg-gray-50 transition-all duration-200 group border border-gray-200"
-                                onClick={() => setIsOpen(false)}
+                                onClick={() => setTimeout(() => setIsOpen(false), 150)}
                               >
                                 <div className="w-8 h-8 rounded-lg bg-brand-blue flex items-center justify-center transition-all duration-200 flex-shrink-0">
                                   {React.createElement(subItem.icon, { className: "w-4 h-4 text-white" })}
@@ -623,7 +635,7 @@ const Navigation = () => {
                     <Link
                       href={item.href}
                       className="block py-2 px-3 rounded-lg hover:bg-gray-600/40 transition-colors duration-200"
-                      onClick={() => setIsOpen(false)}
+                      onClick={() => setTimeout(() => setIsOpen(false), 150)}
                     >
                       <span className="font-medium text-sm text-gray-100">{item.name}</span>
                     </Link>
@@ -636,7 +648,7 @@ const Navigation = () => {
                 <Link
                   href="/contact"
                   className="block w-full text-center py-3 px-4 bg-brand-blue text-white rounded-lg font-medium hover:bg-brand-blue-dark transition-all duration-200"
-                  onClick={() => setIsOpen(false)}
+                  onClick={() => setTimeout(() => setIsOpen(false), 150)}
                 >
                   Contact Us
                 </Link>

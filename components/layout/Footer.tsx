@@ -2,6 +2,7 @@
  
 import { motion } from "framer-motion";
 import React from "react";
+import Image from "next/image";
  
 // Define consistent color scheme for dark background
 const ACCENT_COLOR_HOVER = "text-blue-400";
@@ -26,7 +27,7 @@ const Footer = () => {
             { name: "AI Development", href: "/services/ai-development" },
             { name: "Cloud & DevOps", href: "/services/cloud-devops" },
             { name: "Data Engineering", href: "/services/data-engineering" },
-            { name: "CyberSecurity", href: "/services/cybersecurity" },
+            { name: "Intelligent Automation", href: "/services/intelligent-automation" },
           ],
         },
       ],
@@ -78,9 +79,11 @@ const Footer = () => {
               viewport={{ once: true }}
             >
               <div className="mb-4">
-                <img
+                <Image
                   src="/logo-dark.png"
                   alt="Cogniwide"
+                  width={150}
+                  height={40}
                   className="h-10 w-auto mb-2 filter brightness-125"
                 />
                 <div className="h-1 w-16 bg-gradient-to-r from-blue-600 to-blue-400 rounded-full"></div>
@@ -140,9 +143,11 @@ const Footer = () => {
  
               {/* Association Logos - ISO Certification */}
               <div className="flex gap-4 items-start">
-                <img
+                <Image
                   src="/images/iso.png"
                   alt="ISO 27001 Certified"
+                  width={80}
+                  height={80}
                   className="h-20 w-auto opacity-90 hover:opacity-100 transition-opacity duration-300 rounded-lg object-contain"
                 />
               </div>
@@ -291,9 +296,11 @@ const Footer = () => {
             <div className="text-xs space-y-5">
               <div>
                 <div className="flex items-center gap-1 mb-3">
-                  <img 
+                  <Image 
                     src="/images/flag/india_640.png" 
                     alt="India Flag" 
+                    width={24}
+                    height={16}
                     className="w-6 h-4 object-cover rounded shadow-sm"
                   />
                   <h1 className="text-blue-300 font-bold">India</h1>
@@ -325,9 +332,11 @@ const Footer = () => {
  
               <div>
                 <div className="flex items-center gap-1 mb-3">
-                  <img 
+                  <Image 
                     src="/images/flag/united_arab_emirates_640.png" 
                     alt="UAE Flag" 
+                    width={24}
+                    height={16}
                     className="w-6 h-4 object-cover rounded shadow-sm"
                   />
                   <h4 className="text-blue-300 font-bold">UAE</h4>
@@ -345,9 +354,11 @@ const Footer = () => {
  
               <div>
                 <div className="flex items-center gap-1 mb-3">
-                  <img 
+                  <Image 
                     src="/images/flag/united_kingdom_640.png" 
                     alt="UK Flag" 
+                    width={24}
+                    height={16}
                     className="w-6 h-4 object-cover rounded shadow-sm"
                   />
                   <h4 className="text-blue-300 font-bold">UK</h4>

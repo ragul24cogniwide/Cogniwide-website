@@ -117,11 +117,6 @@ const agents = {
       icon: TruckIcon,
     },
     {
-      title: 'Cybersecurity Threat Hunter',
-      description: 'Proactively scans network traffic to identify and neutralize potential security threats before they impact operations.',
-      icon: ShieldCheckIcon,
-    },
-    {
       title: 'Code Review Agent',
       description: 'Analyzes code repositories for quality issues, security vulnerabilities, and performance bottlenecks automatically.',
       icon: CodeBracketIcon,

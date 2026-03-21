@@ -47,7 +47,7 @@ export function BundleAnalyzer() {
     };
 
     // Analyze after initial load
-    setTimeout(analyzeBundle, 2000);
+    const timeout = setTimeout(analyzeBundle, 2000);
 
     // Show/hide with keyboard shortcut
     const handleKeyPress = (e: KeyboardEvent) => {
@@ -57,7 +57,10 @@ export function BundleAnalyzer() {
     };
 
     document.addEventListener('keydown', handleKeyPress);
-    return () => document.removeEventListener('keydown', handleKeyPress);
+    return () => {
+      clearTimeout(timeout);
+      document.removeEventListener('keydown', handleKeyPress);
+    };
   }, []);
 
   if (process.env.NODE_ENV !== 'development' || !isVisible || !stats) {

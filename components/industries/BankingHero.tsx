@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/Button';
 import { BankIcon } from '@/components/ui/icons';
-import { Link } from 'lucide-react';
+import Link from 'next/link';
 
 export function BankingHero() {
 
@@ -55,23 +55,11 @@ export function BankingHero() {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="flex flex-col sm:flex-row gap-4 justify-center"
           >
-            <Link href="/solutions/cognivibe">
-            <Button 
-              variant="primary" 
-              size="lg" 
-              className="px-8 py-3 bg-blue-600 text-white hover:bg-blue-700 font-semibold"
-            >
+            <Link href="/solutions/cognivibe" className="inline-flex items-center justify-center font-semibold rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 px-6 py-3 text-lg w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white shadow-xl shadow-blue-500/30">
               Explore AI Solutions
-            </Button>
             </Link>
-            <Link href="/contact">
-            <Button 
-              variant="secondary" 
-              size="lg" 
-              className="px-8 py-3 border-2 border-gray-300 text-gray-700 hover:border-gray-400 hover:bg-gray-50"
-            >
+            <Link href="/contact" className="inline-flex items-center justify-center font-semibold rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 px-6 py-3 text-lg w-full sm:w-auto border border-gray-300 text-gray-700 hover:bg-gray-50 bg-white">
               Book Consultation
-            </Button>
             </Link>
           </motion.div>
         </div>

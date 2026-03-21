@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion'
 import { Card } from '@/components/ui/Card'
 import Section from '@/components/layout/Section'
-import { Link } from 'lucide-react'
+import Link from 'next/link'
 
 const SolutionIntegration = () => {
   const integrationPoints = [
@@ -124,14 +124,12 @@ const SolutionIntegration = () => {
               Discover how our integrated AI solutions can revolutionize your development lifecycle with intelligent automation and enhanced productivity.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/contact">
-              <button className="px-6 py-3 bg-brand-yellow text-brand-dark-grey font-semibold rounded-lg hover:bg-brand-yellow/90 transition-colors">
+              <Link href="/contact" className="px-6 py-3 bg-brand-yellow text-brand-dark-grey font-semibold rounded-lg hover:bg-brand-yellow/90 transition-colors inline-flex justify-center items-center">
                 Schedule Demo
-              </button>
               </Link>
-              <button className="px-6 py-3 border border-brand-yellow text-brand-yellow font-semibold rounded-lg hover:bg-brand-yellow/10 transition-colors">
+              <Link href="/products" className="px-6 py-3 border border-brand-yellow text-brand-yellow font-semibold rounded-lg hover:bg-brand-yellow/10 transition-colors inline-flex justify-center items-center">
                 View Products
-              </button>
+              </Link>
             </div>
           </Card>
         </motion.div>

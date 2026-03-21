@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion'
 import { Card } from '@/components/ui/Card'
 import Section from '@/components/layout/Section'
-import { Link } from 'lucide-react'
+import Link from 'next/link'
 
 const ServiceIntegration = () => {
   const integrationPoints = [
@@ -124,16 +124,12 @@ const ServiceIntegration = () => {
               Let our experts design a comprehensive solution that combines our services with AI products to accelerate your digital transformation journey.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/contact">
-              <button className="btn-primary">
+              <Link href="/contact" className="btn-primary inline-flex justify-center items-center">
                 Schedule Strategy Session
-              </button>
               </Link>
-              <Link href='/casestudy'>
-              <button className="btn-secondary">
+              <Link href="/casestudy" className="btn-secondary inline-flex justify-center items-center">
                 View Case Studies
-              </button>
-            </Link>
+              </Link>
             </div>
           </Card>
         </motion.div>

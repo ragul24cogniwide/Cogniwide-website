@@ -123,7 +123,7 @@ const ServicesHero = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
         >
           Accelerate your digital transformation with our comprehensive suite of enterprise services.
-          From product engineering to cybersecurity, we deliver end-to-end solutions that drive innovation and growth.
+          From product engineering to intelligent automation, we deliver end-to-end solutions that drive innovation and growth.
         </motion.p>
 
         <motion.div

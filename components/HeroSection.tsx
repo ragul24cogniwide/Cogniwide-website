@@ -67,8 +67,8 @@ const HeroSection = () => {
       title: 'Expert',
       highlight: 'AI Services',
       subtitle: 'End-to-End Technology Consulting',
-      description: 'From AI consulting and development to data engineering, cloud transformation, and cybersecurity - our experts guide you every step of the way.',
-      cta1: { text: 'View Services', href: 'services/ai-consulting' },
+      description: 'From AI consulting and development to data engineering and cloud transformation - our experts guide you every step of the way.',
+      cta1: { text: 'View Services', href: '/services/ai-consulting' },
       cta2: { text: 'Contact Us', href: '/contact' },
       stats: [
         { value: '70+', label: 'AI Experts' },
@@ -200,7 +200,6 @@ const HeroSection = () => {
               { name: 'AI Development', color: 'bg-blue-500' },
               { name: 'Data Engineering', color: 'bg-teal-500' },
               { name: 'Cloud & DevOps', color: 'bg-orange-500' },
-              { name: 'Cybersecurity', color: 'bg-red-500' },
               { name: '24/7 Support', color: 'bg-green-500' }
             ].map((service, idx) => (
               <motion.div
@@ -479,16 +478,12 @@ const HeroSection = () => {
 
                 {/* Buttons */}
                 <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-6 sm:mb-8 md:mb-10">
-                  <Link href={slides[currentSlide].cta1.href}>
-                    <button className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-3.5 bg-brand-blue text-white rounded-lg font-bold text-sm hover:bg-brand-blue-dark transition-all shadow-xl flex items-center justify-center gap-2">
+                  <Link href={slides[currentSlide].cta1.href} className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-3.5 bg-brand-blue text-white rounded-lg font-bold text-sm hover:bg-brand-blue-dark transition-all shadow-xl flex items-center justify-center gap-2">
                       {slides[currentSlide].cta1.text}
                       <ArrowRightIcon className="w-4 h-4" />
-                    </button>
                   </Link>
-                  <Link href={slides[currentSlide].cta2.href}>
-                    <button className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-3.5 border-2 border-brand-blue text-brand-blue rounded-lg font-bold text-sm hover:bg-brand-blue hover:text-white transition-all">
+                  <Link href={slides[currentSlide].cta2.href} className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-3.5 border-2 border-brand-blue text-brand-blue rounded-lg font-bold text-sm hover:bg-brand-blue hover:text-white transition-all flex items-center justify-center">
                       {slides[currentSlide].cta2.text}
-                    </button>
                   </Link>
                 </div>
 
