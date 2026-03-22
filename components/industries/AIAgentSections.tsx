@@ -22,6 +22,13 @@ import {
   DevicePhoneMobileIcon,
   WifiIcon,
   BanknotesIcon,
+  BookOpenIcon,
+  ChatBubbleLeftRightIcon,
+  AcademicCapIcon,
+  BuildingOfficeIcon,
+  CalendarIcon,
+  WrenchScrewdriverIcon,
+  UsersIcon,
 } from '@heroicons/react/24/outline';
 import Link from 'next/link';
 
@@ -75,6 +82,13 @@ const iconMap: Record<string, React.ComponentType<any>> = {
   DevicePhoneMobileIcon,
   WifiIcon,
   BanknotesIcon,
+  BookOpenIcon,
+  ChatBubbleLeftRightIcon,
+  AcademicCapIcon,
+  BuildingOfficeIcon,
+  CalendarIcon,
+  WrenchScrewdriverIcon,
+  UsersIcon,
 };
 
 const AIAgentSections: React.FC<AIAgentSectionsProps> = ({

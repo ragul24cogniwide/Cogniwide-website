@@ -45,6 +45,14 @@ const ServiceCategories = () => {
       capabilities: ['AI-powered data pipelines', 'Real-time analytics', 'ML infrastructure', 'Data governance & quality'],
       industries: ['Healthcare', 'Insurance', 'Logistics', 'Financial Services'],
       href: '/services/data-engineering'
+    },
+    {
+      title: 'Quality Engineering',
+      description: 'AI-driven quality engineering and assurance to guarantee software reliability, performance, and security.',
+      icon: ShieldCheckIcon,
+      capabilities: ['Automated Testing', 'Performance Engineering', 'AI-driven Test Generation', 'Security Assurance'],
+      industries: ['Enterprise', 'FinTech', 'HealthTech', 'E-commerce'],
+      href: '/services/quality-engineering'
     }
   ]
 

@@ -181,7 +181,8 @@ const Navigation = () => {
       ],
       rightItems: [
         { name: 'Cloud & DevOps', href: '/services/cloud-devops', description: 'Cloud transformation', icon: CloudIcon, color: 'from-orange-600 to-red-600' },
-        { name: 'Intelligent Automation', href: '/services/intelligent-automation', description: 'Business process automation', icon: BoltIcon, color: 'from-blue-600 to-indigo-600' }
+        { name: 'Intelligent Automation', href: '/services/intelligent-automation', description: 'Business process automation', icon: BoltIcon, color: 'from-blue-600 to-indigo-600' },
+        { name: 'Quality Engineering', href: '/services/quality-engineering', description: 'AI-driven quality assurance', icon: ShieldCheckIcon, color: 'from-emerald-500 to-teal-600' }
       ]
     },
     'Industries': {
@@ -322,9 +323,11 @@ const Navigation = () => {
                     onMouseEnter={() => handleMouseEnter(item.name)}
                     onMouseLeave={handleMouseLeave}
                   >
-                    <button className="flex items-center space-x-1.5 px-3 py-1.5 text-[14px] font-bold text-gray-800 hover:text-brand-blue hover:bg-white/60 transition-all duration-300 rounded-lg">
+                    <button className={`flex items-center space-x-1.5 px-3 py-1.5 text-[14px] font-bold hover:bg-white/60 transition-all duration-300 rounded-lg ${activeDropdown === item.name ? 'text-brand-blue' : 'text-gray-800'}`}>
                       <span>{item.name}</span>
-                      <ChevronDownIcon className={`w-3 h-3 transition-transform duration-200 ${activeDropdown === item.name ? 'rotate-180 text-brand-blue' : 'text-gray-500'}`} />
+                      <span className={`transition-transform duration-200 flex items-center ${activeDropdown === item.name ? 'rotate-180' : 'text-gray-500'}`}>
+                        <ChevronDownIcon className="w-3 h-3" />
+                      </span>
                     </button>
 
                     {activeDropdown === item.name && content.layout === 'mega-menu' && (
@@ -563,8 +566,9 @@ const Navigation = () => {
                         onClick={() => handleDropdownToggle(item.name)}
                       >
                         <span className="font-medium text-sm">{item.name}</span>
-                        <ChevronDownIcon className={`w-3 h-3 transition-transform duration-200 ${activeDropdown === item.name ? 'rotate-180' : ''
-                          }`} />
+                        <span className={`transition-transform duration-200 flex items-center ${activeDropdown === item.name ? 'rotate-180' : ''}`}>
+                          <ChevronDownIcon className="w-3 h-3" />
+                        </span>
                       </button>
 
                       {activeDropdown === item.name && (
