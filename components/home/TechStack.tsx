@@ -3,6 +3,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+
 import { Cpu, Cloud, Database, Code2, Layers, Shield, CheckCircle } from 'lucide-react';
 
 const techCategories = [
@@ -26,12 +27,12 @@ const techCategories = [
     icon: Cloud,
     description: 'Scalable, secure, and multi-cloud deployment environments.',
     items: [
-      { name: 'AWS', logo: '/images/external-integrations/aws-icon.webp' },
-      { name: 'Azure', logo: '/images/external-integrations/azure_icon.webp' },
-      { name: 'Google Cloud', logo: '/images/external-integrations/GCP_icon.png' },
-      { name: 'Kubernetes', logo: '/images/external-integrations/kubernates_icon.png' },
-      { name: 'Docker', logo: '/images/external-integrations/Docker-icon.png' },
-      { name: 'Terraform', logo: '/images/external-integrations/terraform_icon.webp' },
+      { name: 'AWS', logo: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/amazonwebservices/amazonwebservices-original-wordmark.svg' },
+      { name: 'Azure', logo: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/azure/azure-original.svg' },
+      { name: 'Google Cloud', logo: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/googlecloud/googlecloud-original.svg' },
+      { name: 'Kubernetes', logo: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/kubernetes/kubernetes-plain.svg' },
+      { name: 'Docker', logo: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original.svg' },
+      { name: 'Terraform', logo: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/terraform/terraform-original.svg' },
       { name: 'DigitalOcean', logo: '/images/external-integrations/digitalocean_icon.png' }
     ]
   },
@@ -63,7 +64,7 @@ const techCategories = [
       { name: 'FastAPI', logo: 'https://cdn.simpleicons.org/fastapi' },
       { name: 'GraphQL', logo: 'https://cdn.simpleicons.org/graphql' },
       { name: 'Tailwind CSS', logo: 'https://cdn.simpleicons.org/tailwindcss' },
-      { name: 'Java', logo: 'https://cdn.simpleicons.org/openjdk' },
+      { name: 'Java', logo: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg' },
       { name: 'Python', logo: 'https://cdn.simpleicons.org/python' }
     ]
   },
@@ -135,10 +136,12 @@ const MarqueeRow = ({ items, direction = 'left', speed = 50 }: { items: typeof r
           >
             <div className="relative w-full h-full flex items-center justify-center">
               {item.logo ? (
-                <img
+                <Image
                   src={item.logo}
                   alt={item.name}
-                  className="object-contain w-full h-full max-w-full max-h-full"
+                  fill
+                  unoptimized
+                  className="object-contain p-1"
                 />
               ) : (
                 <span className="text-xs font-bold text-gray-700 text-center">{item.name}</span>

@@ -181,7 +181,7 @@ interface BasicSEOProps {
 export function BasicSEO({ title, description, keywords, image, url }: BasicSEOProps) {
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://cogniwide.com';
   const fullUrl = url ? `${baseUrl}${url}` : baseUrl;
-  const imageUrl = image ? (image.startsWith('http') ? image : `${baseUrl}${image}`) : `${baseUrl}/images/og-default.jpg`;
+  const imageUrl = image ? (image.startsWith('http') ? image : `${baseUrl}${image}`) : `${baseUrl}/images/banner.png`;
 
   return (
     <Head>

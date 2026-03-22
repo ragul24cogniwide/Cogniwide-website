@@ -100,11 +100,6 @@ export function PerformanceOptimizer({
     if (newViolations.length > 0) {
       setViolations(prev => [...prev, ...newViolations]);
 
-      // Log violations in development
-      if (process.env.NODE_ENV === 'development') {
-        console.warn('Performance Budget Violations:', newViolations);
-      }
-
       // Send to analytics in production
       if (process.env.NODE_ENV === 'production' && window.gtag) {
         newViolations.forEach(violation => {
@@ -253,45 +248,20 @@ export function CriticalResourcePreloader() {
     //   document.head.appendChild(link);
     // });
 
-    // Prefetch likely next pages
-    const prefetchPages = [
-      '/products/cogniassist',
-      '/products/cogniloom',
-      '/products/cogniaura',
-      '/contact',
+    // Preconnect to critical domains
+    const domains = [
+      'https://fonts.googleapis.com',
+      'https://fonts.gstatic.com',
+      'https://cdn.simpleicons.org'
     ];
 
-    // Use Intersection Observer to prefetch when user scrolls
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          prefetchPages.forEach(href => {
-            const link = document.createElement('link');
-            link.rel = 'prefetch';
-            link.href = href;
-            document.head.appendChild(link);
-          });
-          observer.disconnect();
-        }
-      });
+    domains.forEach(domain => {
+      const link = document.createElement('link');
+      link.rel = 'preconnect';
+      link.href = domain;
+      link.crossOrigin = 'anonymous';
+      document.head.appendChild(link);
     });
-
-    // Start prefetching when user scrolls past 50% of viewport
-    const trigger = document.createElement('div');
-    trigger.style.position = 'absolute';
-    trigger.style.top = '50vh';
-    trigger.style.height = '1px';
-    trigger.style.width = '1px';
-    trigger.style.opacity = '0';
-    document.body.appendChild(trigger);
-    observer.observe(trigger);
-
-    return () => {
-      observer.disconnect();
-      if (document.body.contains(trigger)) {
-        document.body.removeChild(trigger);
-      }
-    };
   }, []);
 
   return null;
@@ -311,10 +281,10 @@ export function ServiceWorkerRegistration() {
         navigator.serviceWorker
           .register('/sw.js')
           .then(registration => {
-            console.log('SW registered: ', registration)
+            // Service worker registered silently
           })
           .catch(registrationError => {
-            console.log('SW registration failed: ', registrationError)
+            // Service worker registration failed silently
           })
       })
     }
@@ -325,25 +295,6 @@ export function ServiceWorkerRegistration() {
 
 // Dev-only cleanup to prevent stale chunks from cached Service Workers
 export function DevServiceWorkerCleanup() {
-  useEffect(() => {
-    if (typeof window === 'undefined') return
-    const isDev = process.env.NODE_ENV === 'development'
-    if (!isDev) return
-
-    // Unregister any existing service workers on dev to avoid stale caches
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.getRegistrations?.().then((regs) => {
-        regs.forEach((reg) => reg.unregister())
-      })
-    }
-
-    // Clear all caches in dev
-    if (typeof caches !== 'undefined') {
-      caches.keys().then((names) => {
-        return Promise.all(names.map((name) => caches.delete(name)))
-      })
-    }
-  }, [])
-
+  // Disabled continuous unregistration as it aborts active network requests
   return null
 }

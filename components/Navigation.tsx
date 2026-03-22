@@ -356,7 +356,6 @@ const Navigation = () => {
                                         fill
                                         className="object-contain"
                                         onError={(e) => {
-                                          console.log('Icon failed to load');
                                           (e.currentTarget as any).style.display = 'none';
                                         }}
                                       />

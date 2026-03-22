@@ -13,11 +13,15 @@ const nextConfig = {
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     minimumCacheTTL: 60 * 60 * 24 * 30, // 30 days
     dangerouslyAllowSVG: true,
-    contentSecurityPolicy: "default-src 'self'; img-src 'self' https://cdn.simpleicons.org data:; script-src 'none'; sandbox;",
+    contentSecurityPolicy: "default-src 'self'; img-src 'self' https://cdn.simpleicons.org https://raw.githubusercontent.com data:; script-src 'none'; sandbox;",
     remotePatterns: [
       {
         protocol: 'https',
         hostname: 'cdn.simpleicons.org',
+      },
+      {
+        protocol: 'https',
+        hostname: 'raw.githubusercontent.com',
       },
     ],
   },

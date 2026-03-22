@@ -26,7 +26,7 @@ function getImagesFrom(subdir: string): string[] {
 }
 
 function withFallback(images: string[]): string[] {
-  return images.length > 0 ? images : ['/images/life/placeholder.svg'];
+  return images.length > 0 ? images : ['/images/placeholder.svg'];
 }
 
 export default function LifeAtCogniwidePage() {

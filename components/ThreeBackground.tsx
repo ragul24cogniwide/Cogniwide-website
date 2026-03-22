@@ -112,12 +112,14 @@ const ThreeBackground = () => {
 
     window.addEventListener('resize', handleResize)
 
+    const currentContainer = containerRef.current;
+
     return () => {
       cancelAnimationFrame(animationFrameId)
       window.removeEventListener('resize', handleResize)
       document.removeEventListener('mousemove', onDocumentMouseMove)
-      if (containerRef.current && containerRef.current.contains(renderer.domElement)) {
-        containerRef.current.removeChild(renderer.domElement)
+      if (currentContainer && currentContainer.contains(renderer.domElement)) {
+        currentContainer.removeChild(renderer.domElement)
       }
       lines.forEach(line => {
         line.geometry.dispose()

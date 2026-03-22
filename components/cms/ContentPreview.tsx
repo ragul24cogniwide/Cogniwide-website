@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Image from 'next/image';
 import { ContentRenderer } from './ContentRenderer';
 import { PageEntry, ProductEntry, BlogPostEntry } from '@/types/contentful';
 
@@ -190,14 +191,15 @@ function ContentBlock({ block }: { block: any }) {
 
     case 'imageBlock':
       return (
-        <div className="my-8">
-          <img
+        <div className="my-8 relative w-full h-64 md:h-96">
+          <Image
             src={`https:${block.fields.image.fields.file.url}`}
             alt={block.fields.image.fields.title}
-            className="w-full rounded-lg shadow-md"
+            fill
+            className="rounded-lg shadow-md object-contain"
           />
           {block.fields.caption && (
-            <p className="text-sm text-gray-600 mt-2 text-center italic">
+            <p className="text-sm text-gray-600 mt-2 text-center italic absolute -bottom-8 left-0 right-0">
               {block.fields.caption}
             </p>
           )}

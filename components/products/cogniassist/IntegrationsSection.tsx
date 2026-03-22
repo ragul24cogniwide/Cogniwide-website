@@ -3,9 +3,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import Image from 'next/image';
 
-const integrations = [
-  // Row 1
+const INTEGRATION_LOGOS = [
   { name: 'Google', src: 'https://cdn.simpleicons.org/google' },
   { name: 'Gmail', src: 'https://cdn.simpleicons.org/gmail' },
   { name: 'Google Calendar', src: 'https://cdn.simpleicons.org/googlecalendar' },
@@ -15,12 +15,12 @@ const integrations = [
   { name: 'Google Forms', src: 'https://cdn.simpleicons.org/googleforms' },
   { name: 'Google Sheets', src: 'https://cdn.simpleicons.org/googlesheets' },
   { name: 'Discord', src: 'https://cdn.simpleicons.org/discord' },
-  { name: 'Bing', src: 'https://img.icons8.com/color/48/bing.png' },
+  { name: 'Microsoft Teams', src: '/images/external-integrations/teams_icon.png' },
   { name: 'Zoom', src: 'https://cdn.simpleicons.org/zoom' },
   { name: 'Notion', src: 'https://cdn.simpleicons.org/notion' },
   { name: 'Linear', src: 'https://cdn.simpleicons.org/linear' },
-  
-  // Row 2
+  { name: 'Salesforce', src: 'https://cdn.simpleicons.org/salesforce' },
+  { name: 'Jira', src: '/images/external-integrations/jira_icon.jpg' },
   { name: 'WhatsApp', src: 'https://cdn.simpleicons.org/whatsapp' },
   { name: 'Snowflake', src: 'https://cdn.simpleicons.org/snowflake' },
   { name: 'HubSpot', src: 'https://cdn.simpleicons.org/hubspot' },
@@ -31,32 +31,32 @@ const integrations = [
   { name: 'Stripe', src: 'https://cdn.simpleicons.org/stripe' },
   { name: 'Zendesk', src: 'https://cdn.simpleicons.org/zendesk' },
   { name: 'Calendly', src: 'https://cdn.simpleicons.org/calendly' },
-  { name: 'OpenAI', src: 'https://img.icons8.com/color/48/chatgpt.png' },
-  { name: 'Salesforce', src: 'https://img.icons8.com/color/48/salesforce.png' },
+  { name: 'ChatGPT', src: 'https://cdn.simpleicons.org/openai' },
+  { name: 'GitHub', src: '/images/external-integrations/github_icon.png' },
   { name: 'Intercom', src: 'https://cdn.simpleicons.org/intercom' },
-
-  // Row 3
-  { name: 'Monday', src: 'https://img.icons8.com/color/48/monday.png' },
+  { name: 'Trello', src: 'https://cdn.simpleicons.org/trello' },
+  { name: 'Jenkins', src: '/images/external-integrations/jenkins_logo.png' },
+  { name: 'Docker', src: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original.svg' },
   { name: 'Asana', src: 'https://cdn.simpleicons.org/asana' },
-  { name: 'Teams', src: '/images/external-integrations/teams_icon.png' },
+  { name: 'MongoDB', src: 'https://cdn.simpleicons.org/mongodb' },
   { name: 'Facebook', src: 'https://cdn.simpleicons.org/facebook' },
-  { name: 'Jira', src: '/images/external-integrations/jira_icon.jpg' },
+  { name: 'Instagram', src: 'https://cdn.simpleicons.org/instagram' },
   { name: 'Confluence', src: 'https://cdn.simpleicons.org/confluence' },
-  { name: 'LinkedIn', src: 'https://img.icons8.com/color/48/linkedin.png' },
-  { name: 'Azure', src: '/images/external-integrations/azure_icon.webp' },
-  { name: 'Outlook', src: 'https://img.icons8.com/color/48/microsoft-outlook-2019.png' },
+  { name: 'GitLab', src: '/images/external-integrations/gitlab_icon.png' },
+  { name: 'Redis', src: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/redis/redis-original.svg' },
+  { name: 'AWS', src: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/amazonwebservices/amazonwebservices-original-wordmark.svg' },
   { name: 'Mailchimp', src: 'https://cdn.simpleicons.org/mailchimp' },
-  { name: 'Bitbucket', src: '/images/external-integrations/bitbucket_icon.webp' },
+  { name: 'Twilio', src: 'https://cdn.simpleicons.org/twilio' },
   { name: 'Shopify', src: 'https://cdn.simpleicons.org/shopify' },
   { name: 'ClickUp', src: 'https://cdn.simpleicons.org/clickup' },
 ];
 
 export const IntegrationsSection = () => {
   // Split integrations into 3 roughly equal chunks
-  const chunkSize = Math.ceil(integrations.length / 3);
-  const row1 = integrations.slice(0, chunkSize);
-  const row2 = integrations.slice(chunkSize, chunkSize * 2);
-  const row3 = integrations.slice(chunkSize * 2);
+  const chunkSize = Math.ceil(INTEGRATION_LOGOS.length / 3);
+  const row1 = INTEGRATION_LOGOS.slice(0, chunkSize);
+  const row2 = INTEGRATION_LOGOS.slice(chunkSize, chunkSize * 2);
+  const row3 = INTEGRATION_LOGOS.slice(chunkSize * 2);
 
   return (
     <section className="py-20 bg-gradient-to-b from-white to-gray-50 relative overflow-hidden">
@@ -109,14 +109,14 @@ export const IntegrationsSection = () => {
             {[...row1, ...row1].map((item, index) => (
               <div
                 key={`row1-${item.name}-${index}`}
-                className="w-16 h-16 md:w-20 md:h-20 bg-white rounded-2xl flex items-center justify-center p-4 shadow-sm border border-gray-100 flex-shrink-0 hover:shadow-md transition-shadow duration-300"
+                className="relative w-16 h-16 md:w-20 md:h-20 bg-white rounded-2xl flex items-center justify-center p-4 shadow-sm border border-gray-100 flex-shrink-0 hover:shadow-md transition-shadow duration-300"
                 title={item.name}
               >
-                <img
+                <Image
                   src={item.src}
                   alt={item.name}
-                  className="w-full h-full object-contain"
-                  loading="lazy"
+                  fill unoptimized
+                  className="object-contain p-2"
                 />
               </div>
             ))}
@@ -141,14 +141,14 @@ export const IntegrationsSection = () => {
             {[...row2, ...row2].map((item, index) => (
               <div
                 key={`row2-${item.name}-${index}`}
-                className="w-16 h-16 md:w-20 md:h-20 bg-white rounded-2xl flex items-center justify-center p-4 shadow-sm border border-gray-100 flex-shrink-0 hover:shadow-md transition-shadow duration-300"
+                className="relative w-16 h-16 md:w-20 md:h-20 bg-white rounded-2xl flex items-center justify-center p-4 shadow-sm border border-gray-100 flex-shrink-0 hover:shadow-md transition-shadow duration-300"
                 title={item.name}
               >
-                <img
+                <Image
                   src={item.src}
                   alt={item.name}
-                  className="w-full h-full object-contain"
-                  loading="lazy"
+                  fill unoptimized
+                  className="object-contain p-2"
                 />
               </div>
             ))}
@@ -173,14 +173,14 @@ export const IntegrationsSection = () => {
             {[...row3, ...row3].map((item, index) => (
               <div
                 key={`row3-${item.name}-${index}`}
-                className="w-16 h-16 md:w-20 md:h-20 bg-white rounded-2xl flex items-center justify-center p-4 shadow-sm border border-gray-100 flex-shrink-0 hover:shadow-md transition-shadow duration-300"
+                className="relative w-16 h-16 md:w-20 md:h-20 bg-white rounded-2xl flex items-center justify-center p-4 shadow-sm border border-gray-100 flex-shrink-0 hover:shadow-md transition-shadow duration-300"
                 title={item.name}
               >
-                <img
+                <Image
                   src={item.src}
                   alt={item.name}
-                  className="w-full h-full object-contain"
-                  loading="lazy"
+                  fill unoptimized
+                  className="object-contain p-2"
                 />
               </div>
             ))}

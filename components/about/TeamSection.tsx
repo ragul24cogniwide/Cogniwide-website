@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 const teamData = {
   leadership: [
@@ -161,11 +162,12 @@ export const TeamSection = () => {
               className="bg-white rounded-xl p-6 shadow-soft hover:shadow-medium transition-all duration-300"
             >
               <div className="flex items-start gap-4">
-                <div className="w-16 h-16 bg-brand-blue rounded-lg flex items-center justify-center flex-shrink-0 overflow-hidden">
-                  <img
+                <div className="relative w-16 h-16 bg-brand-blue rounded-lg flex items-center justify-center flex-shrink-0 overflow-hidden">
+                  <Image
                     src={member.imageUrl}
                     alt={member.name}
-                    className="w-full h-full object-cover"
+                    fill
+                    className="object-cover"
                   />
                 </div>
                 <div className="flex-1">

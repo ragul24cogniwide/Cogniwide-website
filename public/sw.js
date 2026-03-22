@@ -27,12 +27,9 @@ const CACHE_STRATEGIES = {
 
 // Install event - cache static assets
 self.addEventListener('install', (event) => {
-  console.log('Service Worker installing...');
-  
   event.waitUntil(
     caches.open(STATIC_CACHE)
       .then((cache) => {
-        console.log('Caching static assets');
         return cache.addAll(STATIC_ASSETS);
       })
       .then(() => {
@@ -43,8 +40,6 @@ self.addEventListener('install', (event) => {
 
 // Activate event - clean up old caches
 self.addEventListener('activate', (event) => {
-  console.log('Service Worker activating...');
-  
   event.waitUntil(
     caches.keys()
       .then((cacheNames) => {
@@ -54,7 +49,6 @@ self.addEventListener('activate', (event) => {
                 cacheName !== STATIC_CACHE && 
                 cacheName !== DYNAMIC_CACHE && 
                 cacheName !== IMAGE_CACHE) {
-              console.log('Deleting old cache:', cacheName);
               return caches.delete(cacheName);
             }
           })
@@ -78,6 +72,18 @@ self.addEventListener('fetch', (event) => {
 
   // Skip chrome-extension and other non-http requests
   if (!url.protocol.startsWith('http')) {
+    return;
+  }
+
+  // Handle cross-origin requests (like simpleicons, google analytics, etc)
+  if (url.origin !== self.location.origin) {
+    // Only cache external images if we really want to, otherwise network only
+    if (url.hostname === 'cdn.simpleicons.org' || url.pathname.match(/\.(jpg|jpeg|png|gif|webp|svg|ico)$/)) {
+       event.respondWith(cacheFirst(request));
+    } else {
+       // Let the browser handle all other cross-origin requests
+       return;
+    }
     return;
   }
 
@@ -151,8 +157,6 @@ async function cacheFirst(request) {
     
     return networkResponse;
   } catch (error) {
-    console.log('Network request failed:', error);
-    
     // Return offline page for navigation requests
     if (request.mode === 'navigate') {
       return caches.match('/offline.html');
@@ -176,8 +180,6 @@ async function networkFirst(request) {
     
     return networkResponse;
   } catch (error) {
-    console.log('Network request failed, trying cache:', error);
-    
     const cachedResponse = await cache.match(request);
     if (cachedResponse) {
       return cachedResponse;
@@ -202,7 +204,7 @@ async function staleWhileRevalidate(request) {
       return networkResponse;
     })
     .catch((error) => {
-      console.log('Background fetch failed:', error);
+      // Silent catch
     });
 
   // Return cached response immediately if available
@@ -244,7 +246,6 @@ self.addEventListener('sync', (event) => {
 
 async function doBackgroundSync() {
   // Handle offline form submissions, analytics, etc.
-  console.log('Performing background sync');
 }
 
 // Push notifications (if needed)
@@ -301,5 +302,4 @@ self.addEventListener('periodicsync', (event) => {
 
 async function syncContent() {
   // Sync content in background
-  console.log('Syncing content in background');
 }

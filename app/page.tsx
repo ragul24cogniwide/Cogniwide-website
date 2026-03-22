@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     siteName: 'Cogniwide',
     images: [
       {
-        url: 'https://cogniwide.com/images/og-homepage.jpg',
+        url: 'https://cogniwide.com/images/banner.png',
         width: 1200,
         height: 630,
         alt: 'Cogniwide - Enterprise AI Solutions',
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Cogniwide - Enterprise AI Solutions',
     description: 'Transform your enterprise operations with AI-powered automation.',
-    images: ['https://cogniwide.com/images/og-homepage.jpg'],
+    images: ['https://cogniwide.com/images/banner.png'],
   },
   alternates: {
     canonical: 'https://cogniwide.com',

@@ -9,14 +9,14 @@ const news = [
     excerpt: 'Exploring how artificial intelligence is transforming business operations and decision-making processes.',
     date: '2025-12-15',
     category: 'AI',
-    image: '/images/blog/ai-enterprise.jpg'
+    image: '/images/blog/ai.jpg'
   },
   {
     title: 'Cloud-Native Development Best Practices',
     excerpt: 'Learn about modern cloud architecture and how to build scalable, resilient applications.',
     date: '2025-11-28',
     category: 'Cloud Computing',
-    image: '/images/blog/cloud-native.jpg'
+    image: '/images/blog/js.jpg'
   },
   {
     title: 'AI in the Age of IoT',

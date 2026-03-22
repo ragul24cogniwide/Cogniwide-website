@@ -1,6 +1,7 @@
 'use client';
 import React from 'react';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import PageLayout from '@/components/layout/PageLayout';
 import { CTASection } from '@/components/home/CTASection';
 import {
@@ -330,10 +331,11 @@ const QualityEngineeringServicesPage = () => {
                   {tech.technologies.map((item, idx) => (
                     <div key={idx} className="flex flex-col items-center justify-center p-4 rounded-xl hover:bg-gray-50 transition-colors gap-3">
                       <div className="w-14 h-14 relative flex items-center justify-center bg-white rounded-lg shadow-sm border border-gray-100 p-2.5 group-hover:scale-105 transition-transform duration-300">
-                        <img 
+                        <Image 
                           src={item.logo} 
                           alt={item.name}
-                          className="max-w-full max-h-full object-contain"
+                          fill unoptimized
+                          className="object-contain p-2"
                         />
                       </div>
                       <span className="text-sm font-semibold text-gray-700 text-center">{item.name}</span>
